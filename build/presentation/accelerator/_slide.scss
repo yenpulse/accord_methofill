@@ -1,0 +1,25 @@
+.accelerator {
+  .slides {
+    & > .slide {
+      width: 133.3333vh;
+      padding: 0;
+      font-size: 1.56vh;
+      line-height: 1.2em;
+
+      &.stack {
+        // pass
+      }
+    }
+  }
+
+  .popup-background {
+    position: aboslute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  #overlay-pi .ag-overlay-x {
+    top: 8rem !important;
+  }
+}

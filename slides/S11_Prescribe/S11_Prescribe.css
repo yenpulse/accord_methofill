@@ -1,0 +1,29 @@
+#S11_Prescribe .background {
+  position: absolute;
+  top: 0;
+  left: auto;
+  right: 0;
+  width: auto;
+  height: 100vh;
+  z-index: 10;
+}
+
+#S11_Prescribe .swiper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 54.5%;
+  height: 100vh;
+}
+#S11_Prescribe .swiper img {
+  height: 100vh;
+}
+
+#S11_Prescribe .footnote {
+  position: absolute;
+  top: 59rem;
+  left: 1.5rem;
+  font: 200 0.9rem/1.1em sans-serif;
+  color: #60646B;
+  z-index: 10;
+}

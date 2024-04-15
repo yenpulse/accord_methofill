@@ -1,0 +1,56 @@
+.ag-overlay-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.ag-overlay-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right:0;
+  background-color: #fff;
+  z-index: -1;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 !important;
+  inset: 0 !important;
+}
+.ag-overlay-x {
+  position: absolute;
+  background-color: transparent;
+  top: 5rem !important;
+  right: 5rem !important;
+  width: 4.25rem !important;
+  height: 4.25rem !important;
+  cursor: pointer;
+  z-index: -1;
+  opacity: 0;
+  padding:9px 12px;
+}
+.state-ag-overlay-open .ag-overlay-background,
+.state-ag-overlay-open .ag-overlay-content,
+.state-ag-overlay-open .ag-overlay-x {
+  z-index: 9999;
+  opacity: 1;
+}
+
+.ag-overlay-actions {
+  position: absolute;
+  bottom:0;
+  height: 75px;
+  background-color: white;
+  /*border-top:1px solid #d2d2d2;*/
+  width: 96%;
+  padding: 10px 0px;
+}
+.ag-overlay-actions button {
+  float:right;
+  margin-left:25px;
+}

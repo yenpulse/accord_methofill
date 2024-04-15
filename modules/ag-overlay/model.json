@@ -1,0 +1,10 @@
+{
+  "name": "Agnitio Overlay",
+  "type": "universal",
+  "description": "Creates an overlay to the presentation.",
+  "files": {
+    "styles": ["modules/ag-overlay/ag-overlay.css"],
+    "scripts": ["modules/ag-overlay/ag-overlay.js"]
+  },
+  "version": "0.5.3"
+}

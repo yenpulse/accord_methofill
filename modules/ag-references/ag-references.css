@@ -1,0 +1,22 @@
+[data-module="ag-references"] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10.5rem;
+  font: 200 0.9rem/1.1em sans-serif;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 50;
+  transition: all 0.5s ease-out;
+}
+[data-module="ag-references"].hidden {
+  transform: translateY(100%);
+}
+[data-module="ag-references"] {
+  transform: translateY(0);
+}
+[data-module="ag-references"] .references-content {
+  position: relative;
+  margin: 2.2rem 0 0 5.5rem;
+}

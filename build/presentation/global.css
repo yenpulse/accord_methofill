@@ -1,0 +1,81 @@
+.accelerator {
+  position: relative;
+  width: 133.3333vh;
+  height: 100vh;
+  margin: 0 auto;
+  font-size: 1.56vh;
+  line-height: 1.2em;
+  overflow: hidden;
+}
+
+[data-module=ag-overlay] {
+  position: fixed;
+  width: 133.3333vh;
+  height: 100vh;
+  margin: 0 auto;
+}
+[data-module=ag-overlay].state-ag-overlay-open {
+  z-index: 100;
+}
+[data-module=ag-overlay].state-ag-overlay-open .ag-overlay-content,
+[data-module=ag-overlay].state-ag-overlay-open .ag-overlay-background,
+[data-module=ag-overlay].state-ag-overlay-open .ag-overlay-x {
+  z-index: 100;
+}
+
+#overlay-pi.state-ag-overlay-open {
+  z-index: 75;
+}
+#overlay-pi.state-ag-overlay-open .ag-overlay-content,
+#overlay-pi.state-ag-overlay-open .ag-overlay-background,
+#overlay-pi.state-ag-overlay-open .ag-overlay-x {
+  z-index: 75;
+}
+
+.swiper .swiper-horizontal > .swiper-pagination-bullets,
+.swiper .swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper .swiper-pagination-custom, .swiper .swiper-pagination-fraction {
+  top: 84vh;
+}
+.swiper .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  width: 1rem;
+  height: 1rem;
+  margin: 0.25rem 0.33rem;
+  background-color: white;
+  opacity: 1;
+}
+.swiper .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet.swiper-pagination-bullet-active,
+.swiper .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #f49600;
+}
+
+.accelerator .slides > .slide {
+  width: 133.3333vh;
+  padding: 0;
+  font-size: 1.56vh;
+  line-height: 1.2em;
+}
+.accelerator .popup-background {
+  position: aboslute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.accelerator #overlay-pi .ag-overlay-x {
+  top: 8rem !important;
+}
+
+html {
+  font-size: 1.56vh;
+  line-height: 1.2em;
+}
+
+img.background {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 100vh;
+}

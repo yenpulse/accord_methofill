@@ -1,0 +1,30 @@
+#S10_Device .background {
+  display: none;
+  position: absolute;
+}
+#S10_Device .background.active {
+  display: block;
+}
+#S10_Device .buttons {
+  display: flex;
+  position: absolute;
+  top: 52rem;
+  left: 3rem;
+  width: 95%;
+  z-index: 10;
+}
+#S10_Device .button {
+  width: 6rem;
+  height: 6rem;
+  margin-left: 4.3rem;
+}
+#S10_Device .button:first-of-type {
+  margin-left: 0;
+}
+#S10_Device .overlay-button {
+  position: absolute;
+  top: 40rem;
+  left: 43rem;
+  width: 18rem;
+  height: 4.2rem;
+}

@@ -1,0 +1,47 @@
+[data-module="ag-navigation"] .navigation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  z-index: 50;
+}
+[data-module="ag-navigation"] .navigation .nav-button {
+  position: absolute;
+  top: 46vh;
+  width: 15vh;
+  height: 15vh;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+[data-module="ag-navigation"] .navigation .nav-previous {
+  left: 0;
+  transform: translateX(-50%);
+}
+[data-module="ag-navigation"] .navigation .nav-next {
+  right: 0;
+  transform: translateX(50%);
+}
+[data-module="ag-navigation"] .navigation .nav-button::after {
+  content: '';
+  position: absolute;
+  top: 5.5vh;
+  width: 4vh;
+  height: 4vh;
+  border: 0 solid #f49600;
+  transform-origin: center;
+  transform: rotate(-45deg);
+}
+[data-module="ag-navigation"] .navigation[data-background="dark"] .nav-button::after {
+  border-color: white;
+}
+[data-module="ag-navigation"] .navigation .nav-previous::after {
+  right: 1.5vh;
+  border-top-width: 0.75vh;
+  border-left-width: 0.75vh;
+}
+[data-module="ag-navigation"] .navigation .nav-next::after {
+  left: 1.5vh;
+  border-bottom-width: 0.75vh;
+  border-right-width: 0.75vh;
+}

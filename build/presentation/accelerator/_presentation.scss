@@ -1,0 +1,62 @@
+.accelerator { // #presentation
+  position: relative;
+  width: 133.3333vh;
+  height: 100vh;
+  margin: 0 auto;
+  font-size: 1.56vh;
+  line-height: 1.2em;
+  overflow: hidden;
+}
+
+
+[data-module="ag-overlay"] {
+  position: fixed;
+  width: 133.3333vh;
+  height: 100vh;
+  margin: 0 auto;
+
+  &.state-ag-overlay-open {
+    z-index: 100;
+  
+    .ag-overlay-content,
+    .ag-overlay-background,
+    .ag-overlay-x {
+      z-index: 100;
+    }
+  }
+}
+
+#overlay-pi {
+  &.state-ag-overlay-open {
+    z-index: 75;
+  
+    .ag-overlay-content,
+    .ag-overlay-background,
+    .ag-overlay-x {
+      z-index: 75;
+    }
+  }
+}
+
+.swiper {
+  .swiper-horizontal>.swiper-pagination-bullets, 
+  .swiper-pagination-bullets.swiper-pagination-horizontal, 
+  .swiper-pagination-custom, .swiper-pagination-fraction {
+    top: 84vh;
+  }
+
+  .swiper-horizontal>.swiper-pagination-bullets 
+  .swiper-pagination-bullet, 
+  .swiper-pagination-horizontal.swiper-pagination-bullets 
+  .swiper-pagination-bullet {
+    width: 1rem;
+    height: 1rem;
+    margin: 0.25rem 0.33rem;
+    background-color: white;
+    opacity: 1;
+
+    &.swiper-pagination-bullet-active {
+      background-color: #f49600;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "name": "Accord Methofill",
+  "model": "presentation.json",
+  "paths": {
+    "slides": "slides/<id>/",
+    "modules": "modules/<id>/",
+    "thumbs": "slides/<id>/<id>.png"
+  },
+  "startPath": "Methofill",
+  "lang": "en",
+  "transition": "linear",
+  "plugins": [
+    "storyboard"
+  ],
+  "bundle": {
+    "presentation": {
+      "styles": [
+        "accelerator/css/styles.css",
+        "templates/master/**/*.{css,styl}",
+        "modules/**/*.{css,styl}",
+        "slides/**/*.{css,styl}"
+      ],
+      "scripts": [
+        "accelerator/lib/head.min.js",
+        "accelerator/js/init.js",
+        "templates/master/**/*.{js,coffee}",
+        "modules/**/*.{js,html,json,coffee,md,jade}",
+        "slides/**/*.{js,html,json,coffee,md,jade}",
+        "config.json",
+        "presentation.json"
+      ]
+    }
+  },
+  "dependencies": [
+    { "src": "build/presentation/global.css" },
+		{ "src": "build/presentation/global.js" }
+	],
+  "iPlanner": {
+    "bounce": false
+  },
+  "ag-microsites": {
+    "startPath": ""
+  },
+  "ag-engager": {
+    "startPath": ""
+  },
+  "ag-remote": {
+    "startPath": ""
+  },
+  "lazy": true,
+  "width": "100%",
+  "height": "100%",
+  "margin": 0,
+  "padding": 0,
+  "transitionSpeed": "default"
+}

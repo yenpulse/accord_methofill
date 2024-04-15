@@ -1,0 +1,17 @@
+@import 'accelerator/accelerator';
+
+html {
+  font-size: 1.56vh;
+  line-height: 1.2em;
+}
+
+img {
+  &.background {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: 100vh;
+  }
+}
