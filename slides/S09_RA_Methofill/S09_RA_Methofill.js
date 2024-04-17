@@ -12,7 +12,7 @@ app.register("S09_RA_Methofill", function() {
       const overlayId = event.target.getAttribute('data-overlay');
       const overlay = app.view.get('overlay-content');
       if (overlay)
-        overlay.open(`<img class="popup-background" src="assets/${overlayId}.png" alt="...">`);
+        overlay.open(`<img class="popup-background" src="assets/${overlayId}.jpg" alt="...">`);
     }
   }
 
