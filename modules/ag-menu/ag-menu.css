@@ -47,10 +47,6 @@
   width: 23%;
   background-position-x: 49.5%;
 }
-[data-module="ag-menu"] .menu li[data-section="Support"] {
-  width: 13.5%;
-  background-position-x: 71%;
-}
 [data-module="ag-menu"] .menu li[data-section="Summary"] {
   width: 13.5%;
   background-position-x: 86.5%;

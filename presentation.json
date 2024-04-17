@@ -382,15 +382,6 @@
             "linear": true,
             "shareable": {}
         },
-        "Support": {
-            "name": "Support",
-            "content": [
-                "S13_Support"
-            ],
-            "type": "slideshow",
-            "linear": true,
-            "shareable": {}
-        },
         "Summary": {
             "name": "Summary",
             "content": [
@@ -413,7 +404,6 @@
                 "RA",
                 "Device",
                 "Patient_Satisfaction",
-                "Support",
                 "Summary"
             ],
             "linear": true

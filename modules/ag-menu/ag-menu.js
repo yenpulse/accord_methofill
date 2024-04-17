@@ -86,7 +86,7 @@ app.register("ag-menu", function() {
       const overlay = app.view.get('overlay-pi');
       if (overlay && piToggle) {
         this.closeReferences();
-        overlay.open(`<img class="popup-background" src="assets/overlay-pi.png" alt="...">`);
+        overlay.open(`<img class="popup-background" src="assets/overlay-pi.jpg" alt="...">`);
         piToggle.classList.add('selected');
         piState = true;
       }
