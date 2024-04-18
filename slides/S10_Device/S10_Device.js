@@ -4,7 +4,7 @@ app.register("S10_Device", function() {
     '1. Data on ﬁle UK-01466. 2. Methoﬁll<sup>&reg;</sup> solution for injection in pre-ﬁlled injector. SmPC. <br>3. Data on ﬁle UK-01467.',
     '1. Data on ﬁle UK-01466. 2. Methoﬁll<sup>&reg;</sup> solution for injection in pre-ﬁlled injector. SmPC. <br>3. Data on ﬁle UK-01467. 4. Erol AM, <i>et al.</i> <i>Acta Rheumatol Port.</i> 2016;4:328–337.',
     '1. Data on ﬁle UK-01466. 2. Methoﬁll<sup>&reg;</sup> solution for injection in pre-ﬁlled injector. SmPC. 3. Data on ﬁle UK-01467. <br>4. Müller Ladner U, <i>et al.</i> <i>Open Rheumatol J.</i> 2010;4:15–22. 5. Jørgensen JT, <i>et al.</i> <i>Ann Pharmacother.</i> 1996;30:729–732. <br>6. Heise T, <i>et al.</i> <i>Diabetes Obes Metab.</i> 2014;16:971–976.',
-    '1. Data on ﬁle UK-01466. 2. Methoﬁll<sup>&reg;</sup> solution for injection in pre-ﬁlled injector. SmPC. <br>3. Data on ﬁle UK-01467. 4. Methoﬁll<sup>&reg;</sup> package leaﬂet: Information for the user. <br>Available from: https://www.medicines.org.uk/emc/product/9057/smpc Last accessed: March 2022.',
+    '1. Data on ﬁle UK-01466. 2. Methoﬁll<sup>&reg;</sup> solution for injection in pre-ﬁlled injector. SmPC. <br>3. Data on ﬁle UK-01467. 4. Methoﬁll<sup>&reg;</sup> package leaﬂet: Information for the user.',
     '1. Data on ﬁle UK-01466. 2. Methoﬁll<sup>&reg;</sup> solution for injection in pre-ﬁlled injector. SmPC. <br>3. Data on ﬁle UK-01467. 4. Data on ﬁle UK-01464.',
   ];
   const screenReferences = [ 0, 0, 0, 1, 0, 2, 3, 4 ];
