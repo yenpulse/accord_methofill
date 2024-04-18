@@ -2024,6 +2024,72 @@ body {
   background-size: 100%;
   background-repeat: no-repeat;
 }
+[data-module="ag-menu"] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4.8vh;
+  background-color: white;
+  z-index: 100;
+}
+[data-module="ag-menu"].hidden {
+  display: none;
+}
+
+[data-module="ag-menu"] .menu {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  height: auto;
+  margin: -1.2vh 0 0;
+  padding: 0 2.5rem 0 2.5%;
+}
+[data-module="ag-menu"] .menu li {
+  display: inline-block;
+  width: auto;
+  height: 6vh;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  font: 1rem/1em sans-serif;
+  background: transparent url(../../modules/ag-menu/assets/buttons.png) top left no-repeat;
+  background-size: auto 12vh;
+  font-family: "Frutiger LTPro Light", Arial, sans-serif;
+}
+[data-module="ag-menu"] .menu .menu-tab {
+  width: 5.6%;
+}
+[data-module="ag-menu"] .menu li[data-section="Subcutaneous"] {
+  width: 17.5%;
+  background-position-x: 0;
+}
+[data-module="ag-menu"] .menu li[data-section="RA"] {
+  width: 9%;
+  background-position-x: 19%;
+}
+[data-module="ag-menu"] .menu li[data-section="Device"] {
+  width: 11.5%;
+  background-position-x: 30%;
+}
+[data-module="ag-menu"] .menu li[data-section="Patient_Satisfaction"] {
+  width: 23%;
+  background-position-x: 49.5%;
+}
+[data-module="ag-menu"] .menu li[data-section="Summary"] {
+  width: 13.5%;
+  background-position-x: 86.5%;
+}
+[data-module="ag-menu"] .menu .pi-toggle {
+  background-position-x: 94.3%;
+}
+[data-module="ag-menu"] .menu .references-toggle {
+  background-position-x: 100.9%;
+}
+[data-module="ag-menu"] .menu li.selected {
+  background-position-y: bottom;
+}
 [data-module="ag-header"] {
   position: absolute;
   top: 0;
@@ -2114,71 +2180,28 @@ body {
   border-right-width: 0.75vh;
 }
 
-[data-module="ag-menu"] {
+[data-module="ag-references"] {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 4.8vh;
-  background-color: white;
-  z-index: 100;
-}
-[data-module="ag-menu"].hidden {
-  display: none;
-}
-
-[data-module="ag-menu"] .menu {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: center;
-      justify-content: center;
-  height: auto;
-  margin: -1.2vh 0 0;
-  padding: 0 2.5rem 0 2.5%;
-}
-[data-module="ag-menu"] .menu li {
-  display: inline-block;
-  width: auto;
-  height: 6vh;
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  font: 1rem/1em sans-serif;
-  background: transparent url(../../modules/ag-menu/assets/buttons.png) top left no-repeat;
-  background-size: auto 12vh;
+  height: 10.5rem;
+  font: 200 0.9rem/1.1em sans-serif;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 50;
+  transition: all 0.5s ease-out;
   font-family: "Frutiger LTPro Light", Arial, sans-serif;
 }
-[data-module="ag-menu"] .menu .menu-tab {
-  width: 5.6%;
+[data-module="ag-references"].hidden {
+  transform: translateY(100%);
 }
-[data-module="ag-menu"] .menu li[data-section="Subcutaneous"] {
-  width: 17.5%;
-  background-position-x: 0;
+[data-module="ag-references"] {
+  transform: translateY(0);
 }
-[data-module="ag-menu"] .menu li[data-section="RA"] {
-  width: 9%;
-  background-position-x: 19%;
-}
-[data-module="ag-menu"] .menu li[data-section="Device"] {
-  width: 11.5%;
-  background-position-x: 30%;
-}
-[data-module="ag-menu"] .menu li[data-section="Patient_Satisfaction"] {
-  width: 23%;
-  background-position-x: 49.5%;
-}
-[data-module="ag-menu"] .menu li[data-section="Summary"] {
-  width: 13.5%;
-  background-position-x: 86.5%;
-}
-[data-module="ag-menu"] .menu .pi-toggle {
-  background-position-x: 94.3%;
-}
-[data-module="ag-menu"] .menu .references-toggle {
-  background-position-x: 100.9%;
-}
-[data-module="ag-menu"] .menu li.selected {
-  background-position-y: bottom;
+[data-module="ag-references"] .references-content {
+  position: relative;
+  margin: 2.2rem 0 0 5.5rem;
 }
 .ag-overlay-background {
   position: absolute;
@@ -2236,32 +2259,13 @@ body {
   float:right;
   margin-left:25px;
 }
-[data-module="ag-references"] {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 10.5rem;
-  font: 200 0.9rem/1.1em sans-serif;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.75);
-  z-index: 50;
-  transition: all 0.5s ease-out;
-  font-family: "Frutiger LTPro Light", Arial, sans-serif;
-}
-[data-module="ag-references"].hidden {
-  transform: translateY(100%);
-}
-[data-module="ag-references"] {
-  transform: translateY(0);
-}
-[data-module="ag-references"] .references-content {
-  position: relative;
-  margin: 2.2rem 0 0 5.5rem;
-}
 #S00_Splash {}
 #S01_Home {}
 #S02_Subcutaneous {}
+#S06_RA_Impact {}
+#S07_RA_Experience {}
+#S05_Rheumatoid_Arthritis {}
+#S03_Subcutaneous_2 {}
 #S04_Subcutaneous_Administration .overlay-buttons {
   position: absolute;
   top: 21rem;
@@ -2279,11 +2283,39 @@ body {
 #S04_Subcutaneous_Administration .overlay-button:nth-of-type(2) { left: 25.3rem; }
 #S04_Subcutaneous_Administration .overlay-button:nth-of-type(3) { left: 44.1rem; }
 #S04_Subcutaneous_Administration .overlay-button:nth-of-type(4) { left: 62.8rem; }
-#S03_Subcutaneous_2 {}
-#S05_Rheumatoid_Arthritis {}
-#S06_RA_Impact {}
-#S07_RA_Experience {}
 #S08_RA_Confidence {}
+#S10_Device .background {
+  display: none;
+  position: absolute;
+}
+#S10_Device .background.active {
+  display: block;
+}
+#S10_Device .buttons {
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 52rem;
+  left: 3rem;
+  width: 95%;
+  z-index: 10;
+}
+#S10_Device .button {
+  width: 6rem;
+  height: 6rem;
+  margin-left: 4.3rem;
+}
+#S10_Device .button:first-of-type {
+  margin-left: 0;
+}
+#S10_Device .overlay-button {
+  position: absolute;
+  top: 40rem;
+  left: 43rem;
+  width: 18rem;
+  height: 4.2rem;
+}
+
 #S09_Device_Methofill .overlay-button {
   position: absolute;
   top: 54rem;
@@ -2320,38 +2352,6 @@ body {
   color: #60646B;
   z-index: 10;
   font-family: "Frutiger LTPro Light", Arial, sans-serif;
-}
-
-#S10_Device .background {
-  display: none;
-  position: absolute;
-}
-#S10_Device .background.active {
-  display: block;
-}
-#S10_Device .buttons {
-  display: -ms-flexbox;
-  display: flex;
-  position: absolute;
-  top: 52rem;
-  left: 3rem;
-  width: 95%;
-  z-index: 10;
-}
-#S10_Device .button {
-  width: 6rem;
-  height: 6rem;
-  margin-left: 4.3rem;
-}
-#S10_Device .button:first-of-type {
-  margin-left: 0;
-}
-#S10_Device .overlay-button {
-  position: absolute;
-  top: 40rem;
-  left: 43rem;
-  width: 18rem;
-  height: 4.2rem;
 }
 
 #S12_Patient_Satisfaction .background {
