@@ -28,6 +28,7 @@
   font: 1rem/1em sans-serif;
   background: transparent url(assets/buttons.png) top left no-repeat;
   background-size: auto 12vh;
+  font-family: "Frutiger LTPro Light", Arial, sans-serif;
 }
 [data-module="ag-menu"] .menu .menu-tab {
   width: 5.6%;

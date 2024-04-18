@@ -1491,6 +1491,7 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  font-family: "Frutiger LTPro Light", Arial, sans-serif;
 }
 
 body {
@@ -2065,62 +2066,6 @@ body {
 [data-module="ag-header"][data-slide="1"] .brand {
   display: none;
 }
-.ag-overlay-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0,0,0,0.5);
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-.ag-overlay-content {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right:0;
-  background-color: #fff;
-  z-index: -1;
-  opacity: 0;
-  overflow: hidden;
-  padding: 0 !important;
-  inset: 0 !important;
-}
-.ag-overlay-x {
-  position: absolute;
-  background-color: transparent;
-  top: 5rem !important;
-  right: 5rem !important;
-  width: 4.25rem !important;
-  height: 4.25rem !important;
-  cursor: pointer;
-  z-index: -1;
-  opacity: 0;
-  padding:9px 12px;
-}
-.state-ag-overlay-open .ag-overlay-background,
-.state-ag-overlay-open .ag-overlay-content,
-.state-ag-overlay-open .ag-overlay-x {
-  z-index: 9999;
-  opacity: 1;
-}
-
-.ag-overlay-actions {
-  position: absolute;
-  bottom:0;
-  height: 75px;
-  background-color: white;
-  /*border-top:1px solid #d2d2d2;*/
-  width: 96%;
-  padding: 10px 0px;
-}
-.ag-overlay-actions button {
-  float:right;
-  margin-left:25px;
-}
 [data-module="ag-navigation"] .navigation {
   position: absolute;
   top: 0;
@@ -2201,6 +2146,7 @@ body {
   font: 1rem/1em sans-serif;
   background: transparent url(../../modules/ag-menu/assets/buttons.png) top left no-repeat;
   background-size: auto 12vh;
+  font-family: "Frutiger LTPro Light", Arial, sans-serif;
 }
 [data-module="ag-menu"] .menu .menu-tab {
   width: 5.6%;
@@ -2234,6 +2180,62 @@ body {
 [data-module="ag-menu"] .menu li.selected {
   background-position-y: bottom;
 }
+.ag-overlay-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.ag-overlay-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right:0;
+  background-color: #fff;
+  z-index: -1;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 !important;
+  inset: 0 !important;
+}
+.ag-overlay-x {
+  position: absolute;
+  background-color: transparent;
+  top: 5rem !important;
+  right: 5rem !important;
+  width: 4.25rem !important;
+  height: 4.25rem !important;
+  cursor: pointer;
+  z-index: -1;
+  opacity: 0;
+  padding:9px 12px;
+}
+.state-ag-overlay-open .ag-overlay-background,
+.state-ag-overlay-open .ag-overlay-content,
+.state-ag-overlay-open .ag-overlay-x {
+  z-index: 9999;
+  opacity: 1;
+}
+
+.ag-overlay-actions {
+  position: absolute;
+  bottom:0;
+  height: 75px;
+  background-color: white;
+  /*border-top:1px solid #d2d2d2;*/
+  width: 96%;
+  padding: 10px 0px;
+}
+.ag-overlay-actions button {
+  float:right;
+  margin-left:25px;
+}
 [data-module="ag-references"] {
   position: absolute;
   bottom: 0;
@@ -2245,6 +2247,7 @@ body {
   background-color: rgba(0, 0, 0, 0.75);
   z-index: 50;
   transition: all 0.5s ease-out;
+  font-family: "Frutiger LTPro Light", Arial, sans-serif;
 }
 [data-module="ag-references"].hidden {
   transform: translateY(100%);
@@ -2257,6 +2260,8 @@ body {
   margin: 2.2rem 0 0 5.5rem;
 }
 #S00_Splash {}
+#S01_Home {}
+#S02_Subcutaneous {}
 #S04_Subcutaneous_Administration .overlay-buttons {
   position: absolute;
   top: 21rem;
@@ -2274,11 +2279,9 @@ body {
 #S04_Subcutaneous_Administration .overlay-button:nth-of-type(2) { left: 25.3rem; }
 #S04_Subcutaneous_Administration .overlay-button:nth-of-type(3) { left: 44.1rem; }
 #S04_Subcutaneous_Administration .overlay-button:nth-of-type(4) { left: 62.8rem; }
-#S01_Home {}
-#S05_Rheumatoid_Arthritis {}
-#S02_Subcutaneous {}
-#S06_RA_Impact {}
 #S03_Subcutaneous_2 {}
+#S05_Rheumatoid_Arthritis {}
+#S06_RA_Impact {}
 #S07_RA_Experience {}
 #S08_RA_Confidence {}
 #S09_Device_Methofill .overlay-button {
@@ -2316,34 +2319,9 @@ body {
   font: 200 0.9rem/1.1em sans-serif;
   color: #60646B;
   z-index: 10;
+  font-family: "Frutiger LTPro Light", Arial, sans-serif;
 }
 
-#S12_Patient_Satisfaction .background {
-  display: none;
-  position: absolute;
-}
-#S12_Patient_Satisfaction .background.active {
-  display: block;
-}
-#S12_Patient_Satisfaction .buttons {
-  display: -ms-flexbox;
-  display: flex;
-  position: absolute;
-  top: 52rem;
-  left: 2.2rem;
-  width: 95%;
-  z-index: 10;
-}
-#S12_Patient_Satisfaction .button {
-  width: 6rem;
-  height: 6rem;
-  margin-left: 8.5rem;
-}
-#S12_Patient_Satisfaction .button:first-of-type {
-  margin-left: 0;
-}
-
-#S14_Summary {}
 #S10_Device .background {
   display: none;
   position: absolute;
@@ -2375,3 +2353,30 @@ body {
   width: 18rem;
   height: 4.2rem;
 }
+
+#S12_Patient_Satisfaction .background {
+  display: none;
+  position: absolute;
+}
+#S12_Patient_Satisfaction .background.active {
+  display: block;
+}
+#S12_Patient_Satisfaction .buttons {
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 52rem;
+  left: 2.2rem;
+  width: 95%;
+  z-index: 10;
+}
+#S12_Patient_Satisfaction .button {
+  width: 6rem;
+  height: 6rem;
+  margin-left: 8.5rem;
+}
+#S12_Patient_Satisfaction .button:first-of-type {
+  margin-left: 0;
+}
+
+#S14_Summary {}
