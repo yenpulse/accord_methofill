@@ -1,4 +1,4 @@
-app.register("S09_RA_Methofill", function() {
+app.register("S09_Device_Methofill", function() {
 
   return {
     events: {

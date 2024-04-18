@@ -1,412 +1,299 @@
 {
-    "slides": {
-        "S00_Splash": {
-            "id": "S00_Splash",
-            "name": "Splash",
-            "files": {
-                "templates": [
-                    "slides/S00_Splash/S00_Splash.html"
-                ],
-                "scripts": [
-                    "slides/S00_Splash/S00_Splash.js"
-                ],
-                "styles": [
-                    "slides/S00_Splash/S00_Splash.css"
-                ]
-            },
-            "type": "slide",
-            "shareable": {}
-        },
-        "S01_Home": {
-            "id": "S01_Home",
-            "name": "Home",
-            "files": {
-                "templates": [
-                    "slides/S01_Home/S01_Home.html"
-                ],
-                "scripts": [
-                    "slides/S01_Home/S01_Home.js"
-                ],
-                "styles": [
-                    "slides/S01_Home/S01_Home.css"
-                ]
-            },
-            "type": "slide",
-            "shareable": {}
-        },
-        "S02_Subcutaneous": {
-            "id": "S02_Subcutaneous",
-            "name": "S02_Subcutaneous Intro 1",
-            "files": {
-                "templates": [
-                    "slides/S02_Subcutaneous/S02_Subcutaneous.html"
-                ],
-                "scripts": [
-                    "slides/S02_Subcutaneous/S02_Subcutaneous.js"
-                ],
-                "styles": [
-                    "slides/S02_Subcutaneous/S02_Subcutaneous.css"
-                ]
-            },
-            "type": "slide",
-            "shareable": {}
-        },
-        "S03_Subcutaneous_2": {
-            "id": "S03_Subcutaneous_2",
-            "name": "S02_Subcutaneous Intro 2",
-            "files": {
-                "templates": [
-                    "slides/S03_Subcutaneous_2/S03_Subcutaneous_2.html"
-                ],
-                "scripts": [
-                    "slides/S03_Subcutaneous_2/S03_Subcutaneous_2.js"
-                ],
-                "styles": [
-                    "slides/S03_Subcutaneous_2/S03_Subcutaneous_2.css"
-                ]
-            },
-            "type": "slide",
-            "shareable": {}
-        },
-        "S04_Subcutaneous_Administration": {
-            "id": "S04_Subcutaneous_Administration",
-            "name": "S04_Subcutaneous_Administration",
-            "files": {
-                "templates": [
-                    "slides/S04_Subcutaneous_Administration/S04_Subcutaneous_Administration.html"
-                ],
-                "scripts": [
-                    "slides/S04_Subcutaneous_Administration/S04_Subcutaneous_Administration.js"
-                ],
-                "styles": [
-                    "slides/S04_Subcutaneous_Administration/S04_Subcutaneous_Administration.css"
-                ]
-            },
-            "type": "slide",
-            "shareable": {}
-        },
-        "S05_Rheumatoid_Arthritis": {
-            "id": "S05_Rheumatoid_Arthritis",
-            "name": "S05_Rheumatoid_Arthritis",
-            "files": {
-                "templates": [
-                    "slides/S05_Rheumatoid_Arthritis/S05_Rheumatoid_Arthritis.html"
-                ],
-                "scripts": [
-                    "slides/S05_Rheumatoid_Arthritis/S05_Rheumatoid_Arthritis.js"
-                ],
-                "styles": [
-                    "slides/S05_Rheumatoid_Arthritis/S05_Rheumatoid_Arthritis.css"
-                ]
-            },
-            "type": "slide",
-            "shareable": {}
-        },
-        "S06_RA_Impact": {
-            "id": "S06_RA_Impact",
-            "name": "S06_RA_Impact",
-            "files": {
-                "templates": [
-                    "slides/S06_RA_Impact/S06_RA_Impact.html"
-                ],
-                "scripts": [
-                    "slides/S06_RA_Impact/S06_RA_Impact.js"
-                ],
-                "styles": [
-                    "slides/S06_RA_Impact/S06_RA_Impact.css"
-                ]
-            },
-            "type": "slide",
-            "shareable": {}
-        },
-        "S07_RA_Experience": {
-            "id": "S07_RA_Experience",
-            "name": "S07_RA_Experience",
-            "files": {
-                "templates": [
-                    "slides/S07_RA_Experience/S07_RA_Experience.html"
-                ],
-                "scripts": [
-                    "slides/S07_RA_Experience/S07_RA_Experience.js"
-                ],
-                "styles": [
-                    "slides/S07_RA_Experience/S07_RA_Experience.css"
-                ]
-            },
-            "type": "slide",
-            "shareable": {}
-        },
-        "S08_RA_Confidence": {
-            "id": "S08_RA_Confidence",
-            "name": "S08_RA_Confidence",
-            "files": {
-                "templates": [
-                    "slides/S08_RA_Confidence/S08_RA_Confidence.html"
-                ],
-                "scripts": [
-                    "slides/S08_RA_Confidence/S08_RA_Confidence.js"
-                ],
-                "styles": [
-                    "slides/S08_RA_Confidence/S08_RA_Confidence.css"
-                ]
-            },
-            "type": "slide",
-            "shareable": {}
-        },
-        "S09_RA_Methofill": {
-            "id": "S09_RA_Methofill",
-            "name": "S09_RA_Methofill",
-            "files": {
-                "templates": [
-                    "slides/S09_RA_Methofill/S09_RA_Methofill.html"
-                ],
-                "scripts": [
-                    "slides/S09_RA_Methofill/S09_RA_Methofill.js"
-                ],
-                "styles": [
-                    "slides/S09_RA_Methofill/S09_RA_Methofill.css"
-                ]
-            },
-            "type": "slide",
-            "shareable": {}
-        },
-        "S10_Device": {
-            "id": "S10_Device",
-            "name": "S10_Device",
-            "files": {
-                "templates": [
-                    "slides/S10_Device/S10_Device.html"
-                ],
-                "scripts": [
-                    "slides/S10_Device/S10_Device.js"
-                ],
-                "styles": [
-                    "slides/S10_Device/S10_Device.css"
-                ]
-            },
-            "type": "slide",
-            "shareable": {}
-        },
-        "S11_Prescribe": {
-            "id": "S11_Prescribe",
-            "name": "S11_Prescribe",
-            "files": {
-                "templates": [
-                    "slides/S11_Prescribe/S11_Prescribe.html"
-                ],
-                "scripts": [
-                    "slides/S11_Prescribe/S11_Prescribe.js"
-                ],
-                "styles": [
-                    "slides/S11_Prescribe/S11_Prescribe.css"
-                ]
-            },
-            "type": "slide",
-            "shareable": {}
-        },
-        "S12_Patient_Satisfaction": {
-            "id": "S12_Patient_Satisfaction",
-            "name": "S12_Patient_Satisfaction",
-            "files": {
-                "templates": [
-                    "slides/S12_Patient_Satisfaction/S12_Patient_Satisfaction.html"
-                ],
-                "scripts": [
-                    "slides/S12_Patient_Satisfaction/S12_Patient_Satisfaction.js"
-                ],
-                "styles": [
-                    "slides/S12_Patient_Satisfaction/S12_Patient_Satisfaction.css"
-                ]
-            },
-            "type": "slide",
-            "shareable": {}
-        },
-        "S13_Support": {
-            "id": "S13_Support",
-            "name": "S13_Support",
-            "files": {
-                "templates": [
-                    "slides/S13_Support/S13_Support.html"
-                ],
-                "scripts": [
-                    "slides/S13_Support/S13_Support.js"
-                ],
-                "styles": [
-                    "slides/S13_Support/S13_Support.css"
-                ]
-            },
-            "type": "slide",
-            "shareable": {}
-        },
-        "S14_Summary": {
-            "id": "S14_Summary",
-            "name": "S14_Summary",
-            "files": {
-                "templates": [
-                    "slides/S14_Summary/S14_Summary.html"
-                ],
-                "scripts": [
-                    "slides/S14_Summary/S14_Summary.js"
-                ],
-                "styles": [
-                    "slides/S14_Summary/S14_Summary.css"
-                ]
-            },
-            "type": "slide",
-            "shareable": {}
-        }
+  "slides": {
+    "S00_Splash": {
+      "id": "S00_Splash",
+      "name": "Splash",
+      "files": {
+        "templates": ["slides/S00_Splash/S00_Splash.html"],
+        "scripts": ["slides/S00_Splash/S00_Splash.js"],
+        "styles": ["slides/S00_Splash/S00_Splash.css"]
+      },
+      "type": "slide",
+      "shareable": {}
     },
-    "modules": {
-        "ag-navigation": {
-            "id": "ag-navigation",
-            "files": {
-                "templates": [
-                    "modules/ag-navigation/ag-navigation.html"
-                ],
-                "scripts": [
-                    "modules/ag-navigation/ag-navigation.js"
-                ],
-                "styles": [
-                    "modules/ag-navigation/ag-navigation.css"
-                ]
-            }
-        },
-        "ag-menu": {
-            "id": "ag-menu",
-            "files": {
-                "templates": [
-                    "modules/ag-menu/ag-menu.html"
-                ],
-                "scripts": [
-                    "modules/ag-menu/ag-menu.js"
-                ],
-                "styles": [
-                    "modules/ag-menu/ag-menu.css"
-                ]
-            }
-        },
-        "ag-overlay": {
-            "name": "Agnitio Overlay",
-            "type": "universal",
-            "description": "Creates an overlay to the presentation.",
-            "files": {
-                "styles": [
-                    "modules/ag-overlay/ag-overlay.css"
-                ],
-                "scripts": [
-                    "modules/ag-overlay/ag-overlay.js"
-                ]
-            },
-            "version": "0.5.3"
-        },
-        "ag-header": {
-            "id": "ag-header",
-            "files": {
-                "templates": [
-                    "modules/ag-header/ag-header.html"
-                ],
-                "scripts": [
-                    "modules/ag-header/ag-header.js"
-                ],
-                "styles": [
-                    "modules/ag-header/ag-header.css"
-                ]
-            }
-        },
-        "ag-references": {
-            "id": "ag-references",
-            "files": {
-                "templates": [
-                    "modules/ag-references/ag-references.html"
-                ],
-                "scripts": [
-                    "modules/ag-references/ag-references.js"
-                ],
-                "styles": [
-                    "modules/ag-references/ag-references.css"
-                ]
-            }
-        }
+    "S01_Home": {
+      "id": "S01_Home",
+      "name": "Home",
+      "files": {
+        "templates": ["slides/S01_Home/S01_Home.html"],
+        "scripts": ["slides/S01_Home/S01_Home.js"],
+        "styles": ["slides/S01_Home/S01_Home.css"]
+      },
+      "type": "slide",
+      "shareable": {}
     },
-    "structures": {
-        "Home": {
-            "name": "Home",
-            "content": [
-                "S00_Splash",
-                "S01_Home"
-            ],
-            "type": "slideshow",
-            "linear": true,
-            "shareable": {}
-        },
-        "Subcutaneous": {
-            "name": "Subcutaneous",
-            "content": [
-                "S02_Subcutaneous",
-                "S03_Subcutaneous_2",
-                "S04_Subcutaneous_Administration"
-            ],
-            "type": "slideshow",
-            "linear": true,
-            "shareable": {}
-        },
-        "RA": {
-            "name": "RA",
-            "content": [
-                "S05_Rheumatoid_Arthritis",
-                "S06_RA_Impact",
-                "S07_RA_Experience",
-                "S08_RA_Confidence",
-                "S09_RA_Methofill"
-            ],
-            "type": "slideshow",
-            "linear": true,
-            "shareable": {}
-        },
-        "Device": {
-            "name": "Device",
-            "content": [
-                "S10_Device",
-                "S11_Prescribe"
-            ],
-            "type": "slideshow",
-            "linear": true,
-            "shareable": {}
-        },
-        "Patient_Satisfaction": {
-            "name": "Patient Satisfaction",
-            "content": [
-                "S12_Patient_Satisfaction"
-            ],
-            "type": "slideshow",
-            "linear": true,
-            "shareable": {}
-        },
-        "Summary": {
-            "name": "Summary",
-            "content": [
-                "S14_Summary"
-            ],
-            "type": "slideshow",
-            "linear": true,
-            "shareable": {}
-        }
+    "S02_Subcutaneous": {
+      "id": "S02_Subcutaneous",
+      "name": "S02_Subcutaneous Intro 1",
+      "files": {
+        "templates": ["slides/S02_Subcutaneous/S02_Subcutaneous.html"],
+        "scripts": ["slides/S02_Subcutaneous/S02_Subcutaneous.js"],
+        "styles": ["slides/S02_Subcutaneous/S02_Subcutaneous.css"]
+      },
+      "type": "slide",
+      "shareable": {}
     },
-    "storyboard": [
-        "Methofill"
-    ],
-    "storyboards": {
-        "Methofill": {
-            "name": "Methofill",
-            "content": [
-                "Home",
-                "Subcutaneous",
-                "RA",
-                "Device",
-                "Patient_Satisfaction",
-                "Summary"
-            ],
-            "linear": true
-        }
+    "S03_Subcutaneous_2": {
+      "id": "S03_Subcutaneous_2",
+      "name": "S02_Subcutaneous Intro 2",
+      "files": {
+        "templates": ["slides/S03_Subcutaneous_2/S03_Subcutaneous_2.html"],
+        "scripts": ["slides/S03_Subcutaneous_2/S03_Subcutaneous_2.js"],
+        "styles": ["slides/S03_Subcutaneous_2/S03_Subcutaneous_2.css"]
+      },
+      "type": "slide",
+      "shareable": {}
+    },
+    "S04_Subcutaneous_Administration": {
+      "id": "S04_Subcutaneous_Administration",
+      "name": "S04_Subcutaneous_Administration",
+      "files": {
+        "templates": [
+          "slides/S04_Subcutaneous_Administration/S04_Subcutaneous_Administration.html"
+        ],
+        "scripts": [
+          "slides/S04_Subcutaneous_Administration/S04_Subcutaneous_Administration.js"
+        ],
+        "styles": [
+          "slides/S04_Subcutaneous_Administration/S04_Subcutaneous_Administration.css"
+        ]
+      },
+      "type": "slide",
+      "shareable": {}
+    },
+    "S05_Rheumatoid_Arthritis": {
+      "id": "S05_Rheumatoid_Arthritis",
+      "name": "S05_Rheumatoid_Arthritis",
+      "files": {
+        "templates": [
+          "slides/S05_Rheumatoid_Arthritis/S05_Rheumatoid_Arthritis.html"
+        ],
+        "scripts": [
+          "slides/S05_Rheumatoid_Arthritis/S05_Rheumatoid_Arthritis.js"
+        ],
+        "styles": [
+          "slides/S05_Rheumatoid_Arthritis/S05_Rheumatoid_Arthritis.css"
+        ]
+      },
+      "type": "slide",
+      "shareable": {}
+    },
+    "S06_RA_Impact": {
+      "id": "S06_RA_Impact",
+      "name": "S06_RA_Impact",
+      "files": {
+        "templates": ["slides/S06_RA_Impact/S06_RA_Impact.html"],
+        "scripts": ["slides/S06_RA_Impact/S06_RA_Impact.js"],
+        "styles": ["slides/S06_RA_Impact/S06_RA_Impact.css"]
+      },
+      "type": "slide",
+      "shareable": {}
+    },
+    "S07_RA_Experience": {
+      "id": "S07_RA_Experience",
+      "name": "S07_RA_Experience",
+      "files": {
+        "templates": ["slides/S07_RA_Experience/S07_RA_Experience.html"],
+        "scripts": ["slides/S07_RA_Experience/S07_RA_Experience.js"],
+        "styles": ["slides/S07_RA_Experience/S07_RA_Experience.css"]
+      },
+      "type": "slide",
+      "shareable": {}
+    },
+    "S08_RA_Confidence": {
+      "id": "S08_RA_Confidence",
+      "name": "S08_RA_Confidence",
+      "files": {
+        "templates": ["slides/S08_RA_Confidence/S08_RA_Confidence.html"],
+        "scripts": ["slides/S08_RA_Confidence/S08_RA_Confidence.js"],
+        "styles": ["slides/S08_RA_Confidence/S08_RA_Confidence.css"]
+      },
+      "type": "slide",
+      "shareable": {}
+    },
+    "S09_Device_Methofill": {
+      "id": "S09_Device_Methofill",
+      "name": "S09_Device_Methofill",
+      "files": {
+        "templates": ["slides/S09_Device_Methofill/S09_Device_Methofill.html"],
+        "scripts": ["slides/S09_Device_Methofill/S09_Device_Methofill.js"],
+        "styles": ["slides/S09_Device_Methofill/S09_Device_Methofill.css"]
+      },
+      "type": "slide",
+      "shareable": {}
+    },
+    "S10_Device": {
+      "id": "S10_Device",
+      "name": "S10_Device",
+      "files": {
+        "templates": ["slides/S10_Device/S10_Device.html"],
+        "scripts": ["slides/S10_Device/S10_Device.js"],
+        "styles": ["slides/S10_Device/S10_Device.css"]
+      },
+      "type": "slide",
+      "shareable": {}
+    },
+    "S11_Prescribe": {
+      "id": "S11_Prescribe",
+      "name": "S11_Prescribe",
+      "files": {
+        "templates": ["slides/S11_Prescribe/S11_Prescribe.html"],
+        "scripts": ["slides/S11_Prescribe/S11_Prescribe.js"],
+        "styles": ["slides/S11_Prescribe/S11_Prescribe.css"]
+      },
+      "type": "slide",
+      "shareable": {}
+    },
+    "S12_Patient_Satisfaction": {
+      "id": "S12_Patient_Satisfaction",
+      "name": "S12_Patient_Satisfaction",
+      "files": {
+        "templates": [
+          "slides/S12_Patient_Satisfaction/S12_Patient_Satisfaction.html"
+        ],
+        "scripts": [
+          "slides/S12_Patient_Satisfaction/S12_Patient_Satisfaction.js"
+        ],
+        "styles": [
+          "slides/S12_Patient_Satisfaction/S12_Patient_Satisfaction.css"
+        ]
+      },
+      "type": "slide",
+      "shareable": {}
+    },
+    "S13_Support": {
+      "id": "S13_Support",
+      "name": "S13_Support",
+      "files": {
+        "templates": ["slides/S13_Support/S13_Support.html"],
+        "scripts": ["slides/S13_Support/S13_Support.js"],
+        "styles": ["slides/S13_Support/S13_Support.css"]
+      },
+      "type": "slide",
+      "shareable": {}
+    },
+    "S14_Summary": {
+      "id": "S14_Summary",
+      "name": "S14_Summary",
+      "files": {
+        "templates": ["slides/S14_Summary/S14_Summary.html"],
+        "scripts": ["slides/S14_Summary/S14_Summary.js"],
+        "styles": ["slides/S14_Summary/S14_Summary.css"]
+      },
+      "type": "slide",
+      "shareable": {}
     }
+  },
+  "modules": {
+    "ag-navigation": {
+      "id": "ag-navigation",
+      "files": {
+        "templates": ["modules/ag-navigation/ag-navigation.html"],
+        "scripts": ["modules/ag-navigation/ag-navigation.js"],
+        "styles": ["modules/ag-navigation/ag-navigation.css"]
+      }
+    },
+    "ag-menu": {
+      "id": "ag-menu",
+      "files": {
+        "templates": ["modules/ag-menu/ag-menu.html"],
+        "scripts": ["modules/ag-menu/ag-menu.js"],
+        "styles": ["modules/ag-menu/ag-menu.css"]
+      }
+    },
+    "ag-overlay": {
+      "name": "Agnitio Overlay",
+      "type": "universal",
+      "description": "Creates an overlay to the presentation.",
+      "files": {
+        "styles": ["modules/ag-overlay/ag-overlay.css"],
+        "scripts": ["modules/ag-overlay/ag-overlay.js"]
+      },
+      "version": "0.5.3"
+    },
+    "ag-header": {
+      "id": "ag-header",
+      "files": {
+        "templates": ["modules/ag-header/ag-header.html"],
+        "scripts": ["modules/ag-header/ag-header.js"],
+        "styles": ["modules/ag-header/ag-header.css"]
+      }
+    },
+    "ag-references": {
+      "id": "ag-references",
+      "files": {
+        "templates": ["modules/ag-references/ag-references.html"],
+        "scripts": ["modules/ag-references/ag-references.js"],
+        "styles": ["modules/ag-references/ag-references.css"]
+      }
+    }
+  },
+  "structures": {
+    "Home": {
+      "name": "Home",
+      "content": ["S00_Splash", "S01_Home"],
+      "type": "slideshow",
+      "linear": true,
+      "shareable": {}
+    },
+    "Subcutaneous": {
+      "name": "Subcutaneous",
+      "content": [
+        "S02_Subcutaneous",
+        "S03_Subcutaneous_2",
+        "S04_Subcutaneous_Administration"
+      ],
+      "type": "slideshow",
+      "linear": true,
+      "shareable": {}
+    },
+    "RA": {
+      "name": "RA",
+      "content": [
+        "S05_Rheumatoid_Arthritis",
+        "S06_RA_Impact",
+        "S07_RA_Experience",
+        "S08_RA_Confidence"
+      ],
+      "type": "slideshow",
+      "linear": true,
+      "shareable": {}
+    },
+    "Device": {
+      "name": "Device",
+      "content": ["S09_Device_Methofill", "S10_Device", "S11_Prescribe"],
+      "type": "slideshow",
+      "linear": true,
+      "shareable": {}
+    },
+    "Patient_Satisfaction": {
+      "name": "Patient Satisfaction",
+      "content": ["S12_Patient_Satisfaction"],
+      "type": "slideshow",
+      "linear": true,
+      "shareable": {}
+    },
+    "Summary": {
+      "name": "Summary",
+      "content": ["S14_Summary"],
+      "type": "slideshow",
+      "linear": true,
+      "shareable": {}
+    }
+  },
+  "storyboard": ["Methofill"],
+  "storyboards": {
+    "Methofill": {
+      "name": "Methofill",
+      "content": [
+        "Home",
+        "Subcutaneous",
+        "RA",
+        "Device",
+        "Patient_Satisfaction",
+        "Summary"
+      ],
+      "linear": true
+    }
+  }
 }
