@@ -2066,77 +2066,6 @@ body {
 [data-module="ag-header"][data-slide="1"] .brand {
   display: none;
 }
-[data-module="ag-navigation"] .navigation {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 0;
-  z-index: 50;
-}
-[data-module="ag-navigation"] .navigation .nav-button {
-  position: absolute;
-  top: 46vh;
-  width: 15vh;
-  height: 15vh;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.3);
-}
-[data-module="ag-navigation"] .navigation .nav-previous {
-  left: 0;
-  transform: translateX(-50%);
-}
-[data-module="ag-navigation"] .navigation .nav-next {
-  right: 0;
-  transform: translateX(50%);
-}
-[data-module="ag-navigation"] .navigation .nav-button::after {
-  content: '';
-  position: absolute;
-  top: 5.5vh;
-  width: 4vh;
-  height: 4vh;
-  border: 0 solid #f49600;
-  transform-origin: center;
-  transform: rotate(-45deg);
-}
-[data-module="ag-navigation"] .navigation[data-background="dark"] .nav-button::after {
-  border-color: white;
-}
-[data-module="ag-navigation"] .navigation .nav-previous::after {
-  right: 1.5vh;
-  border-top-width: 0.75vh;
-  border-left-width: 0.75vh;
-}
-[data-module="ag-navigation"] .navigation .nav-next::after {
-  left: 1.5vh;
-  border-bottom-width: 0.75vh;
-  border-right-width: 0.75vh;
-}
-
-[data-module="ag-references"] {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 10.5rem;
-  font: 200 0.9rem/1.1em sans-serif;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.75);
-  z-index: 50;
-  transition: all 0.5s ease-out;
-  font-family: "Frutiger LTPro Light", Arial, sans-serif;
-}
-[data-module="ag-references"].hidden {
-  transform: translateY(100%);
-}
-[data-module="ag-references"] {
-  transform: translateY(0);
-}
-[data-module="ag-references"] .references-content {
-  position: relative;
-  margin: 2.2rem 0 0 5.5rem;
-}
 [data-module="ag-menu"] {
   position: absolute;
   bottom: 0;
@@ -2203,6 +2132,54 @@ body {
 [data-module="ag-menu"] .menu li.selected {
   background-position-y: bottom;
 }
+[data-module="ag-navigation"] .navigation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  z-index: 50;
+}
+[data-module="ag-navigation"] .navigation .nav-button {
+  position: absolute;
+  top: 46vh;
+  width: 15vh;
+  height: 15vh;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+[data-module="ag-navigation"] .navigation .nav-previous {
+  left: 0;
+  transform: translateX(-50%);
+}
+[data-module="ag-navigation"] .navigation .nav-next {
+  right: 0;
+  transform: translateX(50%);
+}
+[data-module="ag-navigation"] .navigation .nav-button::after {
+  content: '';
+  position: absolute;
+  top: 5.5vh;
+  width: 4vh;
+  height: 4vh;
+  border: 0 solid #f49600;
+  transform-origin: center;
+  transform: rotate(-45deg);
+}
+[data-module="ag-navigation"] .navigation[data-background="dark"] .nav-button::after {
+  border-color: white;
+}
+[data-module="ag-navigation"] .navigation .nav-previous::after {
+  right: 1.5vh;
+  border-top-width: 0.75vh;
+  border-left-width: 0.75vh;
+}
+[data-module="ag-navigation"] .navigation .nav-next::after {
+  left: 1.5vh;
+  border-bottom-width: 0.75vh;
+  border-right-width: 0.75vh;
+}
+
 .ag-overlay-background {
   position: absolute;
   top: 0;
@@ -2259,11 +2236,32 @@ body {
   float:right;
   margin-left:25px;
 }
+[data-module="ag-references"] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10.5rem;
+  font: 200 0.9rem/1.1em sans-serif;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 50;
+  transition: all 0.5s ease-out;
+  font-family: "Frutiger LTPro Light", Arial, sans-serif;
+}
+[data-module="ag-references"].hidden {
+  transform: translateY(100%);
+}
+[data-module="ag-references"] {
+  transform: translateY(0);
+}
+[data-module="ag-references"] .references-content {
+  position: relative;
+  margin: 2.2rem 0 0 5.5rem;
+}
 #S00_Splash {}
-#S02_Subcutaneous {}
-#S03_Subcutaneous_2 {}
-#S05_Rheumatoid_Arthritis {}
 #S01_Home {}
+#S02_Subcutaneous {}
 #S04_Subcutaneous_Administration .overlay-buttons {
   position: absolute;
   top: 21rem;
@@ -2281,8 +2279,42 @@ body {
 #S04_Subcutaneous_Administration .overlay-button:nth-of-type(2) { left: 25.3rem; }
 #S04_Subcutaneous_Administration .overlay-button:nth-of-type(3) { left: 44.1rem; }
 #S04_Subcutaneous_Administration .overlay-button:nth-of-type(4) { left: 62.8rem; }
+#S03_Subcutaneous_2 {}
+#S05_Rheumatoid_Arthritis {}
 #S06_RA_Impact {}
-#S08_RA_Confidence {}
+#S07_RA_Experience {}
+#S09_Device_Methofill .overlay-button {
+  position: absolute;
+  top: 54rem;
+  left: 49.2rem;
+  width: 13.8rem;
+  height: 3.5rem;
+}
+#S12_Patient_Satisfaction .background {
+  display: none;
+  position: absolute;
+}
+#S12_Patient_Satisfaction .background.active {
+  display: block;
+}
+#S12_Patient_Satisfaction .buttons {
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 52rem;
+  left: 2.2rem;
+  width: 95%;
+  z-index: 10;
+}
+#S12_Patient_Satisfaction .button {
+  width: 6rem;
+  height: 6rem;
+  margin-left: 8.5rem;
+}
+#S12_Patient_Satisfaction .button:first-of-type {
+  margin-left: 0;
+}
+
 #S10_Device .background {
   display: none;
   position: absolute;
@@ -2315,14 +2347,7 @@ body {
   height: 4.2rem;
 }
 
-#S09_Device_Methofill .overlay-button {
-  position: absolute;
-  top: 54rem;
-  left: 49.2rem;
-  width: 13.8rem;
-  height: 3.5rem;
-}
-#S07_RA_Experience {}
+#S08_RA_Confidence {}
 #S11_Prescribe .background {
   position: absolute;
   top: 0;
@@ -2352,31 +2377,6 @@ body {
   color: #60646B;
   z-index: 10;
   font-family: "Frutiger LTPro Light", Arial, sans-serif;
-}
-
-#S12_Patient_Satisfaction .background {
-  display: none;
-  position: absolute;
-}
-#S12_Patient_Satisfaction .background.active {
-  display: block;
-}
-#S12_Patient_Satisfaction .buttons {
-  display: -ms-flexbox;
-  display: flex;
-  position: absolute;
-  top: 52rem;
-  left: 2.2rem;
-  width: 95%;
-  z-index: 10;
-}
-#S12_Patient_Satisfaction .button {
-  width: 6rem;
-  height: 6rem;
-  margin-left: 8.5rem;
-}
-#S12_Patient_Satisfaction .button:first-of-type {
-  margin-left: 0;
 }
 
 #S14_Summary {}
