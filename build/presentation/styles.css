@@ -2267,8 +2267,8 @@ body {
 }
 #S00_Splash {}
 #S02_Subcutaneous {}
-#S01_Home {}
 #S03_Subcutaneous_2 {}
+#S01_Home {}
 #S04_Subcutaneous_Administration .overlay-buttons {
   position: absolute;
   top: 21rem;
@@ -2286,10 +2286,48 @@ body {
 #S04_Subcutaneous_Administration .overlay-button:nth-of-type(2) { left: 25.3rem; }
 #S04_Subcutaneous_Administration .overlay-button:nth-of-type(3) { left: 44.1rem; }
 #S04_Subcutaneous_Administration .overlay-button:nth-of-type(4) { left: 62.8rem; }
-#S06_RA_Impact {}
-#S08_RA_Confidence {}
 #S07_RA_Experience {}
+#S08_RA_Confidence {}
+#S09_Device_Methofill .overlay-button {
+  position: absolute;
+  top: 54rem;
+  left: 49.2rem;
+  width: 13.8rem;
+  height: 3.5rem;
+}
 #S05_Rheumatoid_Arthritis {}
+#S11_Prescribe .background {
+  position: absolute;
+  top: 0;
+  left: auto;
+  right: 0;
+  width: auto;
+  height: 100vh;
+  z-index: 10;
+}
+
+#S11_Prescribe .swiper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 54.5%;
+  height: 100vh;
+}
+#S11_Prescribe .swiper img {
+  height: 100vh;
+}
+
+#S11_Prescribe .footnote {
+  position: absolute;
+  top: 59rem;
+  left: 1.5rem;
+  font: 200 0.9rem/1.1em sans-serif;
+  color: #60646B;
+  z-index: 10;
+  font-family: "Frutiger LTPro Light", Arial, sans-serif;
+}
+
+#S06_RA_Impact {}
 #S10_Device .background {
   display: none;
   position: absolute;
@@ -2322,44 +2360,10 @@ body {
   height: 4.2rem;
 }
 
-#S09_Device_Methofill .overlay-button {
-  position: absolute;
-  top: 54rem;
-  left: 49.2rem;
-  width: 13.8rem;
-  height: 3.5rem;
-}
-#S11_Prescribe .background {
-  position: absolute;
-  top: 0;
-  left: auto;
-  right: 0;
-  width: auto;
-  height: 100vh;
-  z-index: 10;
-}
-
-#S11_Prescribe .swiper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 54.5%;
-  height: 100vh;
-}
-#S11_Prescribe .swiper img {
-  height: 100vh;
-}
-
-#S11_Prescribe .footnote {
-  position: absolute;
-  top: 59rem;
-  left: 1.5rem;
-  font: 200 0.9rem/1.1em sans-serif;
-  color: #60646B;
-  z-index: 10;
-  font-family: "Frutiger LTPro Light", Arial, sans-serif;
-}
-
+#S16_Good_Use_002 {}
+#S14_Summary {}
+#S17_Good_Use_003 {}
+#S18_Good_Use_004 {}
 #S12_Patient_Satisfaction .background {
   display: none;
   position: absolute;
@@ -2385,4 +2389,9 @@ body {
   margin-left: 0;
 }
 
-#S14_Summary {}
+#S19_Good_Use_005 {}
+#S15_Good_Use {
+}
+
+#S20_Good_Use_006 {}
+#S21_Good_Use_007 {}

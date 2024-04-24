@@ -182,6 +182,69 @@
       },
       "type": "slide",
       "shareable": {}
+    },
+    "S15_Good_Use": {
+      "id": "S15_Good_Use",
+      "name": "S15_Good_Use",
+      "files": {
+        "templates": ["slides/S15_Good_Use/S15_Good_Use.html"],
+        "scripts": ["slides/S15_Good_Use/S15_Good_Use.js"],
+        "styles": ["slides/S15_Good_Use/S15_Good_Use.css"]
+      }
+    },
+    "S16_Good_Use_002": {
+      "id": "S16_Good_Use_002",
+      "name": "S16_Good_Use_002",
+      "files": {
+        "templates": ["slides/S16_Good_Use_002/S16_Good_Use_002.html"],
+        "scripts": ["slides/S16_Good_Use_002/S16_Good_Use_002.js"],
+        "styles": ["slides/S16_Good_Use_002/S16_Good_Use_002.css"]
+      }
+    },
+    "S17_Good_Use_003": {
+      "id": "S17_Good_Use_003",
+      "name": "S17_Good_Use_003",
+      "files": {
+        "templates": ["slides/S17_Good_Use_003/S17_Good_Use_003.html"],
+        "scripts": ["slides/S17_Good_Use_003/S17_Good_Use_003.js"],
+        "styles": ["slides/S17_Good_Use_003/S17_Good_Use_003.css"]
+      }
+    },
+    "S18_Good_Use_004": {
+      "id": "S18_Good_Use_004",
+      "name": "S18_Good_Use_004",
+      "files": {
+        "templates": ["slides/S18_Good_Use_004/S18_Good_Use_004.html"],
+        "scripts": ["slides/S18_Good_Use_004/S18_Good_Use_004.js"],
+        "styles": ["slides/S18_Good_Use_004/S18_Good_Use_004.css"]
+      }
+    },
+    "S19_Good_Use_005": {
+      "id": "S19_Good_Use_005",
+      "name": "S19_Good_Use_005",
+      "files": {
+        "templates": ["slides/S19_Good_Use_005/S19_Good_Use_005.html"],
+        "scripts": ["slides/S19_Good_Use_005/S19_Good_Use_005.js"],
+        "styles": ["slides/S19_Good_Use_005/S19_Good_Use_005.css"]
+      }
+    },
+    "S20_Good_Use_006": {
+      "id": "S20_Good_Use_006",
+      "name": "S20_Good_Use_006",
+      "files": {
+        "templates": ["slides/S20_Good_Use_006/S20_Good_Use_006.html"],
+        "scripts": ["slides/S20_Good_Use_006/S20_Good_Use_006.js"],
+        "styles": ["slides/S20_Good_Use_006/S20_Good_Use_006.css"]
+      }
+    },
+    "S21_Good_Use_007": {
+      "id": "S21_Good_Use_007",
+      "name": "S21_Good_Use_007",
+      "files": {
+        "templates": ["slides/S21_Good_Use_007/S21_Good_Use_007.html"],
+        "scripts": ["slides/S21_Good_Use_007/S21_Good_Use_007.js"],
+        "styles": ["slides/S21_Good_Use_007/S21_Good_Use_007.css"]
+      }
     }
   },
   "modules": {
@@ -279,6 +342,13 @@
       "type": "slideshow",
       "linear": true,
       "shareable": {}
+    },
+    "Good_Use": {
+      "name": "Good Use",
+      "content": ["S15_Good_Use", "S16_Good_Use_002", "S17_Good_Use_003", "S18_Good_Use_004", "S19_Good_Use_005", "S20_Good_Use_006", "S21_Good_Use_007"],
+      "type": "slideshow",
+      "linear": true,
+      "shareable": {}
     }
   },
   "storyboard": ["Methofill"],
@@ -291,7 +361,8 @@
         "RA",
         "Device",
         "Patient_Satisfaction",
-        "Summary"
+        "Summary",
+        "Good_Use"
       ],
       "linear": true
     }
