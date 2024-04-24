@@ -22,6 +22,17 @@
       "type": "slide",
       "shareable": {}
     },
+    "S02_Indications": {
+      "id": "S02_Indications",
+      "name": "Indications",
+      "files": {
+        "templates": ["slides/S02_Indications/S02_Indications.html"],
+        "scripts": ["slides/S02_Indications/S02_Indications.js"],
+        "styles": ["slides/S02_Indications/S02_Indications.css"]
+      },
+      "type": "slide",
+      "shareable": {}
+    },
     "S02_Subcutaneous": {
       "id": "S02_Subcutaneous",
       "name": "S02_Subcutaneous Intro 1",
@@ -299,6 +310,13 @@
       "linear": true,
       "shareable": {}
     },
+    "Indications": {
+      "name": "Indications",
+      "content": ["S02_Indications"],
+      "type": "slideshow",
+      "linear": true,
+      "shareable": {}
+    },
     "Subcutaneous": {
       "name": "Subcutaneous",
       "content": [
@@ -357,6 +375,7 @@
       "name": "Methofill",
       "content": [
         "Home",
+        "Indications",
         "Subcutaneous",
         "RA",
         "Device",
