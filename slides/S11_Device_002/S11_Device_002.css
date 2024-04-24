@@ -1,0 +1,30 @@
+#S11_Device_002 .background {
+  display: none;
+  position: absolute;
+}
+#S11_Device_002 .background.active {
+  display: block;
+}
+#S11_Device_002 .buttons {
+  display: flex;
+  position: absolute;
+  top: 52rem;
+  left: 3rem;
+  width: 95%;
+  z-index: 10;
+}
+#S11_Device_002 .button {
+  width: 6rem;
+  height: 6rem;
+  margin-left: 4.3rem;
+}
+#S11_Device_002 .button:first-of-type {
+  margin-left: 0;
+}
+#S11_Device_002 .overlay-button {
+  position: absolute;
+  top: 40rem;
+  left: 43rem;
+  width: 18rem;
+  height: 4.2rem;
+}

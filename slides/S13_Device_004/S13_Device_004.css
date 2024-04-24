@@ -1,0 +1,17 @@
+#S13_Device_004 .btn {
+  cursor: pointer;
+
+  width: 13.8rem;
+  height: 3.5rem;
+
+  position: absolute;
+  bottom: 9.5rem;
+}
+
+#S13_Device_004 .btn.lzixate {
+  left: 13.5rem;
+}
+
+#S13_Device_004 .btn.methotrexate {
+  right: 13.5rem;
+}
