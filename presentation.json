@@ -48,15 +48,20 @@
       "id": "S03_Fr",
       "name": "S03_Fr",
       "files": {
-        "templates": [
-          "slides/S03_Fr/S03_Fr.html"
-        ],
-        "scripts": [
-          "slides/S03_Fr/S03_Fr.js"
-        ],
-        "styles": [
-          "slides/S03_Fr/S03_Fr.css"
-        ]
+        "templates": ["slides/S03_Fr/S03_Fr.html"],
+        "scripts": ["slides/S03_Fr/S03_Fr.js"],
+        "styles": ["slides/S03_Fr/S03_Fr.css"]
+      },
+      "type": "slide",
+      "shareable": {}
+    },
+    "S04_Fr_002": {
+      "id": "S04_Fr_002",
+      "name": "S04_Fr_002",
+      "files": {
+        "templates": ["slides/S04_Fr_002/S04_Fr_002.html"],
+        "scripts": ["slides/S04_Fr_002/S04_Fr_002.js"],
+        "styles": ["slides/S04_Fr_002/S04_Fr_002.css"]
       },
       "type": "slide",
       "shareable": {}
@@ -89,17 +94,7 @@
       "type": "slide",
       "shareable": {}
     },
-    "S06_RA_Impact": {
-      "id": "S06_RA_Impact",
-      "name": "S06_RA_Impact",
-      "files": {
-        "templates": ["slides/S06_RA_Impact/S06_RA_Impact.html"],
-        "scripts": ["slides/S06_RA_Impact/S06_RA_Impact.js"],
-        "styles": ["slides/S06_RA_Impact/S06_RA_Impact.css"]
-      },
-      "type": "slide",
-      "shareable": {}
-    },
+
     "S07_RA_Experience": {
       "id": "S07_RA_Experience",
       "name": "S07_RA_Experience",
@@ -321,7 +316,7 @@
       "name": "Fr",
       "content": [
         "S03_Fr",
-        "S06_RA_Impact",
+        "S04_Fr_002",
         "S07_RA_Experience",
         "S08_RA_Confidence"
       ],
@@ -363,7 +358,15 @@
     },
     "Good_Use": {
       "name": "Good Use",
-      "content": ["S15_Good_Use", "S16_Good_Use_002", "S17_Good_Use_003", "S18_Good_Use_004", "S19_Good_Use_005", "S20_Good_Use_006", "S21_Good_Use_007"],
+      "content": [
+        "S15_Good_Use",
+        "S16_Good_Use_002",
+        "S17_Good_Use_003",
+        "S18_Good_Use_004",
+        "S19_Good_Use_005",
+        "S20_Good_Use_006",
+        "S21_Good_Use_007"
+      ],
       "type": "slideshow",
       "linear": true,
       "shareable": {}
