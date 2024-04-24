@@ -94,6 +94,23 @@
       "type": "slide",
       "shareable": {}
     },
+    "S09_Subcutaneous_Route_002": {
+      "id": "S09_Subcutaneous_Route_002",
+      "name": "S09_Subcutaneous_Route_002",
+      "files": {
+        "templates": [
+          "slides/S09_Subcutaneous_Route_002/S09_Subcutaneous_Route_002.html"
+        ],
+        "scripts": [
+          "slides/S09_Subcutaneous_Route_002/S09_Subcutaneous_Route_002.js"
+        ],
+        "styles": [
+          "slides/S09_Subcutaneous_Route_002/S09_Subcutaneous_Route_002.css"
+        ]
+      },
+      "type": "slide",
+      "shareable": {}
+    },
     "S05_Fr_003": {
       "id": "S05_Fr_003",
       "name": "S05_Fr_003",
@@ -327,7 +344,7 @@
     },
     "Subcutaneous_Route": {
       "name": "Subcutaneous Route",
-      "content": ["S09_Subcutaneous_Route"],
+      "content": ["S09_Subcutaneous_Route", "S09_Subcutaneous_Route_002"],
       "type": "slideshow",
       "linear": true,
       "shareable": {}

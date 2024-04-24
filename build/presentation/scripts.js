@@ -307,27 +307,6 @@ app.register("ag-overlay", function() {
 
 });
 
-app.register("ag-references", function() {
-
-  let contentLength = 0;
-
-  return {
-    setReferences: function(references) {
-      contentLength = references.length;
-      app.view.get('references-overlay').el.innerHTML = `<div class="references-content">${references}</div>`;
-    },
-    toggle: function() {
-      if (contentLength > 0) {
-        app.view.get('references-overlay').el.classList.toggle('hidden');
-      }
-      return contentLength > 0;
-    },
-    close: function() {
-      app.view.get('references-overlay').el.classList.add('hidden');
-    }
-  }
-
-});
 app.register("ag-navigation", function() {
 
   let navigation = null;
@@ -367,11 +346,34 @@ app.register("ag-navigation", function() {
   }
 
 });
+app.register("ag-references", function() {
+
+  let contentLength = 0;
+
+  return {
+    setReferences: function(references) {
+      contentLength = references.length;
+      app.view.get('references-overlay').el.innerHTML = `<div class="references-content">${references}</div>`;
+    },
+    toggle: function() {
+      if (contentLength > 0) {
+        app.view.get('references-overlay').el.classList.toggle('hidden');
+      }
+      return contentLength > 0;
+    },
+    close: function() {
+      app.view.get('references-overlay').el.classList.add('hidden');
+    }
+  }
+
+});
 app.register("S00_Splash", function () {});
 
 app.register("S02_Indications", function () {});
 
 app.register("S01_Home", function () {});
+
+app.register("S04_Fr_002", function () {});
 
 app.register("S05_Fr_003", function() {
 
@@ -383,15 +385,9 @@ app.register("S05_Fr_003", function() {
   }
 
 });
-app.register("S03_Fr", function() {
-});
 app.register("S07_Fr_005", function () {});
 
-app.register("S04_Fr_002", function () {});
-
 app.register("S06_Fr_004", function () {});
-
-app.register("S08_Fr_006", function () {});
 
 app.register("S09_Device_Methofill", function() {
 
@@ -428,6 +424,47 @@ app.register("S09_Subcutaneous_Route", function () {
   };
 });
 
+app.register("S08_Fr_006", function () {});
+
+app.register("S03_Fr", function() {
+});
+app.register("S11_Prescribe", function() {
+
+  let contentSwiper = null;
+  let swiperTimeout = null;
+
+  return {
+    events: {
+      "tap [data-screen]": "updateScreen",
+      "touchStart .swiper-slide": () => { clearTimeout(swiperTimeout); app.lock(); },
+      "touchEnd .swiper-slide": () => { swiperTimeout = setTimeout(() => app.unlock(), 100); },
+    },
+    onRender: function(el) {
+      contentSwiper = new Swiper('#product-swiper', {
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        resistance: false,
+      });
+      contentSwiper.on('touchEnd', swiper => {
+        if (swiper.swipeDirection === 'next' && swiper.realIndex === swiper.slides.length - 1) {
+          app.slideshow.next();
+        } else if (swiper.swipeDirection === 'prev' && swiper.realIndex === 0) {
+          app.slideshow.prev();
+        }
+      });
+    },
+    onExit: function() {
+      contentSwiper.slideTo(0);
+    },
+    onEnter: function(el) {
+      app.registry.get("ag-navigation").updateBackground('light');
+      app.registry.get("ag-references").setReferences('');
+    }
+  }
+
+});
 app.register("S10_Device", function() {
 
   const references = [
@@ -495,6 +532,29 @@ app.register("S10_Device", function() {
   }
 
 });
+app.register("S15_Good_Use", function () {
+  return {
+    events: {},
+    states: [],
+    onRender: function (el) {},
+    onRemove: function (el) {},
+    onEnter: function (el) {},
+    onExit: function (el) {},
+  };
+});
+
+app.register("S14_Summary", function() {
+
+  const references = '1. Data on ﬁle UK-01466. 2. Data on ﬁle UK-01467. 3. Methoﬁll<sup>&reg;</sup> solution for injection in pre-ﬁlled injector SmPC. <br>4. Data on ﬁle UK-01465. 5. EMJ. 2021;6(3):33–39.';
+
+  return {
+    onEnter: function(el) {
+      app.registry.get("ag-navigation").updateBackground('light');
+      app.registry.get("ag-references").setReferences(references);
+    }
+  }
+
+});
 app.register("S12_Patient_Satisfaction", function() {
 
   let index = 0;
@@ -528,89 +588,7 @@ app.register("S12_Patient_Satisfaction", function() {
   }
 
 });
-app.register("S11_Prescribe", function() {
-
-  let contentSwiper = null;
-  let swiperTimeout = null;
-
-  return {
-    events: {
-      "tap [data-screen]": "updateScreen",
-      "touchStart .swiper-slide": () => { clearTimeout(swiperTimeout); app.lock(); },
-      "touchEnd .swiper-slide": () => { swiperTimeout = setTimeout(() => app.unlock(), 100); },
-    },
-    onRender: function(el) {
-      contentSwiper = new Swiper('#product-swiper', {
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        resistance: false,
-      });
-      contentSwiper.on('touchEnd', swiper => {
-        if (swiper.swipeDirection === 'next' && swiper.realIndex === swiper.slides.length - 1) {
-          app.slideshow.next();
-        } else if (swiper.swipeDirection === 'prev' && swiper.realIndex === 0) {
-          app.slideshow.prev();
-        }
-      });
-    },
-    onExit: function() {
-      contentSwiper.slideTo(0);
-    },
-    onEnter: function(el) {
-      app.registry.get("ag-navigation").updateBackground('light');
-      app.registry.get("ag-references").setReferences('');
-    }
-  }
-
-});
-app.register("S14_Summary", function() {
-
-  const references = '1. Data on ﬁle UK-01466. 2. Data on ﬁle UK-01467. 3. Methoﬁll<sup>&reg;</sup> solution for injection in pre-ﬁlled injector SmPC. <br>4. Data on ﬁle UK-01465. 5. EMJ. 2021;6(3):33–39.';
-
-  return {
-    onEnter: function(el) {
-      app.registry.get("ag-navigation").updateBackground('light');
-      app.registry.get("ag-references").setReferences(references);
-    }
-  }
-
-});
 app.register("S16_Good_Use_002", function() {
-
-  return {
-    events: {
-
-    },
-    states: [],
-    onRender: function(el) {
-      
-    },
-    onRemove: function(el) {
-        
-    },
-    onEnter: function(el) {
-
-    },
-    onExit: function(el) {
-
-    }
-  }
-
-});
-app.register("S15_Good_Use", function () {
-  return {
-    events: {},
-    states: [],
-    onRender: function (el) {},
-    onRemove: function (el) {},
-    onEnter: function (el) {},
-    onExit: function (el) {},
-  };
-});
-
-app.register("S18_Good_Use_004", function() {
 
   return {
     events: {
@@ -654,7 +632,7 @@ app.register("S17_Good_Use_003", function() {
   }
 
 });
-app.register("S19_Good_Use_005", function() {
+app.register("S18_Good_Use_004", function() {
 
   return {
     events: {
@@ -676,7 +654,7 @@ app.register("S19_Good_Use_005", function() {
   }
 
 });
-app.register("S21_Good_Use_007", function() {
+app.register("S19_Good_Use_005", function() {
 
   return {
     events: {
@@ -720,32 +698,77 @@ app.register("S20_Good_Use_006", function() {
   }
 
 });
-app.cache.put("modules/ag-header/ag-header.html","<div class=\"header\">\n  <div class=\"home\" data-goto=\"Methofill/Home/S01_Home\"></div>\n  <img src=\"modules/ag-header/assets/brand-lzixate.jpg\" alt=\"Mzixate®\" class=\"brand lzixate\" />\n  <img\n    src=\"modules/ag-header/assets/brand-methotrexate.jpg\"\n    alt=\"Methoﬁll®\"\n    class=\"brand methotrexate\"\n  />\n</div>\n");
+app.register("S21_Good_Use_007", function() {
+
+  return {
+    events: {
+
+    },
+    states: [],
+    onRender: function(el) {
+      
+    },
+    onRemove: function(el) {
+        
+    },
+    onEnter: function(el) {
+
+    },
+    onExit: function(el) {
+
+    }
+  }
+
+});
+app.register("S09_Subcutaneous_Route_002", function () {
+  return {
+    navigate: function (event) {
+      var link = event.target;
+      var path;
+      var regex = new RegExp(/app\./);
+
+      if (link) {
+        if (!link.hasAttribute("data-goto")) link = link.parentNode;
+        path = link.getAttribute("data-goto");
+        if (path) {
+          if (regex.test(path)) {
+            eval(path);
+          } else {
+            app.goTo(path);
+          }
+        }
+      }
+    },
+  };
+});
+
+app.cache.put("modules/ag-header/ag-header.html","<div class=\"header\">\r\n  <div class=\"home\" data-goto=\"Methofill/Home/S01_Home\"></div>\r\n  <img src=\"modules/ag-header/assets/brand-lzixate.jpg\" alt=\"Mzixate®\" class=\"brand lzixate\" />\r\n  <img\r\n    src=\"modules/ag-header/assets/brand-methotrexate.jpg\"\r\n    alt=\"Methoﬁll®\"\r\n    class=\"brand methotrexate\"\r\n  />\r\n</div>\r\n");
 app.cache.put("modules/ag-menu/ag-menu.html","<div>\r\n  <ul class=\"menu\">\r\n    <li\r\n      class=\"active\"\r\n      data-section=\"Subcutaneous\"\r\n      data-goto=\"Methofill/Subcutaneous/S07_Fr_005\"\r\n      title=\"Subcutaneous\"\r\n    ></li>\r\n    <li\r\n      data-section=\"RA\"\r\n      data-goto=\"Methofill/RA/S05_Rheumatoid_Arthritis\"\r\n      title=\"RA\"\r\n    ></li>\r\n    <li\r\n      data-section=\"Device\"\r\n      data-goto=\"Methofill/Device/S09_Device_Methofill\"\r\n      title=\"Device\"\r\n    ></li>\r\n    <li\r\n      data-section=\"Patient_Satisfaction\"\r\n      data-goto=\"Methofill/Patient_Satisfaction/S12_Patient_Satisfaction\"\r\n      title=\"Patient Satisfaction\"\r\n    ></li>\r\n    <li\r\n      data-section=\"Summary\"\r\n      data-goto=\"Methofill/Summary/S14_Summary\"\r\n      title=\"Summary\"\r\n    ></li>\r\n    <li class=\"menu-tab pi-toggle\" title=\"PI & AE Reporting\"></li>\r\n    <li class=\"menu-tab references-toggle\" title=\"References\"></li>\r\n  </ul>\r\n</div>\r\n");
 app.cache.put("modules/ag-overlay/model.json","{\n  \"name\": \"Agnitio Overlay\",\n  \"type\": \"universal\",\n  \"description\": \"Creates an overlay to the presentation.\",\n  \"files\": {\n    \"styles\": [\"modules/ag-overlay/ag-overlay.css\"],\n    \"scripts\": [\"modules/ag-overlay/ag-overlay.js\"]\n  },\n  \"version\": \"0.5.3\"\n}");
-app.cache.put("modules/ag-references/ag-references.html","<div class=\"references-content\"></div>\n");
 app.cache.put("modules/ag-navigation/ag-navigation.html","<div class=\"navigation\" data-background=\"dark\">\n  <div class=\"nav-button nav-previous hidden\" data-direction=\"previous\"></div>\n  <div class=\"nav-button nav-next\" data-direction=\"next\"></div>\n</div>");
+app.cache.put("modules/ag-references/ag-references.html","<div class=\"references-content\"></div>\n");
 app.cache.put("slides/S00_Splash/S00_Splash.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>Splash</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S00_Splash\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S00_Splash/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("slides/S02_Indications/S02_Indications.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>Indications</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S02_Indications\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S02_Indications/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("slides/S01_Home/S01_Home.html","<!DOCTYPE html>\n<html>\n  <head>\n    <title>Home</title>\n  </head>\n  <body>\n    <article id=\"S01_Home\" class=\"slide\">\n      <img\n        class=\"background\"\n        src=\"slides/S01_Home/assets/background.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n      />\n    </article>\n  </body>\n</html>\n");
-app.cache.put("slides/S05_Fr_003/S05_Fr_003.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S05_Fr_003</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S05_Fr_003\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S05_Fr_003/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
-app.cache.put("slides/S03_Fr/S03_Fr.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S03_Fr</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S03_Fr\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S03_Fr/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
-app.cache.put("slides/S07_Fr_005/S07_Fr_005.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S07_Fr_005</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S07_Fr_005\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S07_Fr_005/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("slides/S04_Fr_002/S04_Fr_002.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S04_Fr_002</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S04_Fr_002\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S04_Fr_002/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
+app.cache.put("slides/S05_Fr_003/S05_Fr_003.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S05_Fr_003</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S05_Fr_003\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S05_Fr_003/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
+app.cache.put("slides/S07_Fr_005/S07_Fr_005.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S07_Fr_005</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S07_Fr_005\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S07_Fr_005/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("slides/S06_Fr_004/S06_Fr_004.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S06_Fr_004</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S06_Fr_004\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S06_Fr_004/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
-app.cache.put("slides/S08_Fr_006/S08_Fr_006.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S08_Fr_006</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S08_Fr_006\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S08_Fr_006/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("slides/S09_Device_Methofill/S09_Device_Methofill.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S09_Device_Methofill</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S09_Device_Methofill\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S09_Device_Methofill/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n      <div class=\"overlay-button\" data-overlay=\"popup-indications\"></div>\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("slides/S09_Subcutaneous_Route/S09_Subcutaneous_Route.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S09_Subcutaneous_Route</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S09_Subcutaneous_Route\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S09_Subcutaneous_Route/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n      <div class=\"overlay-buttons\">\r\n        <div class=\"overlay-button\" data-overlay=\"popup-efficacy\"></div>\r\n        <div class=\"overlay-button\" data-overlay=\"popup-reliability\"></div>\r\n        <div\r\n          class=\"overlay-button\"\r\n          data-overlay=\"popup-delay-progression\"\r\n        ></div>\r\n        <div class=\"overlay-button\" data-overlay=\"popup-reduce-intensity\"></div>\r\n      </div>\r\n    </article>\r\n  </body>\r\n</html>\r\n");
-app.cache.put("slides/S10_Device/S10_Device.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S10_Device</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S10_Device\" class=\"slide\">\r\n      <img\r\n        class=\"background active\"\r\n        src=\"slides/S10_Device/assets/background-1.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S10_Device/assets/background-2.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S10_Device/assets/background-3.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S10_Device/assets/background-4.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S10_Device/assets/background-5.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S10_Device/assets/background-6.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S10_Device/assets/background-7.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S10_Device/assets/background-8.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <div class=\"buttons\">\r\n        <div class=\"button\" data-screen=\"0\" data-button=\"0\"></div>\r\n        <div class=\"button\" data-screen=\"1\" data-button=\"1\"></div>\r\n        <div class=\"button\" data-screen=\"2\" data-button=\"1\"></div>\r\n        <div class=\"button\" data-screen=\"3\" data-button=\"1\"></div>\r\n        <div class=\"button\" data-screen=\"4\" data-button=\"1\"></div>\r\n        <div class=\"button\" data-screen=\"5\" data-button=\"1\"></div>\r\n        <div class=\"button\" data-screen=\"6\" data-button=\"1\"></div>\r\n        <div class=\"button\" data-screen=\"7\" data-button=\"1\"></div>\r\n      </div>\r\n      <div class=\"overlay-button hidden\" data-overlay=\"popup-comparison\"></div>\r\n    </article>\r\n  </body>\r\n</html>\r\n");
-app.cache.put("slides/S12_Patient_Satisfaction/S12_Patient_Satisfaction.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S12_Patient_Satisfaction</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S12_Patient_Satisfaction\" class=\"slide\">\r\n      <img\r\n        class=\"background active\"\r\n        src=\"slides/S12_Patient_Satisfaction/assets/background-1.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S12_Patient_Satisfaction/assets/background-2.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S12_Patient_Satisfaction/assets/background-3.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S12_Patient_Satisfaction/assets/background-4.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S12_Patient_Satisfaction/assets/background-5.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S12_Patient_Satisfaction/assets/background-6.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <div class=\"buttons\">\r\n        <div class=\"button\" data-screen=\"0\"></div>\r\n        <div class=\"button\" data-screen=\"1\"></div>\r\n        <div class=\"button\" data-screen=\"2\"></div>\r\n        <div class=\"button\" data-screen=\"3\"></div>\r\n        <div class=\"button\" data-screen=\"4\"></div>\r\n        <div class=\"button\" data-screen=\"5\"></div>\r\n      </div>\r\n    </article>\r\n  </body>\r\n</html>\r\n");
+app.cache.put("slides/S08_Fr_006/S08_Fr_006.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S08_Fr_006</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S08_Fr_006\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S08_Fr_006/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
+app.cache.put("slides/S03_Fr/S03_Fr.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S03_Fr</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S03_Fr\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S03_Fr/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("slides/S11_Prescribe/S11_Prescribe.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S11_Prescribe</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S11_Prescribe\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S11_Prescribe/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n      <div id=\"product-swiper\" class=\"swiper\">\r\n        <div class=\"swiper-wrapper\">\r\n          <div class=\"swiper-slide\">\r\n            <img src=\"slides/S11_Prescribe/assets/background-1.jpg\" alt=\"...\" draggable=\"false\" />\r\n          </div>\r\n          <div class=\"swiper-slide\">\r\n            <img src=\"slides/S11_Prescribe/assets/background-2.jpg\" alt=\"...\" draggable=\"false\" />\r\n          </div>\r\n          <div class=\"swiper-slide\">\r\n            <img\r\n              src=\"slides/S11_Prescribe/assets/background-3.jpg\"\r\n              alt=\"...\"\r\n              draggable=\"false\"\r\n              defer\r\n            />\r\n          </div>\r\n          <div class=\"swiper-slide\">\r\n            <img\r\n              src=\"slides/S11_Prescribe/assets/background-4.jpg\"\r\n              alt=\"...\"\r\n              draggable=\"false\"\r\n              defer\r\n            />\r\n          </div>\r\n          <div class=\"swiper-slide\">\r\n            <img\r\n              src=\"slides/S11_Prescribe/assets/background-5.jpg\"\r\n              alt=\"...\"\r\n              draggable=\"false\"\r\n              defer\r\n            />\r\n          </div>\r\n          <div class=\"swiper-slide\">\r\n            <img\r\n              src=\"slides/S11_Prescribe/assets/background-6.jpg\"\r\n              alt=\"...\"\r\n              draggable=\"false\"\r\n              defer\r\n            />\r\n          </div>\r\n          <div class=\"swiper-slide\">\r\n            <img\r\n              src=\"slides/S11_Prescribe/assets/background-7.jpg\"\r\n              alt=\"...\"\r\n              draggable=\"false\"\r\n              defer\r\n            />\r\n          </div>\r\n          <div class=\"swiper-slide\">\r\n            <img\r\n              src=\"slides/S11_Prescribe/assets/background-8.jpg\"\r\n              alt=\"...\"\r\n              draggable=\"false\"\r\n              defer\r\n            />\r\n          </div>\r\n          <div class=\"swiper-slide\">\r\n            <img\r\n              src=\"slides/S11_Prescribe/assets/background-9.jpg\"\r\n              alt=\"...\"\r\n              draggable=\"false\"\r\n              defer\r\n            />\r\n          </div>\r\n          <div class=\"swiper-slide\">\r\n            <img\r\n              src=\"slides/S11_Prescribe/assets/background-10.jpg\"\r\n              alt=\"...\"\r\n              draggable=\"false\"\r\n              defer\r\n            />\r\n          </div>\r\n          <div class=\"swiper-slide\">\r\n            <img\r\n              src=\"slides/S11_Prescribe/assets/background-11.jpg\"\r\n              alt=\"...\"\r\n              draggable=\"false\"\r\n              defer\r\n            />\r\n          </div>\r\n        </div>\r\n        <div class=\"swiper-pagination\"></div>\r\n      </div>\r\n      <div class=\"footnote\">RA, rheumatoid arthritis.</div>\r\n    </article>\r\n  </body>\r\n</html>\r\n");
+app.cache.put("slides/S10_Device/S10_Device.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S10_Device</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S10_Device\" class=\"slide\">\r\n      <img\r\n        class=\"background active\"\r\n        src=\"slides/S10_Device/assets/background-1.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S10_Device/assets/background-2.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S10_Device/assets/background-3.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S10_Device/assets/background-4.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S10_Device/assets/background-5.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S10_Device/assets/background-6.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S10_Device/assets/background-7.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S10_Device/assets/background-8.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <div class=\"buttons\">\r\n        <div class=\"button\" data-screen=\"0\" data-button=\"0\"></div>\r\n        <div class=\"button\" data-screen=\"1\" data-button=\"1\"></div>\r\n        <div class=\"button\" data-screen=\"2\" data-button=\"1\"></div>\r\n        <div class=\"button\" data-screen=\"3\" data-button=\"1\"></div>\r\n        <div class=\"button\" data-screen=\"4\" data-button=\"1\"></div>\r\n        <div class=\"button\" data-screen=\"5\" data-button=\"1\"></div>\r\n        <div class=\"button\" data-screen=\"6\" data-button=\"1\"></div>\r\n        <div class=\"button\" data-screen=\"7\" data-button=\"1\"></div>\r\n      </div>\r\n      <div class=\"overlay-button hidden\" data-overlay=\"popup-comparison\"></div>\r\n    </article>\r\n  </body>\r\n</html>\r\n");
+app.cache.put("slides/S15_Good_Use/S15_Good_Use.html","</html>\r\n<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S15_Good_Use</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S15_Good_Use\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S15_Good_Use/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("slides/S14_Summary/S14_Summary.html","<!DOCTYPE html>\n<html>\n  <head>\n    <title>S14_Summary</title>\n  </head>\n  <body>\n    <article id=\"S14_Summary\" class=\"slide\">\n      <img\n        class=\"background\"\n        src=\"slides/S14_Summary/assets/background.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n      />\n    </article>\n  </body>\n</html>\n");
-app.cache.put("slides/S16_Good_Use_002/S16_Good_Use_002.html","</html>\n<!DOCTYPE html>\n<html>\n  <head>\n    <title>S16_Good_Use_002</title>\n  </head>\n  <body>\n    <article id=\"S16_Good_Use_002\" class=\"slide\">\n      <img\n        class=\"background\"\n        src=\"slides/S16_Good_Use_002/assets/background.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n      />\n    </article>\n  </body>\n</html>\n");
-app.cache.put("slides/S15_Good_Use/S15_Good_Use.html","</html>\n<!DOCTYPE html>\n<html>\n  <head>\n    <title>S15_Good_Use</title>\n  </head>\n  <body>\n    <article id=\"S15_Good_Use\" class=\"slide\">\n      <img\n        class=\"background\"\n        src=\"slides/S15_Good_Use/assets/background.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n      />\n    </article>\n  </body>\n</html>\n");
-app.cache.put("slides/S18_Good_Use_004/S18_Good_Use_004.html","</html>\n<!DOCTYPE html>\n<html>\n  <head>\n    <title>S18_Good_Use_004</title>\n  </head>\n  <body>\n    <article id=\"S18_Good_Use_004\" class=\"slide\">\n      <img\n        class=\"background\"\n        src=\"slides/S18_Good_Use_004/assets/background.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n      />\n    </article>\n  </body>\n</html>\n");
-app.cache.put("slides/S17_Good_Use_003/S17_Good_Use_003.html","</html>\n<!DOCTYPE html>\n<html>\n  <head>\n    <title>S17_Good_Use_003</title>\n  </head>\n  <body>\n    <article id=\"S17_Good_Use_003\" class=\"slide\">\n      <img\n        class=\"background\"\n        src=\"slides/S17_Good_Use_003/assets/background.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n      />\n    </article>\n  </body>\n</html>\n");
-app.cache.put("slides/S19_Good_Use_005/S19_Good_Use_005.html","</html>\n<!DOCTYPE html>\n<html>\n  <head>\n    <title>S19_Good_Use_005</title>\n  </head>\n  <body>\n    <article id=\"S19_Good_Use_005\" class=\"slide\">\n      <img\n        class=\"background\"\n        src=\"slides/S19_Good_Use_005/assets/background.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n      />\n    </article>\n  </body>\n</html>\n");
-app.cache.put("slides/S21_Good_Use_007/S21_Good_Use_007.html","</html>\n<!DOCTYPE html>\n<html>\n  <head>\n    <title>S21_Good_Use_007</title>\n  </head>\n  <body>\n    <article id=\"S21_Good_Use_007\" class=\"slide\">\n      <img\n        class=\"background\"\n        src=\"slides/S21_Good_Use_007/assets/background.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n      />\n    </article>\n  </body>\n</html>\n");
-app.cache.put("slides/S20_Good_Use_006/S20_Good_Use_006.html","</html>\n<!DOCTYPE html>\n<html>\n  <head>\n    <title>S20_Good_Use_006</title>\n  </head>\n  <body>\n    <article id=\"S20_Good_Use_006\" class=\"slide\">\n      <img\n        class=\"background\"\n        src=\"slides/S20_Good_Use_006/assets/background.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n      />\n    </article>\n  </body>\n</html>\n");
+app.cache.put("slides/S12_Patient_Satisfaction/S12_Patient_Satisfaction.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S12_Patient_Satisfaction</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S12_Patient_Satisfaction\" class=\"slide\">\r\n      <img\r\n        class=\"background active\"\r\n        src=\"slides/S12_Patient_Satisfaction/assets/background-1.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S12_Patient_Satisfaction/assets/background-2.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S12_Patient_Satisfaction/assets/background-3.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S12_Patient_Satisfaction/assets/background-4.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S12_Patient_Satisfaction/assets/background-5.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S12_Patient_Satisfaction/assets/background-6.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <div class=\"buttons\">\r\n        <div class=\"button\" data-screen=\"0\"></div>\r\n        <div class=\"button\" data-screen=\"1\"></div>\r\n        <div class=\"button\" data-screen=\"2\"></div>\r\n        <div class=\"button\" data-screen=\"3\"></div>\r\n        <div class=\"button\" data-screen=\"4\"></div>\r\n        <div class=\"button\" data-screen=\"5\"></div>\r\n      </div>\r\n    </article>\r\n  </body>\r\n</html>\r\n");
+app.cache.put("slides/S16_Good_Use_002/S16_Good_Use_002.html","</html>\r\n<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S16_Good_Use_002</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S16_Good_Use_002\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S16_Good_Use_002/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
+app.cache.put("slides/S17_Good_Use_003/S17_Good_Use_003.html","</html>\r\n<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S17_Good_Use_003</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S17_Good_Use_003\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S17_Good_Use_003/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
+app.cache.put("slides/S18_Good_Use_004/S18_Good_Use_004.html","</html>\r\n<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S18_Good_Use_004</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S18_Good_Use_004\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S18_Good_Use_004/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
+app.cache.put("slides/S19_Good_Use_005/S19_Good_Use_005.html","</html>\r\n<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S19_Good_Use_005</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S19_Good_Use_005\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S19_Good_Use_005/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
+app.cache.put("slides/S20_Good_Use_006/S20_Good_Use_006.html","</html>\r\n<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S20_Good_Use_006</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S20_Good_Use_006\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S20_Good_Use_006/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
+app.cache.put("slides/S21_Good_Use_007/S21_Good_Use_007.html","</html>\r\n<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S21_Good_Use_007</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S21_Good_Use_007\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S21_Good_Use_007/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
+app.cache.put("slides/S09_Subcutaneous_Route_002/S09_Subcutaneous_Route_002.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S09_Subcutaneous_Route_002</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S09_Subcutaneous_Route_002\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S09_Subcutaneous_Route_002/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n      <div class=\"btn lzixate\" data-goto=\"Methofill/Home/S01_Home\"></div>\r\n      <div\r\n        class=\"btn methotrexate\"\r\n        data-goto=\"Methofill/RA/S05_Rheumatoid_Arthritis\"\r\n      ></div>\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("config.json","{\n  \"name\": \"Accord Methofill\",\n  \"model\": \"presentation.json\",\n  \"paths\": {\n    \"slides\": \"slides/<id>/\",\n    \"modules\": \"modules/<id>/\",\n    \"thumbs\": \"slides/<id>/<id>.png\"\n  },\n  \"startPath\": \"Methofill\",\n  \"lang\": \"en\",\n  \"transition\": \"linear\",\n  \"plugins\": [\n    \"storyboard\"\n  ],\n  \"bundle\": {\n    \"presentation\": {\n      \"styles\": [\n        \"accelerator/css/styles.css\",\n        \"templates/master/**/*.{css,styl}\",\n        \"modules/**/*.{css,styl}\",\n        \"slides/**/*.{css,styl}\"\n      ],\n      \"scripts\": [\n        \"accelerator/lib/head.min.js\",\n        \"accelerator/js/init.js\",\n        \"templates/master/**/*.{js,coffee}\",\n        \"modules/**/*.{js,html,json,coffee,md,jade}\",\n        \"slides/**/*.{js,html,json,coffee,md,jade}\",\n        \"config.json\",\n        \"presentation.json\"\n      ]\n    }\n  },\n  \"dependencies\": [\n    { \"src\": \"build/presentation/global.css\" },\n		{ \"src\": \"build/presentation/global.js\" }\n	],\n  \"iPlanner\": {\n    \"bounce\": false\n  },\n  \"ag-microsites\": {\n    \"startPath\": \"\"\n  },\n  \"ag-engager\": {\n    \"startPath\": \"\"\n  },\n  \"ag-remote\": {\n    \"startPath\": \"\"\n  },\n  \"lazy\": true,\n  \"width\": \"100%\",\n  \"height\": \"100%\",\n  \"margin\": 0,\n  \"padding\": 0,\n  \"transitionSpeed\": \"default\"\n}");
-app.cache.put("presentation.json","{\n  \"slides\": {\n    \"S00_Splash\": {\n      \"id\": \"S00_Splash\",\n      \"name\": \"Splash\",\n      \"files\": {\n        \"templates\": [\"slides/S00_Splash/S00_Splash.html\"],\n        \"scripts\": [\"slides/S00_Splash/S00_Splash.js\"],\n        \"styles\": [\"slides/S00_Splash/S00_Splash.css\"]\n      },\n      \"type\": \"slide\",\n      \"shareable\": {}\n    },\n    \"S01_Home\": {\n      \"id\": \"S01_Home\",\n      \"name\": \"Home\",\n      \"files\": {\n        \"templates\": [\"slides/S01_Home/S01_Home.html\"],\n        \"scripts\": [\"slides/S01_Home/S01_Home.js\"],\n        \"styles\": [\"slides/S01_Home/S01_Home.css\"]\n      },\n      \"type\": \"slide\",\n      \"shareable\": {}\n    },\n    \"S02_Indications\": {\n      \"id\": \"S02_Indications\",\n      \"name\": \"Indications\",\n      \"files\": {\n        \"templates\": [\"slides/S02_Indications/S02_Indications.html\"],\n        \"scripts\": [\"slides/S02_Indications/S02_Indications.js\"],\n        \"styles\": [\"slides/S02_Indications/S02_Indications.css\"]\n      },\n      \"type\": \"slide\",\n      \"shareable\": {}\n    },\n    \"S03_Fr\": {\n      \"id\": \"S03_Fr\",\n      \"name\": \"S03_Fr\",\n      \"files\": {\n        \"templates\": [\"slides/S03_Fr/S03_Fr.html\"],\n        \"scripts\": [\"slides/S03_Fr/S03_Fr.js\"],\n        \"styles\": [\"slides/S03_Fr/S03_Fr.css\"]\n      },\n      \"type\": \"slide\",\n      \"shareable\": {}\n    },\n    \"S04_Fr_002\": {\n      \"id\": \"S04_Fr_002\",\n      \"name\": \"S04_Fr_002\",\n      \"files\": {\n        \"templates\": [\"slides/S04_Fr_002/S04_Fr_002.html\"],\n        \"scripts\": [\"slides/S04_Fr_002/S04_Fr_002.js\"],\n        \"styles\": [\"slides/S04_Fr_002/S04_Fr_002.css\"]\n      },\n      \"type\": \"slide\",\n      \"shareable\": {}\n    },\n    \"S07_Fr_005\": {\n      \"id\": \"S07_Fr_005\",\n      \"name\": \"S07_Fr_005 Intro 1\",\n      \"files\": {\n        \"templates\": [\"slides/S07_Fr_005/S07_Fr_005.html\"],\n        \"scripts\": [\"slides/S07_Fr_005/S07_Fr_005.js\"],\n        \"styles\": [\"slides/S07_Fr_005/S07_Fr_005.css\"]\n      },\n      \"type\": \"slide\",\n      \"shareable\": {}\n    },\n    \"S08_Fr_006\": {\n      \"id\": \"S08_Fr_006\",\n      \"name\": \"S07_Fr_005 Intro 2\",\n      \"files\": {\n        \"templates\": [\"slides/S08_Fr_006/S08_Fr_006.html\"],\n        \"scripts\": [\"slides/S08_Fr_006/S08_Fr_006.js\"],\n        \"styles\": [\"slides/S08_Fr_006/S08_Fr_006.css\"]\n      },\n      \"type\": \"slide\",\n      \"shareable\": {}\n    },\n    \"S09_Subcutaneous_Route\": {\n      \"id\": \"S09_Subcutaneous_Route\",\n      \"name\": \"S09_Subcutaneous_Route\",\n      \"files\": {\n        \"templates\": [\n          \"slides/S09_Subcutaneous_Route/S09_Subcutaneous_Route.html\"\n        ],\n        \"scripts\": [\n          \"slides/S09_Subcutaneous_Route/S09_Subcutaneous_Route.js\"\n        ],\n        \"styles\": [\n          \"slides/S09_Subcutaneous_Route/S09_Subcutaneous_Route.css\"\n        ]\n      },\n      \"type\": \"slide\",\n      \"shareable\": {}\n    },\n    \"S05_Fr_003\": {\n      \"id\": \"S05_Fr_003\",\n      \"name\": \"S05_Fr_003\",\n      \"files\": {\n        \"templates\": [\"slides/S05_Fr_003/S05_Fr_003.html\"],\n        \"scripts\": [\"slides/S05_Fr_003/S05_Fr_003.js\"],\n        \"styles\": [\"slides/S05_Fr_003/S05_Fr_003.css\"]\n      },\n      \"type\": \"slide\",\n      \"shareable\": {}\n    },\n    \"S06_Fr_004\": {\n      \"id\": \"S06_Fr_004\",\n      \"name\": \"S06_Fr_004\",\n      \"files\": {\n        \"templates\": [\"slides/S06_Fr_004/S06_Fr_004.html\"],\n        \"scripts\": [\"slides/S06_Fr_004/S06_Fr_004.js\"],\n        \"styles\": [\"slides/S06_Fr_004/S06_Fr_004.css\"]\n      },\n      \"type\": \"slide\",\n      \"shareable\": {}\n    },\n    \"S09_Device_Methofill\": {\n      \"id\": \"S09_Device_Methofill\",\n      \"name\": \"S09_Device_Methofill\",\n      \"files\": {\n        \"templates\": [\"slides/S09_Device_Methofill/S09_Device_Methofill.html\"],\n        \"scripts\": [\"slides/S09_Device_Methofill/S09_Device_Methofill.js\"],\n        \"styles\": [\"slides/S09_Device_Methofill/S09_Device_Methofill.css\"]\n      },\n      \"type\": \"slide\",\n      \"shareable\": {}\n    },\n    \"S10_Device\": {\n      \"id\": \"S10_Device\",\n      \"name\": \"S10_Device\",\n      \"files\": {\n        \"templates\": [\"slides/S10_Device/S10_Device.html\"],\n        \"scripts\": [\"slides/S10_Device/S10_Device.js\"],\n        \"styles\": [\"slides/S10_Device/S10_Device.css\"]\n      },\n      \"type\": \"slide\",\n      \"shareable\": {}\n    },\n    \"S11_Prescribe\": {\n      \"id\": \"S11_Prescribe\",\n      \"name\": \"S11_Prescribe\",\n      \"files\": {\n        \"templates\": [\"slides/S11_Prescribe/S11_Prescribe.html\"],\n        \"scripts\": [\"slides/S11_Prescribe/S11_Prescribe.js\"],\n        \"styles\": [\"slides/S11_Prescribe/S11_Prescribe.css\"]\n      },\n      \"type\": \"slide\",\n      \"shareable\": {}\n    },\n    \"S12_Patient_Satisfaction\": {\n      \"id\": \"S12_Patient_Satisfaction\",\n      \"name\": \"S12_Patient_Satisfaction\",\n      \"files\": {\n        \"templates\": [\n          \"slides/S12_Patient_Satisfaction/S12_Patient_Satisfaction.html\"\n        ],\n        \"scripts\": [\n          \"slides/S12_Patient_Satisfaction/S12_Patient_Satisfaction.js\"\n        ],\n        \"styles\": [\n          \"slides/S12_Patient_Satisfaction/S12_Patient_Satisfaction.css\"\n        ]\n      },\n      \"type\": \"slide\",\n      \"shareable\": {}\n    },\n    \"S13_Support\": {\n      \"id\": \"S13_Support\",\n      \"name\": \"S13_Support\",\n      \"files\": {\n        \"templates\": [\"slides/S13_Support/S13_Support.html\"],\n        \"scripts\": [\"slides/S13_Support/S13_Support.js\"],\n        \"styles\": [\"slides/S13_Support/S13_Support.css\"]\n      },\n      \"type\": \"slide\",\n      \"shareable\": {}\n    },\n    \"S14_Summary\": {\n      \"id\": \"S14_Summary\",\n      \"name\": \"S14_Summary\",\n      \"files\": {\n        \"templates\": [\"slides/S14_Summary/S14_Summary.html\"],\n        \"scripts\": [\"slides/S14_Summary/S14_Summary.js\"],\n        \"styles\": [\"slides/S14_Summary/S14_Summary.css\"]\n      },\n      \"type\": \"slide\",\n      \"shareable\": {}\n    },\n    \"S15_Good_Use\": {\n      \"id\": \"S15_Good_Use\",\n      \"name\": \"S15_Good_Use\",\n      \"files\": {\n        \"templates\": [\"slides/S15_Good_Use/S15_Good_Use.html\"],\n        \"scripts\": [\"slides/S15_Good_Use/S15_Good_Use.js\"],\n        \"styles\": [\"slides/S15_Good_Use/S15_Good_Use.css\"]\n      }\n    },\n    \"S16_Good_Use_002\": {\n      \"id\": \"S16_Good_Use_002\",\n      \"name\": \"S16_Good_Use_002\",\n      \"files\": {\n        \"templates\": [\"slides/S16_Good_Use_002/S16_Good_Use_002.html\"],\n        \"scripts\": [\"slides/S16_Good_Use_002/S16_Good_Use_002.js\"],\n        \"styles\": [\"slides/S16_Good_Use_002/S16_Good_Use_002.css\"]\n      }\n    },\n    \"S17_Good_Use_003\": {\n      \"id\": \"S17_Good_Use_003\",\n      \"name\": \"S17_Good_Use_003\",\n      \"files\": {\n        \"templates\": [\"slides/S17_Good_Use_003/S17_Good_Use_003.html\"],\n        \"scripts\": [\"slides/S17_Good_Use_003/S17_Good_Use_003.js\"],\n        \"styles\": [\"slides/S17_Good_Use_003/S17_Good_Use_003.css\"]\n      }\n    },\n    \"S18_Good_Use_004\": {\n      \"id\": \"S18_Good_Use_004\",\n      \"name\": \"S18_Good_Use_004\",\n      \"files\": {\n        \"templates\": [\"slides/S18_Good_Use_004/S18_Good_Use_004.html\"],\n        \"scripts\": [\"slides/S18_Good_Use_004/S18_Good_Use_004.js\"],\n        \"styles\": [\"slides/S18_Good_Use_004/S18_Good_Use_004.css\"]\n      }\n    },\n    \"S19_Good_Use_005\": {\n      \"id\": \"S19_Good_Use_005\",\n      \"name\": \"S19_Good_Use_005\",\n      \"files\": {\n        \"templates\": [\"slides/S19_Good_Use_005/S19_Good_Use_005.html\"],\n        \"scripts\": [\"slides/S19_Good_Use_005/S19_Good_Use_005.js\"],\n        \"styles\": [\"slides/S19_Good_Use_005/S19_Good_Use_005.css\"]\n      }\n    },\n    \"S20_Good_Use_006\": {\n      \"id\": \"S20_Good_Use_006\",\n      \"name\": \"S20_Good_Use_006\",\n      \"files\": {\n        \"templates\": [\"slides/S20_Good_Use_006/S20_Good_Use_006.html\"],\n        \"scripts\": [\"slides/S20_Good_Use_006/S20_Good_Use_006.js\"],\n        \"styles\": [\"slides/S20_Good_Use_006/S20_Good_Use_006.css\"]\n      }\n    },\n    \"S21_Good_Use_007\": {\n      \"id\": \"S21_Good_Use_007\",\n      \"name\": \"S21_Good_Use_007\",\n      \"files\": {\n        \"templates\": [\"slides/S21_Good_Use_007/S21_Good_Use_007.html\"],\n        \"scripts\": [\"slides/S21_Good_Use_007/S21_Good_Use_007.js\"],\n        \"styles\": [\"slides/S21_Good_Use_007/S21_Good_Use_007.css\"]\n      }\n    }\n  },\n  \"modules\": {\n    \"ag-navigation\": {\n      \"id\": \"ag-navigation\",\n      \"files\": {\n        \"templates\": [\"modules/ag-navigation/ag-navigation.html\"],\n        \"scripts\": [\"modules/ag-navigation/ag-navigation.js\"],\n        \"styles\": [\"modules/ag-navigation/ag-navigation.css\"]\n      }\n    },\n    \"ag-menu\": {\n      \"id\": \"ag-menu\",\n      \"files\": {\n        \"templates\": [\"modules/ag-menu/ag-menu.html\"],\n        \"scripts\": [\"modules/ag-menu/ag-menu.js\"],\n        \"styles\": [\"modules/ag-menu/ag-menu.css\"]\n      }\n    },\n    \"ag-overlay\": {\n      \"name\": \"Agnitio Overlay\",\n      \"type\": \"universal\",\n      \"description\": \"Creates an overlay to the presentation.\",\n      \"files\": {\n        \"styles\": [\"modules/ag-overlay/ag-overlay.css\"],\n        \"scripts\": [\"modules/ag-overlay/ag-overlay.js\"]\n      },\n      \"version\": \"0.5.3\"\n    },\n    \"ag-header\": {\n      \"id\": \"ag-header\",\n      \"files\": {\n        \"templates\": [\"modules/ag-header/ag-header.html\"],\n        \"scripts\": [\"modules/ag-header/ag-header.js\"],\n        \"styles\": [\"modules/ag-header/ag-header.css\"]\n      }\n    },\n    \"ag-references\": {\n      \"id\": \"ag-references\",\n      \"files\": {\n        \"templates\": [\"modules/ag-references/ag-references.html\"],\n        \"scripts\": [\"modules/ag-references/ag-references.js\"],\n        \"styles\": [\"modules/ag-references/ag-references.css\"]\n      }\n    }\n  },\n  \"structures\": {\n    \"Home\": {\n      \"name\": \"Home\",\n      \"content\": [\"S00_Splash\", \"S01_Home\"],\n      \"type\": \"slideshow\",\n      \"linear\": true,\n      \"shareable\": {}\n    },\n    \"Indications\": {\n      \"name\": \"Indications\",\n      \"content\": [\"S02_Indications\"],\n      \"type\": \"slideshow\",\n      \"linear\": true,\n      \"shareable\": {}\n    },\n    \"Fr\": {\n      \"name\": \"Fr\",\n      \"content\": [\n        \"S03_Fr\",\n        \"S04_Fr_002\",\n        \"S05_Fr_003\",\n        \"S06_Fr_004\",\n        \"S07_Fr_005\",\n        \"S08_Fr_006\"\n      ],\n      \"type\": \"slideshow\",\n      \"linear\": true,\n      \"shareable\": {}\n    },\n    \"Subcutaneous_Route\": {\n      \"name\": \"Subcutaneous Route\",\n      \"content\": [\"S09_Subcutaneous_Route\"],\n      \"type\": \"slideshow\",\n      \"linear\": true,\n      \"shareable\": {}\n    },\n    \"Device\": {\n      \"name\": \"Device\",\n      \"content\": [\"S09_Device_Methofill\", \"S10_Device\", \"S11_Prescribe\"],\n      \"type\": \"slideshow\",\n      \"linear\": true,\n      \"shareable\": {}\n    },\n    \"Patient_Satisfaction\": {\n      \"name\": \"Patient Satisfaction\",\n      \"content\": [\"S12_Patient_Satisfaction\"],\n      \"type\": \"slideshow\",\n      \"linear\": true,\n      \"shareable\": {}\n    },\n    \"Summary\": {\n      \"name\": \"Summary\",\n      \"content\": [\"S14_Summary\"],\n      \"type\": \"slideshow\",\n      \"linear\": true,\n      \"shareable\": {}\n    },\n    \"Good_Use\": {\n      \"name\": \"Good Use\",\n      \"content\": [\n        \"S15_Good_Use\",\n        \"S16_Good_Use_002\",\n        \"S17_Good_Use_003\",\n        \"S18_Good_Use_004\",\n        \"S19_Good_Use_005\",\n        \"S20_Good_Use_006\",\n        \"S21_Good_Use_007\"\n      ],\n      \"type\": \"slideshow\",\n      \"linear\": true,\n      \"shareable\": {}\n    }\n  },\n  \"storyboard\": [\"Methofill\"],\n  \"storyboards\": {\n    \"Methofill\": {\n      \"name\": \"Methofill\",\n      \"content\": [\n        \"Home\",\n        \"Indications\",\n        \"Fr\",\n        \"Subcutaneous_Route\",\n        \"Device\",\n        \"Patient_Satisfaction\",\n        \"Summary\",\n        \"Good_Use\"\n      ],\n      \"linear\": true\n    }\n  }\n}\n");
+app.cache.put("presentation.json","{\r\n  \"slides\": {\r\n    \"S00_Splash\": {\r\n      \"id\": \"S00_Splash\",\r\n      \"name\": \"Splash\",\r\n      \"files\": {\r\n        \"templates\": [\"slides/S00_Splash/S00_Splash.html\"],\r\n        \"scripts\": [\"slides/S00_Splash/S00_Splash.js\"],\r\n        \"styles\": [\"slides/S00_Splash/S00_Splash.css\"]\r\n      },\r\n      \"type\": \"slide\",\r\n      \"shareable\": {}\r\n    },\r\n    \"S01_Home\": {\r\n      \"id\": \"S01_Home\",\r\n      \"name\": \"Home\",\r\n      \"files\": {\r\n        \"templates\": [\"slides/S01_Home/S01_Home.html\"],\r\n        \"scripts\": [\"slides/S01_Home/S01_Home.js\"],\r\n        \"styles\": [\"slides/S01_Home/S01_Home.css\"]\r\n      },\r\n      \"type\": \"slide\",\r\n      \"shareable\": {}\r\n    },\r\n    \"S02_Indications\": {\r\n      \"id\": \"S02_Indications\",\r\n      \"name\": \"Indications\",\r\n      \"files\": {\r\n        \"templates\": [\"slides/S02_Indications/S02_Indications.html\"],\r\n        \"scripts\": [\"slides/S02_Indications/S02_Indications.js\"],\r\n        \"styles\": [\"slides/S02_Indications/S02_Indications.css\"]\r\n      },\r\n      \"type\": \"slide\",\r\n      \"shareable\": {}\r\n    },\r\n    \"S03_Fr\": {\r\n      \"id\": \"S03_Fr\",\r\n      \"name\": \"S03_Fr\",\r\n      \"files\": {\r\n        \"templates\": [\"slides/S03_Fr/S03_Fr.html\"],\r\n        \"scripts\": [\"slides/S03_Fr/S03_Fr.js\"],\r\n        \"styles\": [\"slides/S03_Fr/S03_Fr.css\"]\r\n      },\r\n      \"type\": \"slide\",\r\n      \"shareable\": {}\r\n    },\r\n    \"S04_Fr_002\": {\r\n      \"id\": \"S04_Fr_002\",\r\n      \"name\": \"S04_Fr_002\",\r\n      \"files\": {\r\n        \"templates\": [\"slides/S04_Fr_002/S04_Fr_002.html\"],\r\n        \"scripts\": [\"slides/S04_Fr_002/S04_Fr_002.js\"],\r\n        \"styles\": [\"slides/S04_Fr_002/S04_Fr_002.css\"]\r\n      },\r\n      \"type\": \"slide\",\r\n      \"shareable\": {}\r\n    },\r\n    \"S07_Fr_005\": {\r\n      \"id\": \"S07_Fr_005\",\r\n      \"name\": \"S07_Fr_005 Intro 1\",\r\n      \"files\": {\r\n        \"templates\": [\"slides/S07_Fr_005/S07_Fr_005.html\"],\r\n        \"scripts\": [\"slides/S07_Fr_005/S07_Fr_005.js\"],\r\n        \"styles\": [\"slides/S07_Fr_005/S07_Fr_005.css\"]\r\n      },\r\n      \"type\": \"slide\",\r\n      \"shareable\": {}\r\n    },\r\n    \"S08_Fr_006\": {\r\n      \"id\": \"S08_Fr_006\",\r\n      \"name\": \"S07_Fr_005 Intro 2\",\r\n      \"files\": {\r\n        \"templates\": [\"slides/S08_Fr_006/S08_Fr_006.html\"],\r\n        \"scripts\": [\"slides/S08_Fr_006/S08_Fr_006.js\"],\r\n        \"styles\": [\"slides/S08_Fr_006/S08_Fr_006.css\"]\r\n      },\r\n      \"type\": \"slide\",\r\n      \"shareable\": {}\r\n    },\r\n    \"S09_Subcutaneous_Route\": {\r\n      \"id\": \"S09_Subcutaneous_Route\",\r\n      \"name\": \"S09_Subcutaneous_Route\",\r\n      \"files\": {\r\n        \"templates\": [\r\n          \"slides/S09_Subcutaneous_Route/S09_Subcutaneous_Route.html\"\r\n        ],\r\n        \"scripts\": [\r\n          \"slides/S09_Subcutaneous_Route/S09_Subcutaneous_Route.js\"\r\n        ],\r\n        \"styles\": [\r\n          \"slides/S09_Subcutaneous_Route/S09_Subcutaneous_Route.css\"\r\n        ]\r\n      },\r\n      \"type\": \"slide\",\r\n      \"shareable\": {}\r\n    },\r\n    \"S09_Subcutaneous_Route_002\": {\r\n      \"id\": \"S09_Subcutaneous_Route_002\",\r\n      \"name\": \"S09_Subcutaneous_Route_002\",\r\n      \"files\": {\r\n        \"templates\": [\r\n          \"slides/S09_Subcutaneous_Route_002/S09_Subcutaneous_Route_002.html\"\r\n        ],\r\n        \"scripts\": [\r\n          \"slides/S09_Subcutaneous_Route_002/S09_Subcutaneous_Route_002.js\"\r\n        ],\r\n        \"styles\": [\r\n          \"slides/S09_Subcutaneous_Route_002/S09_Subcutaneous_Route_002.css\"\r\n        ]\r\n      },\r\n      \"type\": \"slide\",\r\n      \"shareable\": {}\r\n    },\r\n    \"S05_Fr_003\": {\r\n      \"id\": \"S05_Fr_003\",\r\n      \"name\": \"S05_Fr_003\",\r\n      \"files\": {\r\n        \"templates\": [\"slides/S05_Fr_003/S05_Fr_003.html\"],\r\n        \"scripts\": [\"slides/S05_Fr_003/S05_Fr_003.js\"],\r\n        \"styles\": [\"slides/S05_Fr_003/S05_Fr_003.css\"]\r\n      },\r\n      \"type\": \"slide\",\r\n      \"shareable\": {}\r\n    },\r\n    \"S06_Fr_004\": {\r\n      \"id\": \"S06_Fr_004\",\r\n      \"name\": \"S06_Fr_004\",\r\n      \"files\": {\r\n        \"templates\": [\"slides/S06_Fr_004/S06_Fr_004.html\"],\r\n        \"scripts\": [\"slides/S06_Fr_004/S06_Fr_004.js\"],\r\n        \"styles\": [\"slides/S06_Fr_004/S06_Fr_004.css\"]\r\n      },\r\n      \"type\": \"slide\",\r\n      \"shareable\": {}\r\n    },\r\n    \"S09_Device_Methofill\": {\r\n      \"id\": \"S09_Device_Methofill\",\r\n      \"name\": \"S09_Device_Methofill\",\r\n      \"files\": {\r\n        \"templates\": [\"slides/S09_Device_Methofill/S09_Device_Methofill.html\"],\r\n        \"scripts\": [\"slides/S09_Device_Methofill/S09_Device_Methofill.js\"],\r\n        \"styles\": [\"slides/S09_Device_Methofill/S09_Device_Methofill.css\"]\r\n      },\r\n      \"type\": \"slide\",\r\n      \"shareable\": {}\r\n    },\r\n    \"S10_Device\": {\r\n      \"id\": \"S10_Device\",\r\n      \"name\": \"S10_Device\",\r\n      \"files\": {\r\n        \"templates\": [\"slides/S10_Device/S10_Device.html\"],\r\n        \"scripts\": [\"slides/S10_Device/S10_Device.js\"],\r\n        \"styles\": [\"slides/S10_Device/S10_Device.css\"]\r\n      },\r\n      \"type\": \"slide\",\r\n      \"shareable\": {}\r\n    },\r\n    \"S11_Prescribe\": {\r\n      \"id\": \"S11_Prescribe\",\r\n      \"name\": \"S11_Prescribe\",\r\n      \"files\": {\r\n        \"templates\": [\"slides/S11_Prescribe/S11_Prescribe.html\"],\r\n        \"scripts\": [\"slides/S11_Prescribe/S11_Prescribe.js\"],\r\n        \"styles\": [\"slides/S11_Prescribe/S11_Prescribe.css\"]\r\n      },\r\n      \"type\": \"slide\",\r\n      \"shareable\": {}\r\n    },\r\n    \"S12_Patient_Satisfaction\": {\r\n      \"id\": \"S12_Patient_Satisfaction\",\r\n      \"name\": \"S12_Patient_Satisfaction\",\r\n      \"files\": {\r\n        \"templates\": [\r\n          \"slides/S12_Patient_Satisfaction/S12_Patient_Satisfaction.html\"\r\n        ],\r\n        \"scripts\": [\r\n          \"slides/S12_Patient_Satisfaction/S12_Patient_Satisfaction.js\"\r\n        ],\r\n        \"styles\": [\r\n          \"slides/S12_Patient_Satisfaction/S12_Patient_Satisfaction.css\"\r\n        ]\r\n      },\r\n      \"type\": \"slide\",\r\n      \"shareable\": {}\r\n    },\r\n    \"S13_Support\": {\r\n      \"id\": \"S13_Support\",\r\n      \"name\": \"S13_Support\",\r\n      \"files\": {\r\n        \"templates\": [\"slides/S13_Support/S13_Support.html\"],\r\n        \"scripts\": [\"slides/S13_Support/S13_Support.js\"],\r\n        \"styles\": [\"slides/S13_Support/S13_Support.css\"]\r\n      },\r\n      \"type\": \"slide\",\r\n      \"shareable\": {}\r\n    },\r\n    \"S14_Summary\": {\r\n      \"id\": \"S14_Summary\",\r\n      \"name\": \"S14_Summary\",\r\n      \"files\": {\r\n        \"templates\": [\"slides/S14_Summary/S14_Summary.html\"],\r\n        \"scripts\": [\"slides/S14_Summary/S14_Summary.js\"],\r\n        \"styles\": [\"slides/S14_Summary/S14_Summary.css\"]\r\n      },\r\n      \"type\": \"slide\",\r\n      \"shareable\": {}\r\n    },\r\n    \"S15_Good_Use\": {\r\n      \"id\": \"S15_Good_Use\",\r\n      \"name\": \"S15_Good_Use\",\r\n      \"files\": {\r\n        \"templates\": [\"slides/S15_Good_Use/S15_Good_Use.html\"],\r\n        \"scripts\": [\"slides/S15_Good_Use/S15_Good_Use.js\"],\r\n        \"styles\": [\"slides/S15_Good_Use/S15_Good_Use.css\"]\r\n      }\r\n    },\r\n    \"S16_Good_Use_002\": {\r\n      \"id\": \"S16_Good_Use_002\",\r\n      \"name\": \"S16_Good_Use_002\",\r\n      \"files\": {\r\n        \"templates\": [\"slides/S16_Good_Use_002/S16_Good_Use_002.html\"],\r\n        \"scripts\": [\"slides/S16_Good_Use_002/S16_Good_Use_002.js\"],\r\n        \"styles\": [\"slides/S16_Good_Use_002/S16_Good_Use_002.css\"]\r\n      }\r\n    },\r\n    \"S17_Good_Use_003\": {\r\n      \"id\": \"S17_Good_Use_003\",\r\n      \"name\": \"S17_Good_Use_003\",\r\n      \"files\": {\r\n        \"templates\": [\"slides/S17_Good_Use_003/S17_Good_Use_003.html\"],\r\n        \"scripts\": [\"slides/S17_Good_Use_003/S17_Good_Use_003.js\"],\r\n        \"styles\": [\"slides/S17_Good_Use_003/S17_Good_Use_003.css\"]\r\n      }\r\n    },\r\n    \"S18_Good_Use_004\": {\r\n      \"id\": \"S18_Good_Use_004\",\r\n      \"name\": \"S18_Good_Use_004\",\r\n      \"files\": {\r\n        \"templates\": [\"slides/S18_Good_Use_004/S18_Good_Use_004.html\"],\r\n        \"scripts\": [\"slides/S18_Good_Use_004/S18_Good_Use_004.js\"],\r\n        \"styles\": [\"slides/S18_Good_Use_004/S18_Good_Use_004.css\"]\r\n      }\r\n    },\r\n    \"S19_Good_Use_005\": {\r\n      \"id\": \"S19_Good_Use_005\",\r\n      \"name\": \"S19_Good_Use_005\",\r\n      \"files\": {\r\n        \"templates\": [\"slides/S19_Good_Use_005/S19_Good_Use_005.html\"],\r\n        \"scripts\": [\"slides/S19_Good_Use_005/S19_Good_Use_005.js\"],\r\n        \"styles\": [\"slides/S19_Good_Use_005/S19_Good_Use_005.css\"]\r\n      }\r\n    },\r\n    \"S20_Good_Use_006\": {\r\n      \"id\": \"S20_Good_Use_006\",\r\n      \"name\": \"S20_Good_Use_006\",\r\n      \"files\": {\r\n        \"templates\": [\"slides/S20_Good_Use_006/S20_Good_Use_006.html\"],\r\n        \"scripts\": [\"slides/S20_Good_Use_006/S20_Good_Use_006.js\"],\r\n        \"styles\": [\"slides/S20_Good_Use_006/S20_Good_Use_006.css\"]\r\n      }\r\n    },\r\n    \"S21_Good_Use_007\": {\r\n      \"id\": \"S21_Good_Use_007\",\r\n      \"name\": \"S21_Good_Use_007\",\r\n      \"files\": {\r\n        \"templates\": [\"slides/S21_Good_Use_007/S21_Good_Use_007.html\"],\r\n        \"scripts\": [\"slides/S21_Good_Use_007/S21_Good_Use_007.js\"],\r\n        \"styles\": [\"slides/S21_Good_Use_007/S21_Good_Use_007.css\"]\r\n      }\r\n    }\r\n  },\r\n  \"modules\": {\r\n    \"ag-navigation\": {\r\n      \"id\": \"ag-navigation\",\r\n      \"files\": {\r\n        \"templates\": [\"modules/ag-navigation/ag-navigation.html\"],\r\n        \"scripts\": [\"modules/ag-navigation/ag-navigation.js\"],\r\n        \"styles\": [\"modules/ag-navigation/ag-navigation.css\"]\r\n      }\r\n    },\r\n    \"ag-menu\": {\r\n      \"id\": \"ag-menu\",\r\n      \"files\": {\r\n        \"templates\": [\"modules/ag-menu/ag-menu.html\"],\r\n        \"scripts\": [\"modules/ag-menu/ag-menu.js\"],\r\n        \"styles\": [\"modules/ag-menu/ag-menu.css\"]\r\n      }\r\n    },\r\n    \"ag-overlay\": {\r\n      \"name\": \"Agnitio Overlay\",\r\n      \"type\": \"universal\",\r\n      \"description\": \"Creates an overlay to the presentation.\",\r\n      \"files\": {\r\n        \"styles\": [\"modules/ag-overlay/ag-overlay.css\"],\r\n        \"scripts\": [\"modules/ag-overlay/ag-overlay.js\"]\r\n      },\r\n      \"version\": \"0.5.3\"\r\n    },\r\n    \"ag-header\": {\r\n      \"id\": \"ag-header\",\r\n      \"files\": {\r\n        \"templates\": [\"modules/ag-header/ag-header.html\"],\r\n        \"scripts\": [\"modules/ag-header/ag-header.js\"],\r\n        \"styles\": [\"modules/ag-header/ag-header.css\"]\r\n      }\r\n    },\r\n    \"ag-references\": {\r\n      \"id\": \"ag-references\",\r\n      \"files\": {\r\n        \"templates\": [\"modules/ag-references/ag-references.html\"],\r\n        \"scripts\": [\"modules/ag-references/ag-references.js\"],\r\n        \"styles\": [\"modules/ag-references/ag-references.css\"]\r\n      }\r\n    }\r\n  },\r\n  \"structures\": {\r\n    \"Home\": {\r\n      \"name\": \"Home\",\r\n      \"content\": [\"S00_Splash\", \"S01_Home\"],\r\n      \"type\": \"slideshow\",\r\n      \"linear\": true,\r\n      \"shareable\": {}\r\n    },\r\n    \"Indications\": {\r\n      \"name\": \"Indications\",\r\n      \"content\": [\"S02_Indications\"],\r\n      \"type\": \"slideshow\",\r\n      \"linear\": true,\r\n      \"shareable\": {}\r\n    },\r\n    \"Fr\": {\r\n      \"name\": \"Fr\",\r\n      \"content\": [\r\n        \"S03_Fr\",\r\n        \"S04_Fr_002\",\r\n        \"S05_Fr_003\",\r\n        \"S06_Fr_004\",\r\n        \"S07_Fr_005\",\r\n        \"S08_Fr_006\"\r\n      ],\r\n      \"type\": \"slideshow\",\r\n      \"linear\": true,\r\n      \"shareable\": {}\r\n    },\r\n    \"Subcutaneous_Route\": {\r\n      \"name\": \"Subcutaneous Route\",\r\n      \"content\": [\"S09_Subcutaneous_Route\", \"S09_Subcutaneous_Route_002\"],\r\n      \"type\": \"slideshow\",\r\n      \"linear\": true,\r\n      \"shareable\": {}\r\n    },\r\n    \"Device\": {\r\n      \"name\": \"Device\",\r\n      \"content\": [\"S09_Device_Methofill\", \"S10_Device\", \"S11_Prescribe\"],\r\n      \"type\": \"slideshow\",\r\n      \"linear\": true,\r\n      \"shareable\": {}\r\n    },\r\n    \"Patient_Satisfaction\": {\r\n      \"name\": \"Patient Satisfaction\",\r\n      \"content\": [\"S12_Patient_Satisfaction\"],\r\n      \"type\": \"slideshow\",\r\n      \"linear\": true,\r\n      \"shareable\": {}\r\n    },\r\n    \"Summary\": {\r\n      \"name\": \"Summary\",\r\n      \"content\": [\"S14_Summary\"],\r\n      \"type\": \"slideshow\",\r\n      \"linear\": true,\r\n      \"shareable\": {}\r\n    },\r\n    \"Good_Use\": {\r\n      \"name\": \"Good Use\",\r\n      \"content\": [\r\n        \"S15_Good_Use\",\r\n        \"S16_Good_Use_002\",\r\n        \"S17_Good_Use_003\",\r\n        \"S18_Good_Use_004\",\r\n        \"S19_Good_Use_005\",\r\n        \"S20_Good_Use_006\",\r\n        \"S21_Good_Use_007\"\r\n      ],\r\n      \"type\": \"slideshow\",\r\n      \"linear\": true,\r\n      \"shareable\": {}\r\n    }\r\n  },\r\n  \"storyboard\": [\"Methofill\"],\r\n  \"storyboards\": {\r\n    \"Methofill\": {\r\n      \"name\": \"Methofill\",\r\n      \"content\": [\r\n        \"Home\",\r\n        \"Indications\",\r\n        \"Fr\",\r\n        \"Subcutaneous_Route\",\r\n        \"Device\",\r\n        \"Patient_Satisfaction\",\r\n        \"Summary\",\r\n        \"Good_Use\"\r\n      ],\r\n      \"linear\": true\r\n    }\r\n  }\r\n}\r\n");

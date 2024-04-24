@@ -1,0 +1,17 @@
+#S09_Subcutaneous_Route_002 .btn {
+  cursor: pointer;
+
+  width: 13.8rem;
+  height: 3.5rem;
+
+  position: absolute;
+  bottom: 9.5rem;
+}
+
+#S09_Subcutaneous_Route_002 .btn.lzixate {
+  left: 13.5rem;
+}
+
+#S09_Subcutaneous_Route_002 .btn.methotrexate {
+  right: 13.5rem;
+}
