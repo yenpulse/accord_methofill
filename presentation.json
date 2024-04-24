@@ -44,6 +44,23 @@
       "type": "slide",
       "shareable": {}
     },
+    "S03_Fr": {
+      "id": "S03_Fr",
+      "name": "S03_Fr",
+      "files": {
+        "templates": [
+          "slides/S03_Fr/S03_Fr.html"
+        ],
+        "scripts": [
+          "slides/S03_Fr/S03_Fr.js"
+        ],
+        "styles": [
+          "slides/S03_Fr/S03_Fr.css"
+        ]
+      },
+      "type": "slide",
+      "shareable": {}
+    },
     "S03_Subcutaneous_2": {
       "id": "S03_Subcutaneous_2",
       "name": "S02_Subcutaneous Intro 2",
@@ -67,23 +84,6 @@
         ],
         "styles": [
           "slides/S04_Subcutaneous_Administration/S04_Subcutaneous_Administration.css"
-        ]
-      },
-      "type": "slide",
-      "shareable": {}
-    },
-    "S05_Rheumatoid_Arthritis": {
-      "id": "S05_Rheumatoid_Arthritis",
-      "name": "S05_Rheumatoid_Arthritis",
-      "files": {
-        "templates": [
-          "slides/S05_Rheumatoid_Arthritis/S05_Rheumatoid_Arthritis.html"
-        ],
-        "scripts": [
-          "slides/S05_Rheumatoid_Arthritis/S05_Rheumatoid_Arthritis.js"
-        ],
-        "styles": [
-          "slides/S05_Rheumatoid_Arthritis/S05_Rheumatoid_Arthritis.css"
         ]
       },
       "type": "slide",
@@ -317,24 +317,24 @@
       "linear": true,
       "shareable": {}
     },
+    "Fr": {
+      "name": "Fr",
+      "content": [
+        "S03_Fr",
+        "S06_RA_Impact",
+        "S07_RA_Experience",
+        "S08_RA_Confidence"
+      ],
+      "type": "slideshow",
+      "linear": true,
+      "shareable": {}
+    },
     "Subcutaneous": {
       "name": "Subcutaneous",
       "content": [
         "S02_Subcutaneous",
         "S03_Subcutaneous_2",
         "S04_Subcutaneous_Administration"
-      ],
-      "type": "slideshow",
-      "linear": true,
-      "shareable": {}
-    },
-    "RA": {
-      "name": "RA",
-      "content": [
-        "S05_Rheumatoid_Arthritis",
-        "S06_RA_Impact",
-        "S07_RA_Experience",
-        "S08_RA_Confidence"
       ],
       "type": "slideshow",
       "linear": true,
@@ -376,8 +376,8 @@
       "content": [
         "Home",
         "Indications",
+        "Fr",
         "Subcutaneous",
-        "RA",
         "Device",
         "Patient_Satisfaction",
         "Summary",
