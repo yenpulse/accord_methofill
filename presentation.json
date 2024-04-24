@@ -105,13 +105,13 @@
       "type": "slide",
       "shareable": {}
     },
-    "S07_RA_Experience": {
-      "id": "S07_RA_Experience",
-      "name": "S07_RA_Experience",
+    "S06_Fr_004": {
+      "id": "S06_Fr_004",
+      "name": "S06_Fr_004",
       "files": {
-        "templates": ["slides/S07_RA_Experience/S07_RA_Experience.html"],
-        "scripts": ["slides/S07_RA_Experience/S07_RA_Experience.js"],
-        "styles": ["slides/S07_RA_Experience/S07_RA_Experience.css"]
+        "templates": ["slides/S06_Fr_004/S06_Fr_004.html"],
+        "scripts": ["slides/S06_Fr_004/S06_Fr_004.js"],
+        "styles": ["slides/S06_Fr_004/S06_Fr_004.css"]
       },
       "type": "slide",
       "shareable": {}
@@ -313,7 +313,7 @@
     },
     "Fr": {
       "name": "Fr",
-      "content": ["S03_Fr", "S04_Fr_002", "S05_Fr_003", "S07_RA_Experience"],
+      "content": ["S03_Fr", "S04_Fr_002", "S05_Fr_003", "S06_Fr_004"],
       "type": "slideshow",
       "linear": true,
       "shareable": {}
