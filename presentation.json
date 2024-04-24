@@ -94,7 +94,17 @@
       "type": "slide",
       "shareable": {}
     },
-
+    "S05_Fr_003": {
+      "id": "S05_Fr_003",
+      "name": "S05_Fr_003",
+      "files": {
+        "templates": ["slides/S05_Fr_003/S05_Fr_003.html"],
+        "scripts": ["slides/S05_Fr_003/S05_Fr_003.js"],
+        "styles": ["slides/S05_Fr_003/S05_Fr_003.css"]
+      },
+      "type": "slide",
+      "shareable": {}
+    },
     "S07_RA_Experience": {
       "id": "S07_RA_Experience",
       "name": "S07_RA_Experience",
@@ -102,17 +112,6 @@
         "templates": ["slides/S07_RA_Experience/S07_RA_Experience.html"],
         "scripts": ["slides/S07_RA_Experience/S07_RA_Experience.js"],
         "styles": ["slides/S07_RA_Experience/S07_RA_Experience.css"]
-      },
-      "type": "slide",
-      "shareable": {}
-    },
-    "S08_RA_Confidence": {
-      "id": "S08_RA_Confidence",
-      "name": "S08_RA_Confidence",
-      "files": {
-        "templates": ["slides/S08_RA_Confidence/S08_RA_Confidence.html"],
-        "scripts": ["slides/S08_RA_Confidence/S08_RA_Confidence.js"],
-        "styles": ["slides/S08_RA_Confidence/S08_RA_Confidence.css"]
       },
       "type": "slide",
       "shareable": {}
@@ -314,12 +313,7 @@
     },
     "Fr": {
       "name": "Fr",
-      "content": [
-        "S03_Fr",
-        "S04_Fr_002",
-        "S07_RA_Experience",
-        "S08_RA_Confidence"
-      ],
+      "content": ["S03_Fr", "S04_Fr_002", "S05_Fr_003", "S07_RA_Experience"],
       "type": "slideshow",
       "linear": true,
       "shareable": {}

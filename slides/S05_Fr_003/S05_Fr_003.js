@@ -1,4 +1,4 @@
-app.register("S08_RA_Confidence", function() {
+app.register("S05_Fr_003", function() {
 
   return {
     onEnter: function(el) {

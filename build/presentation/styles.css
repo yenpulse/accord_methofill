@@ -2138,29 +2138,6 @@ body {
 [data-module="ag-menu"] .menu li.selected {
   background-position-y: bottom;
 }
-[data-module="ag-references"] {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 10.5rem;
-  font: 200 0.9rem/1.1em sans-serif;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.75);
-  z-index: 50;
-  transition: all 0.5s ease-out;
-  font-family: "Frutiger LTPro Light", Arial, sans-serif;
-}
-[data-module="ag-references"].hidden {
-  transform: translateY(100%);
-}
-[data-module="ag-references"] {
-  transform: translateY(0);
-}
-[data-module="ag-references"] .references-content {
-  position: relative;
-  margin: 2.2rem 0 0 5.5rem;
-}
 [data-module="ag-navigation"] .navigation {
   position: absolute;
   top: 0;
@@ -2265,15 +2242,38 @@ body {
   float:right;
   margin-left:25px;
 }
-#S01_Home {}
+[data-module="ag-references"] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10.5rem;
+  font: 200 0.9rem/1.1em sans-serif;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 50;
+  transition: all 0.5s ease-out;
+  font-family: "Frutiger LTPro Light", Arial, sans-serif;
+}
+[data-module="ag-references"].hidden {
+  transform: translateY(100%);
+}
+[data-module="ag-references"] {
+  transform: translateY(0);
+}
+[data-module="ag-references"] .references-content {
+  position: relative;
+  margin: 2.2rem 0 0 5.5rem;
+}
 #S00_Splash {}
-#S02_Subcutaneous {}
+#S01_Home {}
 #S02_Indications {}
+#S02_Subcutaneous {}
+#S03_Fr {}
 #S03_Subcutaneous_2 {}
 #S04_Fr_002 {
 }
 
-#S03_Fr {}
 #S04_Subcutaneous_Administration .overlay-buttons {
   position: absolute;
   top: 21rem;
@@ -2291,8 +2291,8 @@ body {
 #S04_Subcutaneous_Administration .overlay-button:nth-of-type(2) { left: 25.3rem; }
 #S04_Subcutaneous_Administration .overlay-button:nth-of-type(3) { left: 44.1rem; }
 #S04_Subcutaneous_Administration .overlay-button:nth-of-type(4) { left: 62.8rem; }
+#S05_Fr_003 {}
 #S07_RA_Experience {}
-#S08_RA_Confidence {}
 #S09_Device_Methofill .overlay-button {
   position: absolute;
   top: 54rem;
@@ -2393,8 +2393,8 @@ body {
 }
 
 #S16_Good_Use_002 {}
-#S18_Good_Use_004 {}
 #S17_Good_Use_003 {}
+#S18_Good_Use_004 {}
 #S19_Good_Use_005 {}
 #S20_Good_Use_006 {}
 #S21_Good_Use_007 {}
