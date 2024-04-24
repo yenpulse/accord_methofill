@@ -33,9 +33,15 @@
 [data-module="ag-header"] .brand {
   position: absolute;
   top: 0;
-  right: 4.5%;
+
   width: auto;
   height: 15.5vh;
+}
+[data-module="ag-header"] .brand.lzixate {
+  right: 33.5%;
+}
+[data-module="ag-header"] .brand.methotrexate {
+  right: 4%;
 }
 [data-module="ag-header"][data-slide="1"] .brand {
   display: none;
