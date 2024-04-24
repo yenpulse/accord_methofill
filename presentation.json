@@ -33,17 +33,6 @@
       "type": "slide",
       "shareable": {}
     },
-    "S02_Subcutaneous": {
-      "id": "S02_Subcutaneous",
-      "name": "S02_Subcutaneous Intro 1",
-      "files": {
-        "templates": ["slides/S02_Subcutaneous/S02_Subcutaneous.html"],
-        "scripts": ["slides/S02_Subcutaneous/S02_Subcutaneous.js"],
-        "styles": ["slides/S02_Subcutaneous/S02_Subcutaneous.css"]
-      },
-      "type": "slide",
-      "shareable": {}
-    },
     "S03_Fr": {
       "id": "S03_Fr",
       "name": "S03_Fr",
@@ -66,29 +55,40 @@
       "type": "slide",
       "shareable": {}
     },
-    "S03_Subcutaneous_2": {
-      "id": "S03_Subcutaneous_2",
-      "name": "S02_Subcutaneous Intro 2",
+    "S07_Fr_005": {
+      "id": "S07_Fr_005",
+      "name": "S07_Fr_005 Intro 1",
       "files": {
-        "templates": ["slides/S03_Subcutaneous_2/S03_Subcutaneous_2.html"],
-        "scripts": ["slides/S03_Subcutaneous_2/S03_Subcutaneous_2.js"],
-        "styles": ["slides/S03_Subcutaneous_2/S03_Subcutaneous_2.css"]
+        "templates": ["slides/S07_Fr_005/S07_Fr_005.html"],
+        "scripts": ["slides/S07_Fr_005/S07_Fr_005.js"],
+        "styles": ["slides/S07_Fr_005/S07_Fr_005.css"]
       },
       "type": "slide",
       "shareable": {}
     },
-    "S04_Subcutaneous_Administration": {
-      "id": "S04_Subcutaneous_Administration",
-      "name": "S04_Subcutaneous_Administration",
+    "S08_Fr_006": {
+      "id": "S08_Fr_006",
+      "name": "S07_Fr_005 Intro 2",
+      "files": {
+        "templates": ["slides/S08_Fr_006/S08_Fr_006.html"],
+        "scripts": ["slides/S08_Fr_006/S08_Fr_006.js"],
+        "styles": ["slides/S08_Fr_006/S08_Fr_006.css"]
+      },
+      "type": "slide",
+      "shareable": {}
+    },
+    "S09_Subcutaneous_Route": {
+      "id": "S09_Subcutaneous_Route",
+      "name": "S09_Subcutaneous_Route",
       "files": {
         "templates": [
-          "slides/S04_Subcutaneous_Administration/S04_Subcutaneous_Administration.html"
+          "slides/S09_Subcutaneous_Route/S09_Subcutaneous_Route.html"
         ],
         "scripts": [
-          "slides/S04_Subcutaneous_Administration/S04_Subcutaneous_Administration.js"
+          "slides/S09_Subcutaneous_Route/S09_Subcutaneous_Route.js"
         ],
         "styles": [
-          "slides/S04_Subcutaneous_Administration/S04_Subcutaneous_Administration.css"
+          "slides/S09_Subcutaneous_Route/S09_Subcutaneous_Route.css"
         ]
       },
       "type": "slide",
@@ -313,18 +313,21 @@
     },
     "Fr": {
       "name": "Fr",
-      "content": ["S03_Fr", "S04_Fr_002", "S05_Fr_003", "S06_Fr_004"],
+      "content": [
+        "S03_Fr",
+        "S04_Fr_002",
+        "S05_Fr_003",
+        "S06_Fr_004",
+        "S07_Fr_005",
+        "S08_Fr_006"
+      ],
       "type": "slideshow",
       "linear": true,
       "shareable": {}
     },
-    "Subcutaneous": {
-      "name": "Subcutaneous",
-      "content": [
-        "S02_Subcutaneous",
-        "S03_Subcutaneous_2",
-        "S04_Subcutaneous_Administration"
-      ],
+    "Subcutaneous_Route": {
+      "name": "Subcutaneous Route",
+      "content": ["S09_Subcutaneous_Route"],
       "type": "slideshow",
       "linear": true,
       "shareable": {}
@@ -374,7 +377,7 @@
         "Home",
         "Indications",
         "Fr",
-        "Subcutaneous",
+        "Subcutaneous_Route",
         "Device",
         "Patient_Satisfaction",
         "Summary",
