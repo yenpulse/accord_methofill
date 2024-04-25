@@ -1,1 +1,17 @@
-#S16_Device_007 {}
+#S16_Device_007 .btn {
+  cursor: pointer;
+
+  width: 13.8rem;
+  height: 3.5rem;
+
+  position: absolute;
+  bottom: 9.5rem;
+}
+
+#S16_Device_007 .btn.lzixate {
+  left: 13.5rem;
+}
+
+#S16_Device_007 .btn.methotrexate {
+  right: 13.5rem;
+}

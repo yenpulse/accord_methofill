@@ -2024,54 +2024,6 @@ body {
   background-size: 100%;
   background-repeat: no-repeat;
 }
-[data-module="ag-header"] {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 5.3vh;
-  background-color: white;
-  z-index: 50;
-}
-[data-module="ag-header"].hidden {
-  display: none;
-}
-
-[data-module="ag-header"] .header {
-  width: 100%;
-  height: 5.25vh;
-  margin: 0 auto;
-  background-color: white;
-  box-shadow: 0 0 0.25rem 0.25rem rgba(0, 0, 0, 0.3);
-}
-[data-module="ag-header"] .home {
-  position: absolute;
-  top: 0;
-  left: 15.5rem;
-  width: 3rem;
-  height: 3rem;
-  background: transparent url(../../modules/ag-header/assets/home.png) 0.2rem 0.25rem no-repeat;
-  background-size: auto 3rem;
-}
-[data-module="ag-header"][data-slide="1"] .home {
-  background-position-x: -2.5rem;
-}
-[data-module="ag-header"] .brand {
-  position: absolute;
-  top: 0;
-
-  width: auto;
-  height: 15.5vh;
-}
-[data-module="ag-header"] .brand.lzixate {
-  right: 33.5%;
-}
-[data-module="ag-header"] .brand.methotrexate {
-  right: 4%;
-}
-[data-module="ag-header"][data-slide="1"] .brand {
-  display: none;
-}
 [data-module="ag-menu"] {
   position: absolute;
   bottom: 0;
@@ -2141,29 +2093,6 @@ body {
   background-position-y: bottom;
 }
 
-[data-module="ag-references"] {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 10.5rem;
-  font: 200 0.9rem/1.1em sans-serif;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.75);
-  z-index: 50;
-  transition: all 0.5s ease-out;
-  font-family: "Frutiger LTPro Light", Arial, sans-serif;
-}
-[data-module="ag-references"].hidden {
-  transform: translateY(100%);
-}
-[data-module="ag-references"] {
-  transform: translateY(0);
-}
-[data-module="ag-references"] .references-content {
-  position: relative;
-  margin: 2.2rem 0 0 5.5rem;
-}
 [data-module="ag-navigation"] .navigation {
   position: absolute;
   top: 0;
@@ -2212,6 +2141,54 @@ body {
   border-right-width: 0.75vh;
 }
 
+[data-module="ag-header"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5.3vh;
+  background-color: white;
+  z-index: 50;
+}
+[data-module="ag-header"].hidden {
+  display: none;
+}
+
+[data-module="ag-header"] .header {
+  width: 100%;
+  height: 5.25vh;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 0 0.25rem 0.25rem rgba(0, 0, 0, 0.3);
+}
+[data-module="ag-header"] .home {
+  position: absolute;
+  top: 0;
+  left: 15.5rem;
+  width: 3rem;
+  height: 3rem;
+  background: transparent url(../../modules/ag-header/assets/home.png) 0.2rem 0.25rem no-repeat;
+  background-size: auto 3rem;
+}
+[data-module="ag-header"][data-slide="1"] .home {
+  background-position-x: -2.5rem;
+}
+[data-module="ag-header"] .brand {
+  position: absolute;
+  top: 0;
+
+  width: auto;
+  height: 15.5vh;
+}
+[data-module="ag-header"] .brand.lzixate {
+  right: 33.5%;
+}
+[data-module="ag-header"] .brand.methotrexate {
+  right: 4%;
+}
+[data-module="ag-header"][data-slide="1"] .brand {
+  display: none;
+}
 .ag-overlay-background {
   position: absolute;
   top: 0;
@@ -2268,17 +2245,40 @@ body {
   float:right;
   margin-left:25px;
 }
+[data-module="ag-references"] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10.5rem;
+  font: 200 0.9rem/1.1em sans-serif;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 50;
+  transition: all 0.5s ease-out;
+  font-family: "Frutiger LTPro Light", Arial, sans-serif;
+}
+[data-module="ag-references"].hidden {
+  transform: translateY(100%);
+}
+[data-module="ag-references"] {
+  transform: translateY(0);
+}
+[data-module="ag-references"] .references-content {
+  position: relative;
+  margin: 2.2rem 0 0 5.5rem;
+}
 #S00_Splash {}
-#S02_Indications {}
-#S03_Fr {}
 #S01_Home {}
+#S03_Fr {}
+#S02_Indications {}
 #S04_Fr_002 {
 }
 
+#S05_Fr_003 {}
 #S06_Fr_004 {
 }
 
-#S05_Fr_003 {}
 #S07_Subcutaneous_Route {
 }
 
@@ -2333,6 +2333,13 @@ body {
 #S09_Subcutaneous_Route_004 .btn.methotrexate {
   right: 13.5rem;
 }
+#S10_Device .overlay-button {
+  position: absolute;
+  top: 54rem;
+  left: 49.2rem;
+  width: 13.8rem;
+  height: 3.5rem;
+}
 #S11_Device_002 .background {
   display: none;
   position: absolute;
@@ -2365,6 +2372,7 @@ body {
   height: 4.2rem;
 }
 
+#S12_Device_003 {}
 #S13_Device_004 .btn {
   cursor: pointer;
 
@@ -2383,14 +2391,6 @@ body {
   right: 13.5rem;
 }
 
-#S10_Device .overlay-button {
-  position: absolute;
-  top: 54rem;
-  left: 49.2rem;
-  width: 13.8rem;
-  height: 3.5rem;
-}
-#S12_Device_003 {}
 #S13_Device_004_002 {}
 
 #S14_Device_005 .background {
@@ -2419,20 +2419,36 @@ body {
 }
 
 #S15_Device_006 {}
+#S16_Device_007 .btn {
+  cursor: pointer;
+
+  width: 13.8rem;
+  height: 3.5rem;
+
+  position: absolute;
+  bottom: 9.5rem;
+}
+
+#S16_Device_007 .btn.lzixate {
+  left: 13.5rem;
+}
+
+#S16_Device_007 .btn.methotrexate {
+  right: 13.5rem;
+}
+
 #S17_Summary {
 }
 
 #S18_Good_Use {
 }
 
+#S19_Good_Use_002 {}
 #S18_Good_Use_001 {
 }
 
-#S19_Good_Use_002 {}
-#S16_Device_007 {}
-
 #S20_Good_Use_003 {}
-#S22_Good_Use_005 {}
 #S21_Good_Use_004 {}
+#S22_Good_Use_005 {}
 #S23_Good_Use_006 {}
 #S24_Good_Use_007 {}
