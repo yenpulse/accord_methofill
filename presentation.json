@@ -55,6 +55,28 @@
       "type": "slide",
       "shareable": {}
     },
+    "S05_Fr_003": {
+      "id": "S05_Fr_003",
+      "name": "S05_Fr_003",
+      "files": {
+        "templates": ["slides/S05_Fr_003/S05_Fr_003.html"],
+        "scripts": ["slides/S05_Fr_003/S05_Fr_003.js"],
+        "styles": ["slides/S05_Fr_003/S05_Fr_003.css"]
+      },
+      "type": "slide",
+      "shareable": {}
+    },
+    "S06_Fr_004": {
+      "id": "S06_Fr_004",
+      "name": "S06_Fr_004",
+      "files": {
+        "templates": ["slides/S06_Fr_004/S06_Fr_004.html"],
+        "scripts": ["slides/S06_Fr_004/S06_Fr_004.js"],
+        "styles": ["slides/S06_Fr_004/S06_Fr_004.css"]
+      },
+      "type": "slide",
+      "shareable": {}
+    },
     "S07_Fr_005": {
       "id": "S07_Fr_005",
       "name": "S07_Fr_005 Intro 1",
@@ -107,28 +129,6 @@
       "type": "slide",
       "shareable": {}
     },
-    "S05_Fr_003": {
-      "id": "S05_Fr_003",
-      "name": "S05_Fr_003",
-      "files": {
-        "templates": ["slides/S05_Fr_003/S05_Fr_003.html"],
-        "scripts": ["slides/S05_Fr_003/S05_Fr_003.js"],
-        "styles": ["slides/S05_Fr_003/S05_Fr_003.css"]
-      },
-      "type": "slide",
-      "shareable": {}
-    },
-    "S06_Fr_004": {
-      "id": "S06_Fr_004",
-      "name": "S06_Fr_004",
-      "files": {
-        "templates": ["slides/S06_Fr_004/S06_Fr_004.html"],
-        "scripts": ["slides/S06_Fr_004/S06_Fr_004.js"],
-        "styles": ["slides/S06_Fr_004/S06_Fr_004.css"]
-      },
-      "type": "slide",
-      "shareable": {}
-    },
     "S10_Device": {
       "id": "S10_Device",
       "name": "S10_Device",
@@ -173,19 +173,35 @@
       "type": "slide",
       "shareable": {}
     },
-    "S12_Patient_Satisfaction": {
-      "id": "S12_Patient_Satisfaction",
-      "name": "S12_Patient_Satisfaction",
+    "S14_Device_005": {
+      "id": "S14_Device_005",
+      "name": "S14_Device_005",
       "files": {
-        "templates": [
-          "slides/S12_Patient_Satisfaction/S12_Patient_Satisfaction.html"
-        ],
-        "scripts": [
-          "slides/S12_Patient_Satisfaction/S12_Patient_Satisfaction.js"
-        ],
-        "styles": [
-          "slides/S12_Patient_Satisfaction/S12_Patient_Satisfaction.css"
-        ]
+        "templates": ["slides/S14_Device_005/S14_Device_005.html"],
+        "scripts": ["slides/S14_Device_005/S14_Device_005.js"],
+        "styles": ["slides/S14_Device_005/S14_Device_005.css"]
+      },
+      "type": "slide",
+      "shareable": {}
+    },
+    "S15_Device_006": {
+      "id": "S15_Device_006",
+      "name": "S15_Device_006",
+      "files": {
+        "templates": ["slides/S15_Device_006/S15_Device_006.html"],
+        "scripts": ["slides/S15_Device_006/S15_Device_006.js"],
+        "styles": ["slides/S15_Device_006/S15_Device_006.css"]
+      },
+      "type": "slide",
+      "shareable": {}
+    },
+    "S16_Device_007": {
+      "id": "S16_Device_007",
+      "name": "S16_Device_007",
+      "files": {
+        "templates": ["slides/S16_Device_007/S16_Device_007.html"],
+        "scripts": ["slides/S16_Device_007/S16_Device_007.js"],
+        "styles": ["slides/S16_Device_007/S16_Device_007.css"]
       },
       "type": "slide",
       "shareable": {}
@@ -362,15 +378,11 @@
         "S10_Device",
         "S11_Device_002",
         "S12_Device_003",
-        "S13_Device_004"
+        "S13_Device_004",
+        "S14_Device_005",
+        "S15_Device_006",
+        "S16_Device_007"
       ],
-      "type": "slideshow",
-      "linear": true,
-      "shareable": {}
-    },
-    "Patient_Satisfaction": {
-      "name": "Patient Satisfaction",
-      "content": ["S12_Patient_Satisfaction"],
       "type": "slideshow",
       "linear": true,
       "shareable": {}
@@ -408,7 +420,6 @@
         "Fr",
         "Subcutaneous_Route",
         "Device",
-        "Patient_Satisfaction",
         "Summary",
         "Good_Use"
       ],

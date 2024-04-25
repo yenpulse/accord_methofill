@@ -1,4 +1,4 @@
-app.register("S12_Patient_Satisfaction", function() {
+app.register("S14_Device_005", function() {
 
   let index = 0;
   let backgrounds = [];
@@ -8,11 +8,7 @@ app.register("S12_Patient_Satisfaction", function() {
       "tap [data-screen]": "updateScreen"
     },
     onRender: function(el) {
-      backgrounds = document.querySelectorAll('#S12_Patient_Satisfaction .background');
-    },
-    onEnter: function(el) {
-      app.registry.get("ag-navigation").updateBackground('light');
-      app.registry.get("ag-references").setReferences('1. Hunt K. EMJ. 2021;6(3):34–40.');
+      backgrounds = document.querySelectorAll('#S14_Device_005 .background');
     },
     onExit: function() {
       this.setScreen(0);

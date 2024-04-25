@@ -1,11 +1,11 @@
-#S12_Patient_Satisfaction .background {
+#S14_Device_005 .background {
   display: none;
   position: absolute;
 }
-#S12_Patient_Satisfaction .background.active {
+#S14_Device_005 .background.active {
   display: block;
 }
-#S12_Patient_Satisfaction .buttons {
+#S14_Device_005 .buttons {
   display: flex;
   position: absolute;
   top: 52rem;
@@ -13,11 +13,11 @@
   width: 95%;
   z-index: 10;
 }
-#S12_Patient_Satisfaction .button {
+#S14_Device_005 .button {
   width: 6rem;
   height: 6rem;
   margin-left: 8.5rem;
 }
-#S12_Patient_Satisfaction .button:first-of-type {
+#S14_Device_005 .button:first-of-type {
   margin-left: 0;
 }
