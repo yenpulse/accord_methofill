@@ -185,6 +185,17 @@
       "type": "slide",
       "shareable": {}
     },
+    "S13_Device_004_002": {
+      "id": "S13_Device_004_002",
+      "name": "S13_Device_004_002",
+      "files": {
+        "templates": ["slides/S13_Device_004_002/S13_Device_004_002.html"],
+        "scripts": ["slides/S13_Device_004_002/S13_Device_004_002.js"],
+        "styles": ["slides/S13_Device_004_002/S13_Device_004_002.css"]
+      },
+      "type": "slide",
+      "shareable": {}
+    },
     "S14_Device_005": {
       "id": "S14_Device_005",
       "name": "S14_Device_005",
@@ -387,6 +398,7 @@
         "S11_Device_002",
         "S12_Device_003",
         "S13_Device_004",
+        "S13_Device_004_002",
         "S14_Device_005",
         "S15_Device_006",
         "S16_Device_007"
