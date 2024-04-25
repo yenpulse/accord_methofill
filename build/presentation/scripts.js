@@ -371,11 +371,13 @@ app.register("S00_Splash", function () {});
 
 app.register("S01_Home", function () {});
 
-app.register("S02_Indications", function () {});
-
 app.register("S03_Fr", function() {
 });
+app.register("S02_Indications", function () {});
+
 app.register("S04_Fr_002", function () {});
+
+app.register("S06_Fr_004", function () {});
 
 app.register("S05_Fr_003", function() {
 
@@ -387,8 +389,6 @@ app.register("S05_Fr_003", function() {
   }
 
 });
-app.register("S06_Fr_004", function () {});
-
 app.register("S07_Subcutaneous_Route", function () {});
 
 app.register("S08_Subcutaneous_Route_002", function () {});
@@ -409,23 +409,24 @@ app.register("S09_Subcutaneous_Route_003", function () {
   };
 });
 
+app.register("S10_Device", function () {});
+
 app.register("S09_Subcutaneous_Route_004", function () {
   return {
+    events: {
+      "tap [data-goto]": "navigate",
+    },
     navigate: function (event) {
       var link = event.target;
       var path;
-      var regex = new RegExp(/app\./);
 
-      if (link) {
-        if (!link.hasAttribute("data-goto")) link = link.parentNode;
-        path = link.getAttribute("data-goto");
-        if (path) {
-          if (regex.test(path)) {
-            eval(path);
-          } else {
-            app.goTo(path);
-          }
-        }
+      if (!link.hasAttribute("data-goto")) {
+        link = link.parentNode;
+      }
+
+      path = link.getAttribute("data-goto");
+      if (path) {
+        app.goTo(path);
       }
     },
   };
@@ -499,33 +500,29 @@ app.register("S11_Device_002", function () {
 
 app.register("S12_Device_003", function () {});
 
-app.register("S10_Device", function () {});
-
 app.register("S13_Device_004", function () {
   return {
+    events: {
+      "tap [data-goto]": "navigate",
+    },
     navigate: function (event) {
       var link = event.target;
       var path;
-      var regex = new RegExp(/app\./);
 
-      if (link) {
-        if (!link.hasAttribute("data-goto")) link = link.parentNode;
-        path = link.getAttribute("data-goto");
-        if (path) {
-          if (regex.test(path)) {
-            eval(path);
-          } else {
-            app.goTo(path);
-          }
-        }
+      if (!link.hasAttribute("data-goto")) {
+        link = link.parentNode;
+      }
+
+      path = link.getAttribute("data-goto");
+      if (path) {
+        app.goTo(path);
       }
     },
   };
 });
 
-app.register("S13_Device_004_002", function () {});
 
-app.register("S16_Device_007", function () {});
+app.register("S13_Device_004_002", function () {});
 
 app.register("S14_Device_005", function() {
 
@@ -556,9 +553,9 @@ app.register("S14_Device_005", function() {
   }
 
 });
-app.register("S17_Summary", function () {});
-
 app.register("S15_Device_006", function () {});
+
+app.register("S17_Summary", function () {});
 
 app.register("S18_Good_Use", function () {
   return {
@@ -570,6 +567,8 @@ app.register("S18_Good_Use", function () {
     onExit: function (el) {},
   };
 });
+
+app.register("S16_Device_007", function () {});
 
 app.register("S18_Good_Use_001", function () {
   return {
@@ -721,25 +720,25 @@ app.cache.put("modules/ag-overlay/model.json","{\n  \"name\": \"Agnitio Overlay\
 app.cache.put("modules/ag-references/ag-references.html","<div class=\"references-content\"></div>\n");
 app.cache.put("slides/S00_Splash/S00_Splash.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>Splash</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S00_Splash\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S00_Splash/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("slides/S01_Home/S01_Home.html","<!DOCTYPE html>\n<html>\n  <head>\n    <title>Home</title>\n  </head>\n  <body>\n    <article id=\"S01_Home\" class=\"slide\">\n      <img\n        class=\"background\"\n        src=\"slides/S01_Home/assets/background.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n      />\n    </article>\n  </body>\n</html>\n");
-app.cache.put("slides/S02_Indications/S02_Indications.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>Indications</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S02_Indications\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S02_Indications/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("slides/S03_Fr/S03_Fr.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S03_Fr</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S03_Fr\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S03_Fr/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
+app.cache.put("slides/S02_Indications/S02_Indications.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>Indications</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S02_Indications\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S02_Indications/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("slides/S04_Fr_002/S04_Fr_002.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S04_Fr_002</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S04_Fr_002\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S04_Fr_002/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
-app.cache.put("slides/S05_Fr_003/S05_Fr_003.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S05_Fr_003</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S05_Fr_003\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S05_Fr_003/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("slides/S06_Fr_004/S06_Fr_004.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S06_Fr_004</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S06_Fr_004\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S06_Fr_004/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
+app.cache.put("slides/S05_Fr_003/S05_Fr_003.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S05_Fr_003</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S05_Fr_003\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S05_Fr_003/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("slides/S07_Subcutaneous_Route/S07_Subcutaneous_Route.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S07_Subcutaneous_Route</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S07_Subcutaneous_Route\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S07_Subcutaneous_Route/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("slides/S08_Subcutaneous_Route_002/S08_Subcutaneous_Route_002.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S08_Subcutaneous_Route_002</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S08_Subcutaneous_Route_002\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S08_Subcutaneous_Route_002/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("slides/S09_Subcutaneous_Route_003/S09_Subcutaneous_Route_003.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S09_Subcutaneous_Route_003</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S09_Subcutaneous_Route_003\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S09_Subcutaneous_Route_003/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n      <div class=\"overlay-buttons\">\r\n        <div class=\"overlay-button\" data-overlay=\"popup-efficacy\"></div>\r\n        <div class=\"overlay-button\" data-overlay=\"popup-reliability\"></div>\r\n        <div\r\n          class=\"overlay-button\"\r\n          data-overlay=\"popup-delay-progression\"\r\n        ></div>\r\n        <div class=\"overlay-button\" data-overlay=\"popup-reduce-intensity\"></div>\r\n      </div>\r\n    </article>\r\n  </body>\r\n</html>\r\n");
-app.cache.put("slides/S09_Subcutaneous_Route_004/S09_Subcutaneous_Route_004.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S09_Subcutaneous_Route_004</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S09_Subcutaneous_Route_004\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S09_Subcutaneous_Route_004/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n      <div class=\"btn lzixate\" data-goto=\"Methofill/Home/S01_Home\"></div>\r\n      <div\r\n        class=\"btn methotrexate\"\r\n        data-goto=\"Methofill/RA/S05_Rheumatoid_Arthritis\"\r\n      ></div>\r\n    </article>\r\n  </body>\r\n</html>\r\n");
+app.cache.put("slides/S10_Device/S10_Device.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S10_Device</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S10_Device\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S10_Device/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n      <div class=\"overlay-button\" data-overlay=\"popup-indications\"></div>\r\n    </article>\r\n  </body>\r\n</html>\r\n");
+app.cache.put("slides/S09_Subcutaneous_Route_004/S09_Subcutaneous_Route_004.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S09_Subcutaneous_Route_004</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S09_Subcutaneous_Route_004\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S09_Subcutaneous_Route_004/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n      <div class=\"btn lzixate\" data-goto=\"Methofill/Device/S10_Device\"></div>\r\n      <div\r\n        class=\"btn methotrexate\"\r\n        data-goto=\"Methofill/Device/S13_Device_004_002\"\r\n      ></div>\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("slides/S11_Device_002/S11_Device_002.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S11_Device_002</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S11_Device_002\" class=\"slide\">\r\n      <img\r\n        class=\"background active\"\r\n        src=\"slides/S11_Device_002/assets/background-1.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S11_Device_002/assets/background-2.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S11_Device_002/assets/background-3.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S11_Device_002/assets/background-4.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S11_Device_002/assets/background-5.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S11_Device_002/assets/background-6.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S11_Device_002/assets/background-7.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S11_Device_002/assets/background-8.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <div class=\"buttons\">\r\n        <div class=\"button\" data-screen=\"0\" data-button=\"0\"></div>\r\n        <div class=\"button\" data-screen=\"1\" data-button=\"1\"></div>\r\n        <div class=\"button\" data-screen=\"2\" data-button=\"1\"></div>\r\n        <div class=\"button\" data-screen=\"3\" data-button=\"1\"></div>\r\n        <div class=\"button\" data-screen=\"4\" data-button=\"1\"></div>\r\n        <div class=\"button\" data-screen=\"5\" data-button=\"1\"></div>\r\n        <div class=\"button\" data-screen=\"6\" data-button=\"1\"></div>\r\n        <div class=\"button\" data-screen=\"7\" data-button=\"1\"></div>\r\n      </div>\r\n      <div class=\"overlay-button hidden\" data-overlay=\"popup-comparison\"></div>\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("slides/S12_Device_003/S12_Device_003.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S12_Device_003</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S12_Device_003\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S12_Device_003/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
-app.cache.put("slides/S10_Device/S10_Device.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S10_Device</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S10_Device\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S10_Device/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n      <div class=\"overlay-button\" data-overlay=\"popup-indications\"></div>\r\n    </article>\r\n  </body>\r\n</html>\r\n");
-app.cache.put("slides/S13_Device_004/S13_Device_004.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S13_Device_004</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S13_Device_004\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S13_Device_004/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n      <div class=\"btn lzixate\" data-goto=\"Methofill/Home/S01_Home\"></div>\r\n      <div\r\n        class=\"btn methotrexate\"\r\n        data-goto=\"Methofill/RA/S05_Rheumatoid_Arthritis\"\r\n      ></div>\r\n    </article>\r\n  </body>\r\n</html>\r\n");
+app.cache.put("slides/S13_Device_004/S13_Device_004.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S13_Device_004</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S13_Device_004\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S13_Device_004/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n      <div\r\n        class=\"btn lzixate\"\r\n        data-goto=\"Methofill/Device/S13_Device_004_002\"\r\n      ></div>\r\n      <div\r\n        class=\"btn methotrexate\"\r\n        data-goto=\"Methofill/Summary/S17_Summary\"\r\n      ></div>\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("slides/S13_Device_004_002/S13_Device_004_002.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S13_Device_004_002</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S13_Device_004_002\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S13_Device_004_002/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
-app.cache.put("slides/S16_Device_007/S16_Device_007.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S16_Device_007</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S16_Device_007\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S16_Device_007/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("slides/S14_Device_005/S14_Device_005.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S14_Device_005</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S14_Device_005\" class=\"slide\">\r\n      <img\r\n        class=\"background active\"\r\n        src=\"slides/S14_Device_005/assets/background-1.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S14_Device_005/assets/background-2.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S14_Device_005/assets/background-3.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S14_Device_005/assets/background-4.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S14_Device_005/assets/background-5.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n        defer\r\n      />\r\n      <div class=\"buttons\">\r\n        <div class=\"button\" data-screen=\"0\"></div>\r\n        <div class=\"button\" data-screen=\"1\"></div>\r\n        <div class=\"button\" data-screen=\"2\"></div>\r\n        <div class=\"button\" data-screen=\"3\"></div>\r\n        <div class=\"button\" data-screen=\"4\"></div>\r\n      </div>\r\n      <div class=\"overlay-button hidden\" data-overlay=\"popup-comparison\"></div>\r\n    </article>\r\n  </body>\r\n</html>\r\n");
-app.cache.put("slides/S17_Summary/S17_Summary.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S17_Summary</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S17_Summary\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S17_Summary/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("slides/S15_Device_006/S15_Device_006.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S15_Device_006</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S15_Device_006\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S15_Device_006/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
+app.cache.put("slides/S17_Summary/S17_Summary.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S17_Summary</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S17_Summary\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S17_Summary/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("slides/S18_Good_Use/S18_Good_Use.html","</html>\r\n<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S18_Good_Use</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S18_Good_Use\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S18_Good_Use/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
+app.cache.put("slides/S16_Device_007/S16_Device_007.html","<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S16_Device_007</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S16_Device_007\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S16_Device_007/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("slides/S18_Good_Use_001/S18_Good_Use_001.html","</html>\r\n<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S18_Good_Use_001</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S18_Good_Use_001\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S18_Good_Use_001/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("slides/S19_Good_Use_002/S19_Good_Use_002.html","</html>\r\n<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S19_Good_Use_002</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S19_Good_Use_002\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S19_Good_Use_002/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
 app.cache.put("slides/S20_Good_Use_003/S20_Good_Use_003.html","</html>\r\n<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>S20_Good_Use_003</title>\r\n  </head>\r\n  <body>\r\n    <article id=\"S20_Good_Use_003\" class=\"slide\">\r\n      <img\r\n        class=\"background\"\r\n        src=\"slides/S20_Good_Use_003/assets/background.jpg\"\r\n        alt=\"...\"\r\n        draggable=\"false\"\r\n      />\r\n    </article>\r\n  </body>\r\n</html>\r\n");
