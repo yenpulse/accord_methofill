@@ -206,24 +206,13 @@
       "type": "slide",
       "shareable": {}
     },
-    "S13_Support": {
-      "id": "S13_Support",
-      "name": "S13_Support",
+    "S17_Summary": {
+      "id": "S17_Summary",
+      "name": "S17_Summary",
       "files": {
-        "templates": ["slides/S13_Support/S13_Support.html"],
-        "scripts": ["slides/S13_Support/S13_Support.js"],
-        "styles": ["slides/S13_Support/S13_Support.css"]
-      },
-      "type": "slide",
-      "shareable": {}
-    },
-    "S14_Summary": {
-      "id": "S14_Summary",
-      "name": "S14_Summary",
-      "files": {
-        "templates": ["slides/S14_Summary/S14_Summary.html"],
-        "scripts": ["slides/S14_Summary/S14_Summary.js"],
-        "styles": ["slides/S14_Summary/S14_Summary.css"]
+        "templates": ["slides/S17_Summary/S17_Summary.html"],
+        "scripts": ["slides/S17_Summary/S17_Summary.js"],
+        "styles": ["slides/S17_Summary/S17_Summary.css"]
       },
       "type": "slide",
       "shareable": {}
@@ -389,7 +378,7 @@
     },
     "Summary": {
       "name": "Summary",
-      "content": ["S14_Summary"],
+      "content": ["S17_Summary"],
       "type": "slideshow",
       "linear": true,
       "shareable": {}
