@@ -1,4 +1,4 @@
-app.register("S17_Good_Use_003", function() {
+app.register("S23_Good_Use_006", function() {
 
   return {
     events: {
