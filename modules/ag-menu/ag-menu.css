@@ -13,7 +13,6 @@
 
 [data-module="ag-menu"] .menu {
   display: flex;
-  justify-content: center;
   height: auto;
   margin: -1.2vh 0 0;
   padding: 0 2.5rem 0 2.5%;
@@ -30,34 +29,38 @@
   background-size: auto 12vh;
   font-family: "Frutiger LTPro Light", Arial, sans-serif;
 }
-[data-module="ag-menu"] .menu .menu-tab {
-  width: 5.6%;
-}
-[data-module="ag-menu"] .menu li[data-section="Subcutaneous"] {
-  width: 17.5%;
-  background-position-x: 0;
+[data-module="ag-menu"] .menu li[data-section="Indications"] {
+  width: 15%;
+  background-position-x: 6%;
 }
 [data-module="ag-menu"] .menu li[data-section="RA"] {
-  width: 9%;
-  background-position-x: 19%;
+  width: 12%;
+  background-position-x: 22%;
+}
+[data-module="ag-menu"] .menu li[data-section="Subcutaneous_Route"] {
+
+  width: 16%;
+  background-position-x: 35%;
 }
 [data-module="ag-menu"] .menu li[data-section="Device"] {
-  width: 11.5%;
-  background-position-x: 30%;
-}
-[data-module="ag-menu"] .menu li[data-section="Patient_Satisfaction"] {
-  width: 23%;
-  background-position-x: 49.5%;
+  width: 15%;
+  background-position-x: 51%;
 }
 [data-module="ag-menu"] .menu li[data-section="Summary"] {
-  width: 13.5%;
-  background-position-x: 86.5%;
+  width: 14%;
+  background-position-x: 66%;
+}
+[data-module="ag-menu"] .menu li[data-section="Good_Use"] {
+  width: 14%;
+  background-position-x: 80%;
 }
 [data-module="ag-menu"] .menu .pi-toggle {
-  background-position-x: 94.3%;
+  width: 8.1%;
+  background-position-x: 90.5%;
 }
 [data-module="ag-menu"] .menu .references-toggle {
-  background-position-x: 100.9%;
+  width: 4.8%;
+  background-position-x: 96%;
 }
 [data-module="ag-menu"] .menu li.selected {
   background-position-y: bottom;

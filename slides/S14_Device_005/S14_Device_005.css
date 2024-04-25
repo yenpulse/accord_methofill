@@ -9,14 +9,14 @@
   display: flex;
   position: absolute;
   top: 52rem;
-  left: 2.2rem;
-  width: 95%;
+  left: 4rem;
+  width: 91%;
   z-index: 10;
 }
 #S14_Device_005 .button {
   width: 6rem;
   height: 6rem;
-  margin-left: 8.5rem;
+  margin-left: 12rem;
 }
 #S14_Device_005 .button:first-of-type {
   margin-left: 0;

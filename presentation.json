@@ -77,53 +77,65 @@
       "type": "slide",
       "shareable": {}
     },
-    "S07_Fr_005": {
-      "id": "S07_Fr_005",
-      "name": "S07_Fr_005 Intro 1",
-      "files": {
-        "templates": ["slides/S07_Fr_005/S07_Fr_005.html"],
-        "scripts": ["slides/S07_Fr_005/S07_Fr_005.js"],
-        "styles": ["slides/S07_Fr_005/S07_Fr_005.css"]
-      },
-      "type": "slide",
-      "shareable": {}
-    },
-    "S08_Fr_006": {
-      "id": "S08_Fr_006",
-      "name": "S07_Fr_005 Intro 2",
-      "files": {
-        "templates": ["slides/S08_Fr_006/S08_Fr_006.html"],
-        "scripts": ["slides/S08_Fr_006/S08_Fr_006.js"],
-        "styles": ["slides/S08_Fr_006/S08_Fr_006.css"]
-      },
-      "type": "slide",
-      "shareable": {}
-    },
-    "S09_Subcutaneous_Route": {
-      "id": "S09_Subcutaneous_Route",
-      "name": "S09_Subcutaneous_Route",
+    "S07_Subcutaneous_Route": {
+      "id": "S07_Subcutaneous_Route",
+      "name": "S07_Subcutaneous_Route Intro 1",
       "files": {
         "templates": [
-          "slides/S09_Subcutaneous_Route/S09_Subcutaneous_Route.html"
+          "slides/S07_Subcutaneous_Route/S07_Subcutaneous_Route.html"
         ],
-        "scripts": ["slides/S09_Subcutaneous_Route/S09_Subcutaneous_Route.js"],
-        "styles": ["slides/S09_Subcutaneous_Route/S09_Subcutaneous_Route.css"]
+        "scripts": ["slides/S07_Subcutaneous_Route/S07_Subcutaneous_Route.js"],
+        "styles": ["slides/S07_Subcutaneous_Route/S07_Subcutaneous_Route.css"]
       },
       "type": "slide",
       "shareable": {}
     },
-    "S09_Subcutaneous_Route_002": {
-      "id": "S09_Subcutaneous_Route_002",
-      "name": "S09_Subcutaneous_Route_002",
+    "S08_Subcutaneous_Route_002": {
+      "id": "S08_Subcutaneous_Route_002",
+      "name": "S07_Subcutaneous_Route Intro 2",
       "files": {
         "templates": [
-          "slides/S09_Subcutaneous_Route_002/S09_Subcutaneous_Route_002.html"
+          "slides/S08_Subcutaneous_Route_002/S08_Subcutaneous_Route_002.html"
         ],
         "scripts": [
-          "slides/S09_Subcutaneous_Route_002/S09_Subcutaneous_Route_002.js"
+          "slides/S08_Subcutaneous_Route_002/S08_Subcutaneous_Route_002.js"
         ],
         "styles": [
-          "slides/S09_Subcutaneous_Route_002/S09_Subcutaneous_Route_002.css"
+          "slides/S08_Subcutaneous_Route_002/S08_Subcutaneous_Route_002.css"
+        ]
+      },
+      "type": "slide",
+      "shareable": {}
+    },
+    "S09_Subcutaneous_Route_003": {
+      "id": "S09_Subcutaneous_Route_003",
+      "name": "S09_Subcutaneous_Route_003",
+      "files": {
+        "templates": [
+          "slides/S09_Subcutaneous_Route_003/S09_Subcutaneous_Route_003.html"
+        ],
+        "scripts": [
+          "slides/S09_Subcutaneous_Route_003/S09_Subcutaneous_Route_003.js"
+        ],
+        "styles": [
+          "slides/S09_Subcutaneous_Route_003/S09_Subcutaneous_Route_003.css"
+        ]
+      },
+      "type": "slide",
+      "shareable": {}
+    },
+    "S09_Subcutaneous_Route_004": {
+      "id": "S09_Subcutaneous_Route_004",
+      "name": "S09_Subcutaneous_Route_004",
+      "files": {
+        "templates": [
+          "slides/S09_Subcutaneous_Route_004/S09_Subcutaneous_Route_004.html"
+        ],
+        "scripts": [
+          "slides/S09_Subcutaneous_Route_004/S09_Subcutaneous_Route_004.js"
+        ],
+        "styles": [
+          "slides/S09_Subcutaneous_Route_004/S09_Subcutaneous_Route_004.css"
         ]
       },
       "type": "slide",
@@ -224,6 +236,15 @@
         "templates": ["slides/S18_Good_Use/S18_Good_Use.html"],
         "scripts": ["slides/S18_Good_Use/S18_Good_Use.js"],
         "styles": ["slides/S18_Good_Use/S18_Good_Use.css"]
+      }
+    },
+    "S18_Good_Use_001": {
+      "id": "S18_Good_Use_001",
+      "name": "S18_Good_Use_001",
+      "files": {
+        "templates": ["slides/S18_Good_Use_001/S18_Good_Use_001.html"],
+        "scripts": ["slides/S18_Good_Use_001/S18_Good_Use_001.js"],
+        "styles": ["slides/S18_Good_Use_001/S18_Good_Use_001.css"]
       }
     },
     "S19_Good_Use_002": {
@@ -340,23 +361,21 @@
       "linear": true,
       "shareable": {}
     },
-    "Fr": {
-      "name": "Fr",
-      "content": [
-        "S03_Fr",
-        "S04_Fr_002",
-        "S05_Fr_003",
-        "S06_Fr_004",
-        "S07_Fr_005",
-        "S08_Fr_006"
-      ],
+    "RA": {
+      "name": "RA",
+      "content": ["S03_Fr", "S04_Fr_002", "S05_Fr_003", "S06_Fr_004"],
       "type": "slideshow",
       "linear": true,
       "shareable": {}
     },
     "Subcutaneous_Route": {
       "name": "Subcutaneous Route",
-      "content": ["S09_Subcutaneous_Route", "S09_Subcutaneous_Route_002"],
+      "content": [
+        "S07_Subcutaneous_Route",
+        "S08_Subcutaneous_Route_002",
+        "S09_Subcutaneous_Route_003",
+        "S09_Subcutaneous_Route_004"
+      ],
       "type": "slideshow",
       "linear": true,
       "shareable": {}
@@ -387,6 +406,7 @@
       "name": "Good Use",
       "content": [
         "S18_Good_Use",
+        "S18_Good_Use_001",
         "S19_Good_Use_002",
         "S20_Good_Use_003",
         "S21_Good_Use_004",
@@ -406,7 +426,7 @@
       "content": [
         "Home",
         "Indications",
-        "Fr",
+        "RA",
         "Subcutaneous_Route",
         "Device",
         "Summary",
