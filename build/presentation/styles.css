@@ -2024,6 +2024,48 @@ body {
   background-size: 100%;
   background-repeat: no-repeat;
 }
+[data-module="ag-header"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5.3vh;
+  background-color: white;
+  z-index: 50;
+}
+[data-module="ag-header"].hidden {
+  display: none;
+}
+
+[data-module="ag-header"] .header {
+  width: 100%;
+  height: 5.25vh;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 0 0.25rem 0.25rem rgba(0, 0, 0, 0.3);
+}
+[data-module="ag-header"] .home {
+  position: absolute;
+  top: 0;
+  left: 15.5rem;
+  width: 3rem;
+  height: 3rem;
+  background: transparent url(../../modules/ag-header/assets/home.png) 0.2rem 0.25rem no-repeat;
+  background-size: auto 3rem;
+}
+[data-module="ag-header"][data-slide="1"] .home {
+  background-position-x: -2.5rem;
+}
+[data-module="ag-header"] .brand {
+  position: absolute;
+  top: 0;
+  right: 4.5%;
+  width: auto;
+  height: 15.5vh;
+}
+[data-module="ag-header"][data-slide="1"] .brand {
+  display: none;
+}
 [data-module="ag-menu"] {
   position: absolute;
   bottom: 0;
@@ -2090,48 +2132,6 @@ body {
 [data-module="ag-menu"] .menu li.selected {
   background-position-y: bottom;
 }
-[data-module="ag-header"] {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 5.3vh;
-  background-color: white;
-  z-index: 50;
-}
-[data-module="ag-header"].hidden {
-  display: none;
-}
-
-[data-module="ag-header"] .header {
-  width: 100%;
-  height: 5.25vh;
-  margin: 0 auto;
-  background-color: white;
-  box-shadow: 0 0 0.25rem 0.25rem rgba(0, 0, 0, 0.3);
-}
-[data-module="ag-header"] .home {
-  position: absolute;
-  top: 0;
-  left: 15.5rem;
-  width: 3rem;
-  height: 3rem;
-  background: transparent url(../../modules/ag-header/assets/home.png) 0.2rem 0.25rem no-repeat;
-  background-size: auto 3rem;
-}
-[data-module="ag-header"][data-slide="1"] .home {
-  background-position-x: -2.5rem;
-}
-[data-module="ag-header"] .brand {
-  position: absolute;
-  top: 0;
-  right: 4.5%;
-  width: auto;
-  height: 15.5vh;
-}
-[data-module="ag-header"][data-slide="1"] .brand {
-  display: none;
-}
 [data-module="ag-navigation"] .navigation {
   position: absolute;
   top: 0;
@@ -2180,29 +2180,6 @@ body {
   border-right-width: 0.75vh;
 }
 
-[data-module="ag-references"] {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 10.5rem;
-  font: 200 0.9rem/1.1em sans-serif;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.75);
-  z-index: 50;
-  transition: all 0.5s ease-out;
-  font-family: "Frutiger LTPro Light", Arial, sans-serif;
-}
-[data-module="ag-references"].hidden {
-  transform: translateY(100%);
-}
-[data-module="ag-references"] {
-  transform: translateY(0);
-}
-[data-module="ag-references"] .references-content {
-  position: relative;
-  margin: 2.2rem 0 0 5.5rem;
-}
 .ag-overlay-background {
   position: absolute;
   top: 0;
@@ -2259,13 +2236,34 @@ body {
   float:right;
   margin-left:25px;
 }
-#S00_Splash {}
+[data-module="ag-references"] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10.5rem;
+  font: 200 0.9rem/1.1em sans-serif;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 50;
+  transition: all 0.5s ease-out;
+  font-family: "Frutiger LTPro Light", Arial, sans-serif;
+}
+[data-module="ag-references"].hidden {
+  transform: translateY(100%);
+}
+[data-module="ag-references"] {
+  transform: translateY(0);
+}
+[data-module="ag-references"] .references-content {
+  position: relative;
+  margin: 2.2rem 0 0 5.5rem;
+}
 #S01_Home {}
+#S00_Splash {}
 #S02_Subcutaneous {}
-#S06_RA_Impact {}
-#S07_RA_Experience {}
-#S05_Rheumatoid_Arthritis {}
 #S03_Subcutaneous_2 {}
+#S05_Rheumatoid_Arthritis {}
 #S04_Subcutaneous_Administration .overlay-buttons {
   position: absolute;
   top: 21rem;
@@ -2283,7 +2281,16 @@ body {
 #S04_Subcutaneous_Administration .overlay-button:nth-of-type(2) { left: 25.3rem; }
 #S04_Subcutaneous_Administration .overlay-button:nth-of-type(3) { left: 44.1rem; }
 #S04_Subcutaneous_Administration .overlay-button:nth-of-type(4) { left: 62.8rem; }
+#S06_RA_Impact {}
+#S07_RA_Experience {}
 #S08_RA_Confidence {}
+#S09_Device_Methofill .overlay-button {
+  position: absolute;
+  top: 54rem;
+  left: 49.2rem;
+  width: 13.8rem;
+  height: 3.5rem;
+}
 #S10_Device .background {
   display: none;
   position: absolute;
@@ -2316,13 +2323,6 @@ body {
   height: 4.2rem;
 }
 
-#S09_Device_Methofill .overlay-button {
-  position: absolute;
-  top: 54rem;
-  left: 49.2rem;
-  width: 13.8rem;
-  height: 3.5rem;
-}
 #S11_Prescribe .background {
   position: absolute;
   top: 0;
