@@ -5,14 +5,16 @@ app.register("ag-menu", function() {
   let piState = false;
   let referencesToggle = null;
   let current = null;
-
+  let referencesState = false;
 
   function showMenu() {
     menu.classList.remove('hidden');
   }
+  
   function hideMenu() {
     menu.classList.add('hidden');
   }
+  
   function updateCurrent() {
     var path = app.getPath();
     var parts = path.split('/');
@@ -25,11 +27,16 @@ app.register("ag-menu", function() {
         current.classList.add('selected');
       }
     }
-    if (referencesToggle) closeReferences();
+    if (referencesState) closeReferences();
   }
+  
   function closeReferences() {
-    app.registry.get("ag-references").close();
-    referencesToggle.classList.remove('selected');
+    const overlay = app.view.get('overlay-references');
+    if (overlay && referencesToggle) {
+      overlay.forceClose();
+      referencesToggle.classList.remove('selected');
+      referencesState = false;
+    }
   }
 
   return {
@@ -100,9 +107,15 @@ app.register("ag-menu", function() {
       }
     },
     toggleReferences: function() {
-      if (!piState) {
-        const toggle = app.registry.get("ag-references").toggle();
-        if (toggle) referencesToggle.classList.toggle('selected');
+      const overlay = app.view.get('overlay-references');
+      if (overlay && referencesToggle) {
+        if (referencesState) {
+          this.closeReferences();
+        } else {
+          overlay.open(`<img class="popup-background" src="assets/overlay-references.jpg" alt="...">`);
+          referencesToggle.classList.add('selected');
+          referencesState = true;
+        }
       }
     },
     closeReferences: closeReferences

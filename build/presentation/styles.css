@@ -2024,6 +2024,102 @@ body {
   background-size: 100%;
   background-repeat: no-repeat;
 }
+[data-module="ag-header"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5.3vh;
+  background-color: white;
+  z-index: 50;
+}
+[data-module="ag-header"].hidden {
+  display: none;
+}
+
+[data-module="ag-header"] .header {
+  width: 100%;
+  height: 5.25vh;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 0 0.25rem 0.25rem rgba(0, 0, 0, 0.3);
+}
+[data-module="ag-header"] .home {
+  position: absolute;
+  top: 0;
+  left: 15.5rem;
+  width: 3rem;
+  height: 3rem;
+  background: transparent url(../../modules/ag-header/assets/home.png) 0.2rem 0.25rem no-repeat;
+  background-size: auto 3rem;
+}
+[data-module="ag-header"][data-slide="1"] .home {
+  background-position-x: -2.5rem;
+}
+[data-module="ag-header"] .brand {
+  position: absolute;
+  top: 0;
+
+  width: auto;
+  height: 15.5vh;
+}
+[data-module="ag-header"] .brand.lzixate {
+  right: 33.5%;
+}
+[data-module="ag-header"] .brand.methotrexate {
+  right: 4%;
+}
+[data-module="ag-header"][data-slide="1"] .brand {
+  display: none;
+}
+[data-module="ag-navigation"] .navigation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  z-index: 50;
+}
+[data-module="ag-navigation"] .navigation .nav-button {
+  position: absolute;
+  top: 46vh;
+  width: 15vh;
+  height: 15vh;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+[data-module="ag-navigation"] .navigation .nav-previous {
+  left: 0;
+  transform: translateX(-50%);
+}
+[data-module="ag-navigation"] .navigation .nav-next {
+  right: 0;
+  transform: translateX(50%);
+}
+[data-module="ag-navigation"] .navigation .nav-button::after {
+  content: '';
+  position: absolute;
+  top: 5.5vh;
+  width: 4vh;
+  height: 4vh;
+  border: 0 solid #f49600;
+  transform-origin: center;
+  transform: rotate(-45deg);
+}
+[data-module="ag-navigation"] .navigation[data-background="dark"] .nav-button::after {
+  border-color: white;
+}
+[data-module="ag-navigation"] .navigation .nav-previous::after {
+  right: 1.5vh;
+  border-top-width: 0.75vh;
+  border-left-width: 0.75vh;
+}
+[data-module="ag-navigation"] .navigation .nav-next::after {
+  left: 1.5vh;
+  border-bottom-width: 0.75vh;
+  border-right-width: 0.75vh;
+}
+
 [data-module="ag-menu"] {
   position: absolute;
   bottom: 0;
@@ -2093,102 +2189,6 @@ body {
   background-position-y: bottom;
 }
 
-[data-module="ag-navigation"] .navigation {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 0;
-  z-index: 50;
-}
-[data-module="ag-navigation"] .navigation .nav-button {
-  position: absolute;
-  top: 46vh;
-  width: 15vh;
-  height: 15vh;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.3);
-}
-[data-module="ag-navigation"] .navigation .nav-previous {
-  left: 0;
-  transform: translateX(-50%);
-}
-[data-module="ag-navigation"] .navigation .nav-next {
-  right: 0;
-  transform: translateX(50%);
-}
-[data-module="ag-navigation"] .navigation .nav-button::after {
-  content: '';
-  position: absolute;
-  top: 5.5vh;
-  width: 4vh;
-  height: 4vh;
-  border: 0 solid #f49600;
-  transform-origin: center;
-  transform: rotate(-45deg);
-}
-[data-module="ag-navigation"] .navigation[data-background="dark"] .nav-button::after {
-  border-color: white;
-}
-[data-module="ag-navigation"] .navigation .nav-previous::after {
-  right: 1.5vh;
-  border-top-width: 0.75vh;
-  border-left-width: 0.75vh;
-}
-[data-module="ag-navigation"] .navigation .nav-next::after {
-  left: 1.5vh;
-  border-bottom-width: 0.75vh;
-  border-right-width: 0.75vh;
-}
-
-[data-module="ag-header"] {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 5.3vh;
-  background-color: white;
-  z-index: 50;
-}
-[data-module="ag-header"].hidden {
-  display: none;
-}
-
-[data-module="ag-header"] .header {
-  width: 100%;
-  height: 5.25vh;
-  margin: 0 auto;
-  background-color: white;
-  box-shadow: 0 0 0.25rem 0.25rem rgba(0, 0, 0, 0.3);
-}
-[data-module="ag-header"] .home {
-  position: absolute;
-  top: 0;
-  left: 15.5rem;
-  width: 3rem;
-  height: 3rem;
-  background: transparent url(../../modules/ag-header/assets/home.png) 0.2rem 0.25rem no-repeat;
-  background-size: auto 3rem;
-}
-[data-module="ag-header"][data-slide="1"] .home {
-  background-position-x: -2.5rem;
-}
-[data-module="ag-header"] .brand {
-  position: absolute;
-  top: 0;
-
-  width: auto;
-  height: 15.5vh;
-}
-[data-module="ag-header"] .brand.lzixate {
-  right: 33.5%;
-}
-[data-module="ag-header"] .brand.methotrexate {
-  right: 4%;
-}
-[data-module="ag-header"][data-slide="1"] .brand {
-  display: none;
-}
 .ag-overlay-background {
   position: absolute;
   top: 0;
@@ -2268,23 +2268,30 @@ body {
   position: relative;
   margin: 2.2rem 0 0 5.5rem;
 }
-#S00_Splash {}
 #S01_Home {}
+#S00_Splash {}
 #S03_Fr {}
 #S02_Indications {}
+#S06_Fr_004 {
+}
+
 #S04_Fr_002 {
 }
 
 #S05_Fr_003 {}
-#S06_Fr_004 {
+#S08_Subcutaneous_Route_002 {
 }
 
 #S07_Subcutaneous_Route {
 }
 
-#S08_Subcutaneous_Route_002 {
+#S10_Device .overlay-button {
+  position: absolute;
+  top: 54rem;
+  left: 49.2rem;
+  width: 13.8rem;
+  height: 3.5rem;
 }
-
 #S09_Subcutaneous_Route_003 .overlay-buttons {
   position: absolute;
   top: 21rem;
@@ -2333,13 +2340,7 @@ body {
 #S09_Subcutaneous_Route_004 .btn.methotrexate {
   right: 13.5rem;
 }
-#S10_Device .overlay-button {
-  position: absolute;
-  top: 54rem;
-  left: 49.2rem;
-  width: 13.8rem;
-  height: 3.5rem;
-}
+#S12_Device_003 {}
 #S11_Device_002 .background {
   display: none;
   position: absolute;
@@ -2372,7 +2373,7 @@ body {
   height: 4.2rem;
 }
 
-#S12_Device_003 {}
+#S15_Device_006 {}
 #S13_Device_004 .btn {
   cursor: pointer;
 
@@ -2392,6 +2393,24 @@ body {
 }
 
 #S13_Device_004_002 {}
+
+#S16_Device_007 .btn {
+  cursor: pointer;
+
+  width: 13.8rem;
+  height: 3.5rem;
+
+  position: absolute;
+  bottom: 9.5rem;
+}
+
+#S16_Device_007 .btn.lzixate {
+  left: 13.5rem;
+}
+
+#S16_Device_007 .btn.methotrexate {
+  right: 13.5rem;
+}
 
 #S14_Device_005 .background {
   display: none;
@@ -2418,36 +2437,17 @@ body {
   margin-left: 0;
 }
 
-#S15_Device_006 {}
-#S16_Device_007 .btn {
-  cursor: pointer;
-
-  width: 13.8rem;
-  height: 3.5rem;
-
-  position: absolute;
-  bottom: 9.5rem;
-}
-
-#S16_Device_007 .btn.lzixate {
-  left: 13.5rem;
-}
-
-#S16_Device_007 .btn.methotrexate {
-  right: 13.5rem;
-}
-
 #S17_Summary {
 }
 
 #S18_Good_Use {
 }
 
-#S19_Good_Use_002 {}
 #S18_Good_Use_001 {
 }
 
 #S20_Good_Use_003 {}
+#S19_Good_Use_002 {}
 #S21_Good_Use_004 {}
 #S22_Good_Use_005 {}
 #S23_Good_Use_006 {}
