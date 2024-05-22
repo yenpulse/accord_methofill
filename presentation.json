@@ -1,16 +1,5 @@
 {
   "slides": {
-    "S00_Splash": {
-      "id": "S00_Splash",
-      "name": "Splash",
-      "files": {
-        "templates": ["slides/S00_Splash/S00_Splash.html"],
-        "scripts": ["slides/S00_Splash/S00_Splash.js"],
-        "styles": ["slides/S00_Splash/S00_Splash.css"]
-      },
-      "type": "slide",
-      "shareable": {}
-    },
     "S01_Home": {
       "id": "S01_Home",
       "name": "Home",
@@ -231,7 +220,7 @@
   "structures": {
     "Home": {
       "name": "Home",
-      "content": ["S00_Splash", "S01_Home"],
+      "content": ["S01_Home"],
       "type": "slideshow",
       "linear": true,
       "shareable": {}
