@@ -126,6 +126,10 @@ html {
   line-height: 1.2em;
 }
 
+body {
+  background-color: black;
+}
+
 img.background {
   display: block;
   position: absolute;
@@ -133,4 +137,6 @@ img.background {
   left: 0;
   width: auto;
   height: 100vh;
-}/*# sourceMappingURL=global.css.map */
+}
+
+/*# sourceMappingURL=global.css.map */

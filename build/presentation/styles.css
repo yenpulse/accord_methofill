@@ -2132,6 +2132,54 @@ body {
 [data-module="ag-menu"] .menu li.selected {
   background-position-y: bottom;
 }
+[data-module="ag-navigation"] .navigation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  z-index: 50;
+}
+[data-module="ag-navigation"] .navigation .nav-button {
+  position: absolute;
+  top: 46vh;
+  width: 15vh;
+  height: 15vh;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+[data-module="ag-navigation"] .navigation .nav-previous {
+  left: 0;
+  transform: translateX(-50%);
+}
+[data-module="ag-navigation"] .navigation .nav-next {
+  right: 0;
+  transform: translateX(50%);
+}
+[data-module="ag-navigation"] .navigation .nav-button::after {
+  content: '';
+  position: absolute;
+  top: 5.5vh;
+  width: 4vh;
+  height: 4vh;
+  border: 0 solid #f49600;
+  transform-origin: center;
+  transform: rotate(-45deg);
+}
+[data-module="ag-navigation"] .navigation[data-background="dark"] .nav-button::after {
+  border-color: white;
+}
+[data-module="ag-navigation"] .navigation .nav-previous::after {
+  right: 1.5vh;
+  border-top-width: 0.75vh;
+  border-left-width: 0.75vh;
+}
+[data-module="ag-navigation"] .navigation .nav-next::after {
+  left: 1.5vh;
+  border-bottom-width: 0.75vh;
+  border-right-width: 0.75vh;
+}
+
 .ag-overlay-background {
   position: absolute;
   top: 0;
@@ -2188,54 +2236,6 @@ body {
   float:right;
   margin-left:25px;
 }
-[data-module="ag-navigation"] .navigation {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 0;
-  z-index: 50;
-}
-[data-module="ag-navigation"] .navigation .nav-button {
-  position: absolute;
-  top: 46vh;
-  width: 15vh;
-  height: 15vh;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.3);
-}
-[data-module="ag-navigation"] .navigation .nav-previous {
-  left: 0;
-  transform: translateX(-50%);
-}
-[data-module="ag-navigation"] .navigation .nav-next {
-  right: 0;
-  transform: translateX(50%);
-}
-[data-module="ag-navigation"] .navigation .nav-button::after {
-  content: '';
-  position: absolute;
-  top: 5.5vh;
-  width: 4vh;
-  height: 4vh;
-  border: 0 solid #f49600;
-  transform-origin: center;
-  transform: rotate(-45deg);
-}
-[data-module="ag-navigation"] .navigation[data-background="dark"] .nav-button::after {
-  border-color: white;
-}
-[data-module="ag-navigation"] .navigation .nav-previous::after {
-  right: 1.5vh;
-  border-top-width: 0.75vh;
-  border-left-width: 0.75vh;
-}
-[data-module="ag-navigation"] .navigation .nav-next::after {
-  left: 1.5vh;
-  border-bottom-width: 0.75vh;
-  border-right-width: 0.75vh;
-}
-
 [data-module="ag-references"] {
   position: absolute;
   bottom: 0;
@@ -2259,8 +2259,8 @@ body {
   position: relative;
   margin: 2.2rem 0 0 5.5rem;
 }
-#S01_Home {}
 #S02_Subcutaneous {}
+#S01_Home {}
 #S03_Subcutaneous_2 {}
 #S04_Subcutaneous_Administration .overlay-buttons {
   position: absolute;
@@ -2281,6 +2281,7 @@ body {
 #S04_Subcutaneous_Administration .overlay-button:nth-of-type(4) { left: 62.8rem; }
 #S05_Rheumatoid_Arthritis {}
 #S06_RA_Impact {}
+#S07_RA_Experience {}
 #S08_RA_Confidence {}
 #S09_Device_Methofill .overlay-button {
   position: absolute;
@@ -2289,7 +2290,6 @@ body {
   width: 13.8rem;
   height: 3.5rem;
 }
-#S07_RA_Experience {}
 #S10_Device .background {
   display: none;
   position: absolute;

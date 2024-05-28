@@ -164,6 +164,45 @@ app.register("ag-menu", function() {
   }
 
 });
+app.register("ag-navigation", function() {
+
+  let navigation = null;
+  let buttonPrevious = null;
+  let buttonNext = null;
+
+  return {
+    setButtonState: function(button, hidden) {
+      if (hidden)
+        button.classList.add('hidden');
+      else
+        button.classList.remove('hidden');
+    },
+    updateNavigation: function(current) {
+      this.setButtonState(buttonPrevious, current.index <= 1);
+      this.setButtonState(buttonNext, current.index >= current.length);
+    },
+    updateBackground: function(color) {
+      navigation.setAttribute('data-background', color);
+    },
+
+    events: {
+      "tap .nav-previous": () => app.slideshow.left(),
+      "tap .nav-next": () => app.slideshow.right()
+    },
+    onRender: () => {
+      navigation = document.querySelector('.navigation');
+      buttonPrevious = document.querySelector('.nav-previous');
+      buttonNext = document.querySelector('.nav-next');
+    },
+    onEnter: (current) => {
+      app.registry.get("ag-navigation").updateNavigation(current);
+    },
+    setBackground: (color) => {
+      app.registry.get("ag-navigation").updateBackground(color);
+    },
+  }
+
+});
 app.register("ag-overlay", function() {
 
   return {
@@ -307,45 +346,6 @@ app.register("ag-overlay", function() {
 
 });
 
-app.register("ag-navigation", function() {
-
-  let navigation = null;
-  let buttonPrevious = null;
-  let buttonNext = null;
-
-  return {
-    setButtonState: function(button, hidden) {
-      if (hidden)
-        button.classList.add('hidden');
-      else
-        button.classList.remove('hidden');
-    },
-    updateNavigation: function(current) {
-      this.setButtonState(buttonPrevious, current.index <= 1);
-      this.setButtonState(buttonNext, current.index >= current.length);
-    },
-    updateBackground: function(color) {
-      navigation.setAttribute('data-background', color);
-    },
-
-    events: {
-      "tap .nav-previous": () => app.slideshow.left(),
-      "tap .nav-next": () => app.slideshow.right()
-    },
-    onRender: () => {
-      navigation = document.querySelector('.navigation');
-      buttonPrevious = document.querySelector('.nav-previous');
-      buttonNext = document.querySelector('.nav-next');
-    },
-    onEnter: (current) => {
-      app.registry.get("ag-navigation").updateNavigation(current);
-    },
-    setBackground: (color) => {
-      app.registry.get("ag-navigation").updateBackground(color);
-    },
-  }
-
-});
 app.register("ag-references", function() {
 
   let contentLength = 0;
@@ -367,22 +367,22 @@ app.register("ag-references", function() {
   }
 
 });
-app.register("S01_Home", function() {
-
-  return {
-    onEnter: function(el) {
-      app.registry.get("ag-navigation").updateBackground('dark');
-      app.registry.get("ag-references").setReferences('');
-    }
-  }
-
-});
 app.register("S02_Subcutaneous", function() {
 
   return {
     onEnter: function(el) {
       app.registry.get("ag-navigation").updateBackground('light');
       app.registry.get("ag-references").setReferences('1. Pincus T, <i>et al.</i> <i>Bull Hosp Jt Dis.</i> 2013;71(Suppl 1):S9−19.');
+    }
+  }
+
+});
+app.register("S01_Home", function() {
+
+  return {
+    onEnter: function(el) {
+      app.registry.get("ag-navigation").updateBackground('dark');
+      app.registry.get("ag-references").setReferences('');
     }
   }
 
@@ -438,6 +438,16 @@ app.register("S06_RA_Impact", function() {
   }
 
 });
+app.register("S07_RA_Experience", function() {
+
+  return {
+    onEnter: function(el) {
+      app.registry.get("ag-navigation").updateBackground('light');
+      app.registry.get("ag-references").setReferences('1. Lopez-Olivo MA, <i>et al.</i> <i>Cochrane Database Syst Rev.</i> 2014;(6):CD000957.');
+    }
+  }
+
+});
 app.register("S08_RA_Confidence", function() {
 
   return {
@@ -463,16 +473,6 @@ app.register("S09_Device_Methofill", function() {
       const overlay = app.view.get('overlay-content');
       if (overlay)
         overlay.open(`<img class="popup-background" src="slides/S09_Device_Methofill/assets/${overlayId}.jpg" alt="...">`);
-    }
-  }
-
-});
-app.register("S07_RA_Experience", function() {
-
-  return {
-    onEnter: function(el) {
-      app.registry.get("ag-navigation").updateBackground('light');
-      app.registry.get("ag-references").setReferences('1. Lopez-Olivo MA, <i>et al.</i> <i>Cochrane Database Syst Rev.</i> 2014;(6):CD000957.');
     }
   }
 
@@ -639,18 +639,18 @@ app.register("S14_Summary", function() {
 });
 app.cache.put("modules/ag-header/ag-header.html","<div class=\"header\">\n  <div class=\"home\" data-goto=\"Methofill/Home/S01_Home\"></div>\n  <img src=\"modules/ag-header/assets/brand.png\" alt=\"Methoﬁll®\" class=\"brand\">\n</div>");
 app.cache.put("modules/ag-menu/ag-menu.html","<div>\n  <ul class=\"menu\">\n    <li\n      class=\"active\"\n      data-section=\"Subcutaneous\"\n      data-goto=\"Methofill/Subcutaneous/S02_Subcutaneous\"\n      title=\"Subcutaneous\"\n    ></li>\n    <li\n      data-section=\"RA\"\n      data-goto=\"Methofill/RA/S05_Rheumatoid_Arthritis\"\n      title=\"RA\"\n    ></li>\n    <li\n      data-section=\"Device\"\n      data-goto=\"Methofill/Device/S09_Device_Methofill\"\n      title=\"Device\"\n    ></li>\n    <li\n      data-section=\"Patient_Satisfaction\"\n      data-goto=\"Methofill/Patient_Satisfaction/S12_Patient_Satisfaction\"\n      title=\"Patient Satisfaction\"\n    ></li>\n    <li\n      data-section=\"Summary\"\n      data-goto=\"Methofill/Summary/S14_Summary\"\n      title=\"Summary\"\n    ></li>\n    <li class=\"menu-tab pi-toggle\" title=\"PI & AE Reporting\"></li>\n    <li class=\"menu-tab references-toggle\" title=\"References\"></li>\n  </ul>\n</div>\n");
-app.cache.put("modules/ag-overlay/model.json","{\n  \"name\": \"Agnitio Overlay\",\n  \"type\": \"universal\",\n  \"description\": \"Creates an overlay to the presentation.\",\n  \"files\": {\n    \"styles\": [\"modules/ag-overlay/ag-overlay.css\"],\n    \"scripts\": [\"modules/ag-overlay/ag-overlay.js\"]\n  },\n  \"version\": \"0.5.3\"\n}");
 app.cache.put("modules/ag-navigation/ag-navigation.html","<div class=\"navigation\" data-background=\"dark\">\n  <div class=\"nav-button nav-previous hidden\" data-direction=\"previous\"></div>\n  <div class=\"nav-button nav-next\" data-direction=\"next\"></div>\n</div>");
+app.cache.put("modules/ag-overlay/model.json","{\n  \"name\": \"Agnitio Overlay\",\n  \"type\": \"universal\",\n  \"description\": \"Creates an overlay to the presentation.\",\n  \"files\": {\n    \"styles\": [\"modules/ag-overlay/ag-overlay.css\"],\n    \"scripts\": [\"modules/ag-overlay/ag-overlay.js\"]\n  },\n  \"version\": \"0.5.3\"\n}");
 app.cache.put("modules/ag-references/ag-references.html","<div class=\"references-content\"></div>\n");
-app.cache.put("slides/S01_Home/S01_Home.html","<!DOCTYPE html>\n<html>\n  <head>\n    <title>Home</title>\n  </head>\n  <body>\n    <article id=\"S01_Home\" class=\"slide\">\n      <img\n        class=\"background\"\n        src=\"slides/S01_Home/assets/background.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n      />\n    </article>\n  </body>\n</html>\n");
 app.cache.put("slides/S02_Subcutaneous/S02_Subcutaneous.html","<!DOCTYPE html>\n<html>\n  <head>\n    <title>Subcutaneous</title>\n  </head>\n  <body>\n    <article id=\"S02_Subcutaneous\" class=\"slide\">\n      <img\n        class=\"background\"\n        src=\"slides/S02_Subcutaneous/assets/background.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n      />\n    </article>\n  </body>\n</html>\n");
+app.cache.put("slides/S01_Home/S01_Home.html","<!DOCTYPE html>\n<html>\n  <head>\n    <title>Home</title>\n  </head>\n  <body>\n    <article id=\"S01_Home\" class=\"slide\">\n      <img\n        class=\"background\"\n        src=\"slides/S01_Home/assets/background.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n      />\n    </article>\n  </body>\n</html>\n");
 app.cache.put("slides/S03_Subcutaneous_2/S03_Subcutaneous_2.html","<!DOCTYPE html>\n<html>\n  <head>\n    <title>Subcutaneous</title>\n  </head>\n  <body>\n    <article id=\"S03_Subcutaneous_2\" class=\"slide\">\n      <img\n        class=\"background\"\n        src=\"slides/S03_Subcutaneous_2/assets/background.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n      />\n    </article>\n  </body>\n</html>\n");
 app.cache.put("slides/S04_Subcutaneous_Administration/S04_Subcutaneous_Administration.html","<!DOCTYPE html>\n<html>\n  <head>\n    <title>Subcutaneous Administration</title>\n  </head>\n  <body>\n    <article id=\"S04_Subcutaneous_Administration\" class=\"slide\">\n      <img\n        class=\"background\"\n        src=\"slides/S04_Subcutaneous_Administration/assets/background.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n      />\n      <div class=\"overlay-buttons\">\n        <div class=\"overlay-button\" data-overlay=\"popup-efficacy\"></div>\n        <div class=\"overlay-button\" data-overlay=\"popup-reliability\"></div>\n        <div\n          class=\"overlay-button\"\n          data-overlay=\"popup-delay-progression\"\n        ></div>\n        <div class=\"overlay-button\" data-overlay=\"popup-reduce-intensity\"></div>\n      </div>\n    </article>\n  </body>\n</html>\n");
 app.cache.put("slides/S05_Rheumatoid_Arthritis/S05_Rheumatoid_Arthritis.html","<!DOCTYPE html>\n<html>\n  <head>\n    <title>S05_Rheumatoid_Arthritis</title>\n  </head>\n  <body>\n    <article id=\"S05_Rheumatoid_Arthritis\" class=\"slide\">\n      <img\n        class=\"background\"\n        src=\"slides/S05_Rheumatoid_Arthritis/assets/background.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n      />\n    </article>\n  </body>\n</html>\n");
 app.cache.put("slides/S06_RA_Impact/S06_RA_Impact.html","<!DOCTYPE html>\n<html>\n  <head>\n    <title>S06_RA_Impact</title>\n  </head>\n  <body>\n    <article id=\"S06_RA_Impact\" class=\"slide\">\n      <img\n        class=\"background\"\n        src=\"slides/S06_RA_Impact/assets/background.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n      />\n    </article>\n  </body>\n</html>\n");
+app.cache.put("slides/S07_RA_Experience/S07_RA_Experience.html","<!DOCTYPE html>\n<html>\n  <head>\n    <title>S07_RA_Experience</title>\n  </head>\n  <body>\n    <article id=\"S07_RA_Experience\" class=\"slide\">\n      <img\n        class=\"background\"\n        src=\"slides/S07_RA_Experience/assets/background.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n      />\n    </article>\n  </body>\n</html>\n");
 app.cache.put("slides/S08_RA_Confidence/S08_RA_Confidence.html","<!DOCTYPE html>\n<html>\n  <head>\n    <title>S08_RA_Confidence</title>\n  </head>\n  <body>\n    <article id=\"S08_RA_Confidence\" class=\"slide\">\n      <img\n        class=\"background\"\n        src=\"slides/S08_RA_Confidence/assets/background.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n      />\n    </article>\n  </body>\n</html>\n");
 app.cache.put("slides/S09_Device_Methofill/S09_Device_Methofill.html","<!DOCTYPE html>\n<html>\n  <head>\n    <title>S09_Device_Methofill</title>\n  </head>\n  <body>\n    <article id=\"S09_Device_Methofill\" class=\"slide\">\n      <img\n        class=\"background\"\n        src=\"slides/S09_Device_Methofill/assets/background.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n      />\n      <div class=\"overlay-button\" data-overlay=\"popup-indications\"></div>\n    </article>\n  </body>\n</html>\n");
-app.cache.put("slides/S07_RA_Experience/S07_RA_Experience.html","<!DOCTYPE html>\n<html>\n  <head>\n    <title>S07_RA_Experience</title>\n  </head>\n  <body>\n    <article id=\"S07_RA_Experience\" class=\"slide\">\n      <img\n        class=\"background\"\n        src=\"slides/S07_RA_Experience/assets/background.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n      />\n    </article>\n  </body>\n</html>\n");
 app.cache.put("slides/S10_Device/S10_Device.html","<!DOCTYPE html>\n<html>\n  <head>\n    <title>S10_Device</title>\n  </head>\n  <body>\n    <article id=\"S10_Device\" class=\"slide\">\n      <img\n        class=\"background active\"\n        src=\"slides/S10_Device/assets/background-1.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n      />\n      <img\n        class=\"background\"\n        src=\"slides/S10_Device/assets/background-2.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n        defer\n      />\n      <img\n        class=\"background\"\n        src=\"slides/S10_Device/assets/background-3.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n        defer\n      />\n      <img\n        class=\"background\"\n        src=\"slides/S10_Device/assets/background-4.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n        defer\n      />\n      <img\n        class=\"background\"\n        src=\"slides/S10_Device/assets/background-5.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n        defer\n      />\n      <img\n        class=\"background\"\n        src=\"slides/S10_Device/assets/background-6.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n        defer\n      />\n      <img\n        class=\"background\"\n        src=\"slides/S10_Device/assets/background-7.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n        defer\n      />\n      <img\n        class=\"background\"\n        src=\"slides/S10_Device/assets/background-8.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n        defer\n      />\n      <div class=\"buttons\">\n        <div class=\"button\" data-screen=\"0\" data-button=\"0\"></div>\n        <div class=\"button\" data-screen=\"1\" data-button=\"1\"></div>\n        <div class=\"button\" data-screen=\"2\" data-button=\"1\"></div>\n        <div class=\"button\" data-screen=\"3\" data-button=\"1\"></div>\n        <div class=\"button\" data-screen=\"4\" data-button=\"1\"></div>\n        <div class=\"button\" data-screen=\"5\" data-button=\"1\"></div>\n        <div class=\"button\" data-screen=\"6\" data-button=\"1\"></div>\n        <div class=\"button\" data-screen=\"7\" data-button=\"1\"></div>\n      </div>\n      <div class=\"overlay-button hidden\" data-overlay=\"popup-comparison\"></div>\n    </article>\n  </body>\n</html>\n");
 app.cache.put("slides/S11_Prescribe/S11_Prescribe.html","<!DOCTYPE html>\n<html>\n  <head>\n    <title>S11_Prescribe</title>\n  </head>\n  <body>\n    <article id=\"S11_Prescribe\" class=\"slide\">\n      <img\n        class=\"background\"\n        src=\"slides/S11_Prescribe/assets/background.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n      />\n      <div id=\"product-swiper\" class=\"swiper\">\n        <div class=\"swiper-wrapper\">\n          <div class=\"swiper-slide\">\n            <img src=\"slides/S11_Prescribe/assets/background-1.jpg\" alt=\"...\" draggable=\"false\" />\n          </div>\n          <div class=\"swiper-slide\">\n            <img src=\"slides/S11_Prescribe/assets/background-2.jpg\" alt=\"...\" draggable=\"false\" />\n          </div>\n          <div class=\"swiper-slide\">\n            <img\n              src=\"slides/S11_Prescribe/assets/background-3.jpg\"\n              alt=\"...\"\n              draggable=\"false\"\n              defer\n            />\n          </div>\n          <div class=\"swiper-slide\">\n            <img\n              src=\"slides/S11_Prescribe/assets/background-4.jpg\"\n              alt=\"...\"\n              draggable=\"false\"\n              defer\n            />\n          </div>\n          <div class=\"swiper-slide\">\n            <img\n              src=\"slides/S11_Prescribe/assets/background-5.jpg\"\n              alt=\"...\"\n              draggable=\"false\"\n              defer\n            />\n          </div>\n          <div class=\"swiper-slide\">\n            <img\n              src=\"slides/S11_Prescribe/assets/background-6.jpg\"\n              alt=\"...\"\n              draggable=\"false\"\n              defer\n            />\n          </div>\n          <div class=\"swiper-slide\">\n            <img\n              src=\"slides/S11_Prescribe/assets/background-7.jpg\"\n              alt=\"...\"\n              draggable=\"false\"\n              defer\n            />\n          </div>\n          <div class=\"swiper-slide\">\n            <img\n              src=\"slides/S11_Prescribe/assets/background-8.jpg\"\n              alt=\"...\"\n              draggable=\"false\"\n              defer\n            />\n          </div>\n          <div class=\"swiper-slide\">\n            <img\n              src=\"slides/S11_Prescribe/assets/background-9.jpg\"\n              alt=\"...\"\n              draggable=\"false\"\n              defer\n            />\n          </div>\n          <div class=\"swiper-slide\">\n            <img\n              src=\"slides/S11_Prescribe/assets/background-10.jpg\"\n              alt=\"...\"\n              draggable=\"false\"\n              defer\n            />\n          </div>\n          <div class=\"swiper-slide\">\n            <img\n              src=\"slides/S11_Prescribe/assets/background-11.jpg\"\n              alt=\"...\"\n              draggable=\"false\"\n              defer\n            />\n          </div>\n        </div>\n        <div class=\"swiper-pagination\"></div>\n      </div>\n      <div class=\"footnote\">RA, rheumatoid arthritis.</div>\n    </article>\n  </body>\n</html>\n");
 app.cache.put("slides/S12_Patient_Satisfaction/S12_Patient_Satisfaction.html","<!DOCTYPE html>\n<html>\n  <head>\n    <title>S12_Patient_Satisfaction</title>\n  </head>\n  <body>\n    <article id=\"S12_Patient_Satisfaction\" class=\"slide\">\n      <img\n        class=\"background active\"\n        src=\"slides/S12_Patient_Satisfaction/assets/background-1.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n      />\n      <img\n        class=\"background\"\n        src=\"slides/S12_Patient_Satisfaction/assets/background-2.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n        defer\n      />\n      <img\n        class=\"background\"\n        src=\"slides/S12_Patient_Satisfaction/assets/background-3.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n        defer\n      />\n      <img\n        class=\"background\"\n        src=\"slides/S12_Patient_Satisfaction/assets/background-4.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n        defer\n      />\n      <img\n        class=\"background\"\n        src=\"slides/S12_Patient_Satisfaction/assets/background-5.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n        defer\n      />\n      <img\n        class=\"background\"\n        src=\"slides/S12_Patient_Satisfaction/assets/background-6.jpg\"\n        alt=\"...\"\n        draggable=\"false\"\n        defer\n      />\n      <div class=\"buttons\">\n        <div class=\"button\" data-screen=\"0\"></div>\n        <div class=\"button\" data-screen=\"1\"></div>\n        <div class=\"button\" data-screen=\"2\"></div>\n        <div class=\"button\" data-screen=\"3\"></div>\n        <div class=\"button\" data-screen=\"4\"></div>\n        <div class=\"button\" data-screen=\"5\"></div>\n      </div>\n    </article>\n  </body>\n</html>\n");
