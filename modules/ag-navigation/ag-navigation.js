@@ -12,8 +12,8 @@ app.register("ag-navigation", function() {
         button.classList.remove('hidden');
     },
     updateNavigation: function(current) {
-      this.setButtonState(buttonPrevious, current.index <= 0);
-      this.setButtonState(buttonNext, current.index >= current.length - 1);
+      this.setButtonState(buttonPrevious, current.index <= 1);
+      this.setButtonState(buttonNext, current.index >= current.length);
     },
     updateBackground: function(color) {
       navigation.setAttribute('data-background', color);

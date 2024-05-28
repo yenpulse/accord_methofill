@@ -1,5 +1,6 @@
 app.register("S12_Patient_Satisfaction", function() {
 
+  const screens = 6;
   let index = 0;
   let backgrounds = [];
 
@@ -26,6 +27,10 @@ app.register("S12_Patient_Satisfaction", function() {
         backgrounds[screen].classList.add('active');
         backgrounds[index].classList.remove('active');
         index = screen;
+      } else if (screen + 1 < screens) {
+        backgrounds[screen + 1].classList.add('active');
+        backgrounds[index].classList.remove('active');
+        index = screen + 1;
       }
     },
   }

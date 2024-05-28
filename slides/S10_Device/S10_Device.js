@@ -1,5 +1,6 @@
 app.register("S10_Device", function() {
 
+  const screens = 8;
   const references = [
     '1. Data on ﬁle UK-01466. 2. Methoﬁll<sup>&reg;</sup> solution for injection in pre-ﬁlled injector. SmPC. <br>3. Data on ﬁle UK-01467.',
     '1. Data on ﬁle UK-01466. 2. Methoﬁll<sup>&reg;</sup> solution for injection in pre-ﬁlled injector. SmPC. <br>3. Data on ﬁle UK-01467. 4. Erol AM, <i>et al.</i> <i>Acta Rheumatol Port.</i> 2016;4:328–337.',
@@ -45,6 +46,11 @@ app.register("S10_Device", function() {
         backgrounds[screen].classList.add('active');
         backgrounds[screenIndex].classList.remove('active');
         screenIndex = screen;
+        app.registry.get("ag-references").setReferences(getReferences(screenIndex));
+      } else if (screen + 1 < screens) {
+        backgrounds[screen + 1].classList.add('active');
+        backgrounds[screenIndex].classList.remove('active');
+        screenIndex = screen + 1;
         app.registry.get("ag-references").setReferences(getReferences(screenIndex));
       }
     },

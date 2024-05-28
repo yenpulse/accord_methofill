@@ -2,9 +2,9 @@ app.register("ag-overlay", function() {
 
   return {
     publish: {
-        width: "80%",
-        height: "80%",
-        noBackground: false,
+        width: "100%",
+        height: "100%",
+        noBackground: true,
         noCloseBtn: false,
         content: "No content available"
     },

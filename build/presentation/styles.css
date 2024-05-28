@@ -2066,133 +2066,6 @@ body {
 [data-module="ag-header"][data-slide="1"] .brand {
   display: none;
 }
-[data-module="ag-navigation"] .navigation {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 0;
-  z-index: 50;
-}
-[data-module="ag-navigation"] .navigation .nav-button {
-  position: absolute;
-  top: 46vh;
-  width: 15vh;
-  height: 15vh;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.3);
-}
-[data-module="ag-navigation"] .navigation .nav-previous {
-  left: 0;
-  transform: translateX(-50%);
-}
-[data-module="ag-navigation"] .navigation .nav-next {
-  right: 0;
-  transform: translateX(50%);
-}
-[data-module="ag-navigation"] .navigation .nav-button::after {
-  content: '';
-  position: absolute;
-  top: 5.5vh;
-  width: 4vh;
-  height: 4vh;
-  border: 0 solid #f49600;
-  transform-origin: center;
-  transform: rotate(-45deg);
-}
-[data-module="ag-navigation"] .navigation[data-background="dark"] .nav-button::after {
-  border-color: white;
-}
-[data-module="ag-navigation"] .navigation .nav-previous::after {
-  right: 1.5vh;
-  border-top-width: 0.75vh;
-  border-left-width: 0.75vh;
-}
-[data-module="ag-navigation"] .navigation .nav-next::after {
-  left: 1.5vh;
-  border-bottom-width: 0.75vh;
-  border-right-width: 0.75vh;
-}
-
-.ag-overlay-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0,0,0,0.5);
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-.ag-overlay-content {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right:0;
-  background-color: #fff;
-  z-index: -1;
-  opacity: 0;
-  overflow: hidden;
-  padding: 0 !important;
-  inset: 0 !important;
-}
-.ag-overlay-x {
-  position: absolute;
-  background-color: transparent;
-  top: 5rem !important;
-  right: 5rem !important;
-  width: 4.25rem !important;
-  height: 4.25rem !important;
-  cursor: pointer;
-  z-index: -1;
-  opacity: 0;
-  padding:9px 12px;
-}
-.state-ag-overlay-open .ag-overlay-background,
-.state-ag-overlay-open .ag-overlay-content,
-.state-ag-overlay-open .ag-overlay-x {
-  z-index: 9999;
-  opacity: 1;
-}
-
-.ag-overlay-actions {
-  position: absolute;
-  bottom:0;
-  height: 75px;
-  background-color: white;
-  /*border-top:1px solid #d2d2d2;*/
-  width: 96%;
-  padding: 10px 0px;
-}
-.ag-overlay-actions button {
-  float:right;
-  margin-left:25px;
-}
-[data-module="ag-references"] {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 10.5rem;
-  font: 200 0.9rem/1.1em sans-serif;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.75);
-  z-index: 50;
-  transition: all 0.5s ease-out;
-  font-family: "Frutiger LTPro Light", Arial, sans-serif;
-}
-[data-module="ag-references"].hidden {
-  transform: translateY(100%);
-}
-[data-module="ag-references"] {
-  transform: translateY(0);
-}
-[data-module="ag-references"] .references-content {
-  position: relative;
-  margin: 2.2rem 0 0 5.5rem;
-}
 [data-module="ag-menu"] {
   position: absolute;
   bottom: 0;
@@ -2259,6 +2132,133 @@ body {
 [data-module="ag-menu"] .menu li.selected {
   background-position-y: bottom;
 }
+.ag-overlay-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.ag-overlay-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right:0;
+  background-color: #fff;
+  z-index: -1;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 !important;
+  inset: 0 !important;
+}
+.ag-overlay-x {
+  position: absolute;
+  background-color: transparent;
+  top: 5rem !important;
+  right: 5rem !important;
+  width: 4.25rem !important;
+  height: 4.25rem !important;
+  cursor: pointer;
+  z-index: -1;
+  opacity: 0;
+  padding:9px 12px;
+}
+.state-ag-overlay-open .ag-overlay-background,
+.state-ag-overlay-open .ag-overlay-content,
+.state-ag-overlay-open .ag-overlay-x {
+  z-index: 9999;
+  opacity: 1;
+}
+
+.ag-overlay-actions {
+  position: absolute;
+  bottom:0;
+  height: 75px;
+  background-color: white;
+  /*border-top:1px solid #d2d2d2;*/
+  width: 96%;
+  padding: 10px 0px;
+}
+.ag-overlay-actions button {
+  float:right;
+  margin-left:25px;
+}
+[data-module="ag-navigation"] .navigation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  z-index: 50;
+}
+[data-module="ag-navigation"] .navigation .nav-button {
+  position: absolute;
+  top: 46vh;
+  width: 15vh;
+  height: 15vh;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+[data-module="ag-navigation"] .navigation .nav-previous {
+  left: 0;
+  transform: translateX(-50%);
+}
+[data-module="ag-navigation"] .navigation .nav-next {
+  right: 0;
+  transform: translateX(50%);
+}
+[data-module="ag-navigation"] .navigation .nav-button::after {
+  content: '';
+  position: absolute;
+  top: 5.5vh;
+  width: 4vh;
+  height: 4vh;
+  border: 0 solid #f49600;
+  transform-origin: center;
+  transform: rotate(-45deg);
+}
+[data-module="ag-navigation"] .navigation[data-background="dark"] .nav-button::after {
+  border-color: white;
+}
+[data-module="ag-navigation"] .navigation .nav-previous::after {
+  right: 1.5vh;
+  border-top-width: 0.75vh;
+  border-left-width: 0.75vh;
+}
+[data-module="ag-navigation"] .navigation .nav-next::after {
+  left: 1.5vh;
+  border-bottom-width: 0.75vh;
+  border-right-width: 0.75vh;
+}
+
+[data-module="ag-references"] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10.5rem;
+  font: 200 0.9rem/1.1em sans-serif;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 50;
+  transition: all 0.5s ease-out;
+  font-family: "Frutiger LTPro Light", Arial, sans-serif;
+}
+[data-module="ag-references"].hidden {
+  transform: translateY(100%);
+}
+[data-module="ag-references"] {
+  transform: translateY(0);
+}
+[data-module="ag-references"] .references-content {
+  position: relative;
+  margin: 2.2rem 0 0 5.5rem;
+}
 #S01_Home {}
 #S02_Subcutaneous {}
 #S03_Subcutaneous_2 {}
@@ -2282,7 +2282,6 @@ body {
 #S05_Rheumatoid_Arthritis {}
 #S06_RA_Impact {}
 #S08_RA_Confidence {}
-#S07_RA_Experience {}
 #S09_Device_Methofill .overlay-button {
   position: absolute;
   top: 54rem;
@@ -2290,6 +2289,7 @@ body {
   width: 13.8rem;
   height: 3.5rem;
 }
+#S07_RA_Experience {}
 #S10_Device .background {
   display: none;
   position: absolute;
